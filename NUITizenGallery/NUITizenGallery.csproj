@@ -39,6 +39,9 @@
     <EmbeddedResource Include="res\layout\FrameLayoutTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\FrameLayoutTest2Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="res\layout\StackLayoutTest8Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -67,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\StackLayoutTest5Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\TimerTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\Test1Page.xaml">
@@ -148,6 +154,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\IndicatorViewTest1Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\IndicatorViewTest2Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\IndicatorViewTest4Page.xaml">
@@ -420,6 +429,12 @@
   <ItemGroup>
     <PackageReference Include="Tizen.NET" Version="9.0.0.16445" />
     <PackageReference Include="Tizen.NUI.XamlBuild" Version="1.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="res\layout\FrameLayoutTest2Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 
   <PropertyGroup>
