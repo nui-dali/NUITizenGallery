@@ -1,5 +1,6 @@
 using System;
 using Tizen.NUI;
+using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
@@ -11,8 +12,7 @@ namespace NUITizenGallery
         {
             window = NUIApplication.GetDefaultWindow();
             page = new WebViewTest1Page();
-
-            window.Add(page);
+            NUIApplication.GetDefaultWindow().GetDefaultNavigator().Push(page);
         }
         public void Deactivate()
         {
