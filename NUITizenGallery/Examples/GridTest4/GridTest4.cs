@@ -21,14 +21,14 @@ using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    internal class ImageTest5 : IExample
+    internal class GridTest4 : IExample
     {
         private Window window;
-        private ImageTest5Page page;
+        private GridTest4Page page;
         public void Activate()
         {
             window = NUIApplication.GetDefaultWindow();
-            page = new ImageTest5Page();
+            page = new GridTest4Page();
             window.GetDefaultNavigator().Push(page);
         }
 

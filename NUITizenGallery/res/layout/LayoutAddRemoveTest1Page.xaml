@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="NUITizenGallery.LayoutAddRemoveTest1Page"
+  xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+  xmlns:base="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+  BackgroundColor="White"
+  WidthSpecification="-1"
+  HeightSpecification="-1">
+
+    <ContentPage.AppBar>
+        <AppBar Title="LayoutAddRemoveTest1"/>
+    </ContentPage.AppBar>
+
+    <ContentPage.Content>
+        <ScrollableBase x:Name="rootView"
+          WidthSpecification="-1"
+          HeightSpecification="-1">
+
+            <View.Layout>
+                <LinearLayout LinearOrientation="Vertical" CellPadding="10,10"/>
+            </View.Layout>
+
+            <View x:Name="linear"
+              WidthSpecification="-1">
+
+                <View.Layout>
+                    <LinearLayout LinearOrientation="Vertical" CellPadding="10,10"/>
+                </View.Layout>
+
+            </View>
+
+            <Button x:Name="addButton"
+                WidthSpecification="-1"
+                Text="Add"/>
+
+            <Button x:Name="removeButton"
+                WidthSpecification="-1"
+                Text="Remove"/>
+
+        </ScrollableBase>
+    </ContentPage.Content>
+
+</ContentPage>
