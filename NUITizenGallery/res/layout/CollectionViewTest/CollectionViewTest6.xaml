@@ -36,7 +36,7 @@
                 <comp:Button x:Name="SourceBtn" WidthSpecification="150" HeightSpecification="60" Text="Src" Clicked="SrcBtnClicked"/>
             </base:View>
 
-            <base:View x:Name="Content"
+            <base:View x:Name="ContentBox"
               WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
               HeightSpecification="{Static LayoutParamPolicies.MatchParent}" 
               BackgroundColor="White">
