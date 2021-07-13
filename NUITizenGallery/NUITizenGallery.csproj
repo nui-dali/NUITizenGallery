@@ -72,6 +72,9 @@
     <EmbeddedResource Include="res\layout\StackLayoutTest5Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\KeyboardTest1Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="res\layout\TimerTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -94,6 +97,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\EntryTest2Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\LayoutAddRemoveTest2Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\Test2Page.xaml">
@@ -157,6 +163,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\IndicatorViewTest2Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\IndicatorViewTest3Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\IndicatorViewTest4Page.xaml">
@@ -246,6 +255,9 @@
 	  <EmbeddedResource Include="res\layout\FlexTest2Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+	<EmbeddedResource Include="res\layout\FlexTest5Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="res\layout\ScaleTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -328,6 +340,12 @@
       <Generator>MSBuild:Compile</Generator>
    </EmbeddedResource>
    <EmbeddedResource Include="res\layout\GridTest2Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\GridTest3Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\GridTest4Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\CheckBoxTestPage.xaml">
@@ -418,6 +436,9 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\RefreshViewTest1Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\LayoutAddRemoveTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
