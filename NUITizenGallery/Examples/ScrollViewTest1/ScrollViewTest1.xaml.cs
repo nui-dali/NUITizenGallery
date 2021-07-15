@@ -21,7 +21,7 @@ using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    public partial class ScrollViewTest1Page : View
+    public partial class ScrollViewTest1Page : ContentPage
     {
         public ScrollViewTest1Page()
         {
@@ -32,7 +32,7 @@ namespace NUITizenGallery
                 var t = new TextLabel
                 {
                     Text = String.Format("I am label #{0}", i),
-                    Size2D = new Size2D(720, 70)
+                    Size2D = new Size2D(NUIApplication.GetDefaultWindow().WindowSize.Width, 70),
                 };
                 Scroller.Add(t);
             }
@@ -41,6 +41,36 @@ namespace NUITizenGallery
             {
                 Scroller.ScrollTo(500, true);
             };
+        }
+
+        private void RemoveAllChildren(bool dispose = false)
+        {
+            RecursiveRemoveChildren(this, dispose);
+        }
+
+        private void RecursiveRemoveChildren(View parent, bool dispose)
+        {
+            if (parent == null)
+            {
+                return;
+            }
+
+            int maxChild = (int)parent.ChildCount;
+            for (int i = maxChild - 1; i >= 0; --i)
+            {
+                View child = parent.GetChildAt((uint)i);
+                if (child == null)
+                {
+                    continue;
+                }
+
+                RecursiveRemoveChildren(child, dispose);
+                parent.Remove(child);
+                if (dispose)
+                {
+                    child.Dispose();
+                }
+            }
         }
     }
 }
