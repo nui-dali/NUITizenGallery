@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<comp:ContentPage x:Class="NUITizenGallery.ScrollViewTest9Page"
+  xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+  xmlns:base="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
+  xmlns:comp="clr-namespace:Tizen.NUI.Components;assembly=Tizen.NUI.Components"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           WidthSpecification="-1"
+           HeightSpecification="-1"
+           BackgroundColor="White"
+           PositionUsesPivotPoint="True"
+           ParentOrigin="Center"
+           PivotPoint="Center">
+
+	<comp:ContentPage.AppBar>
+		<comp:AppBar x:Name="appBar" Title="ScrollViewTest9"/>
+	</comp:ContentPage.AppBar>
+
+	<comp:ContentPage.Content>
+		<base:View x:Name="rootView" WidthSpecification="-1" HeightSpecification="-1">
+
+			<base:View.Layout>
+				<LinearLayout LinearOrientation="Vertical" LinearAlignment="Begin" CellPadding="10, 10"/>
+			</base:View.Layout>
+
+			<base:View x:Name="lblView">
+				<comp:ScrollableBase x:Name="Scroller" ScrollingDirection="Horizontal" HideScrollbar="false" >
+					<comp:ScrollableBase.Layout>
+						<LinearLayout LinearOrientation="Horizontal" CellPadding="10, 10"/>
+					</comp:ScrollableBase.Layout>
+					<comp:Button x:Name="btn1" Text="+100 Horizontal Scroll Step" Size2D="{Binding Source={x:Static Window.Instance}, Path=Size }" WidthSpecification="480" CellHorizontalAlignment="Center"/>
+					<comp:Button x:Name="btn2" Text="-100 Horizontal Scroll Step" Size2D="{Binding Source={x:Static Window.Instance}, Path=Size }" WidthSpecification="480" CellHorizontalAlignment="Center"/>
+				</comp:ScrollableBase>
+			</base:View>
+		</base:View>
+	</comp:ContentPage.Content>
+</comp:ContentPage>
+
