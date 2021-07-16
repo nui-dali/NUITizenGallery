@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<comp:ContentPage x:Name="RootView" x:Class="NUITizenGallery.SwitchTest1Page"
+  xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+  xmlns:base="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
+  xmlns:comp="clr-namespace:Tizen.NUI.Components;assembly=Tizen.NUI.Components"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
+    HeightSpecification="{Static LayoutParamPolicies.MatchParent}" 
+    BackgroundColor="White">
+
+    <comp:ContentPage.AppBar>
+        <comp:AppBar x:Name="appBar"
+                    Title="PickerTest1Page"/>
+    </comp:ContentPage.AppBar>
+
+    <comp:ContentPage.Content>
+        <base:View
+            WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
+            HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
+
+            <View.Layout>
+                <LinearLayout LinearOrientation="Vertical" LinearAlignment="CenterHorizontal" CellPadding="10,10"/>
+            </View.Layout>
+            
+            <base:View x:Name="SwitchView" HeightSpecification="-2" WidthResizePolicy="FillToParent">
+               <base:View.Layout>
+                   <LinearLayout x:Name="SwitchViewLayout" LinearOrientation="Horizontal"/>
+                </base:View.Layout>
+                <comp:Switch x:Name="SwitchComponent" BackgroundColor="#00ff00" WidthResizePolicy="FitToChildren"/>
+            </base:View>
+            
+            <base:TextLabel x:Name="SwitchState" Text="Is Toggled: False" WidthResizePolicy="FillToParent" HeightSpecification="-2"/>
+            <base:TextLabel x:Name="Description" Text="Choose Horizontal Option" WidthResizePolicy="FillToParent" HeightSpecification="-2"/>
+    
+            <comp:Button x:Name="ButtonStart" Text="Start" WidthResizePolicy="FillToParent"/>
+            <comp:Button x:Name="ButtonCenter" Text="Center" WidthResizePolicy="FillToParent"/>
+            <comp:Button x:Name="ButtonEnd" Text="End" WidthResizePolicy="FillToParent"/>
+            <comp:Button x:Name="ButtonExpand" Text="Expand" WidthResizePolicy="FillToParent"/>
+            <comp:Button x:Name="ButtonFit" Text="Fit" WidthResizePolicy="FillToParent"/>
+          
+        </base:View>
+    </comp:ContentPage.Content>
+</comp:ContentPage>
