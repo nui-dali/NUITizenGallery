@@ -4,8 +4,8 @@
   xmlns:base="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   BackgroundColor="White"
-  WidthSpecification="-1"
-  HeightSpecification="-1">
+  WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+  HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
 
     <ContentPage.AppBar>
         <AppBar Title="LayoutAddRemoveTest2"/>
@@ -13,15 +13,15 @@
 
     <ContentPage.Content>
         
-        <View WidthSpecification="-1"
-            HeightSpecification="-1">
+        <View WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+            HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
 
             <View.Layout>
                 <LinearLayout LinearOrientation="Vertical" CellPadding="10,10"/>
             </View.Layout>
             
             <View x:Name="linear"
-                WidthSpecification="-1">
+                WidthSpecification="{Static LayoutParamPolicies.MatchParent}">
 
                 <View.Layout>
                     <LinearLayout LinearOrientation="Horizontal" CellPadding="10,10" LinearAlignment="Begin"/>
@@ -30,15 +30,15 @@
             </View>
 
             <Button x:Name="addButton"
-                WidthSpecification="-1"
+                WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
                 Text="Add"/>
 
             <Button x:Name="addTaskButton"
-                WidthSpecification="-1"
+                WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
                 Text="Add with task"/>
 
             <Button x:Name="removeButton"
-                WidthSpecification="-1"
+                WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
                 Text="Remove"/>
 
         </View>

@@ -14,8 +14,8 @@
 
         </View.Layout>
 
-        <b:TextLabel x:Name="text" Text="Basic Grids" PointSize="12" WidthSpecification="-1" SizeHeight="100" VerticalAlignment="Center" />
-        <b:View x:Name="view1" BackgroundColor="#ff0000" WidthSpecification="-1" SizeHeight="100">
+        <b:TextLabel x:Name="text" Text="Basic Grids" PointSize="12" WidthSpecification="{Static LayoutParamPolicies.MatchParent}" SizeHeight="100" VerticalAlignment="Center" />
+        <b:View x:Name="view1" BackgroundColor="#ff0000" WidthSpecification="{Static LayoutParamPolicies.MatchParent}" SizeHeight="100">
             <View.Layout>
                 <FlexLayout Direction="Row" Justification="SpaceBetween" Alignment="Center" />
             </View.Layout>
@@ -24,7 +24,7 @@
                          TextColor="#ffffff" 
                          Text="1/2" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -32,13 +32,13 @@
                          TextColor="#ffffff" 
                          Text="1/2" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
         </b:View>
 
-        <b:View x:Name="view2" BackgroundColor="#ff0000" WidthSpecification="-1" SizeHeight="100">
+        <b:View x:Name="view2" BackgroundColor="#ff0000" WidthSpecification="{Static LayoutParamPolicies.MatchParent}" SizeHeight="100">
             <View.Layout>
                 <FlexLayout Direction="Row" Justification="SpaceBetween" Alignment="Center" />
             </View.Layout>
@@ -47,7 +47,7 @@
                          TextColor="#ffffff" 
                          Text="1/3" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -55,7 +55,7 @@
                          TextColor="#ffffff" 
                          Text="1/3" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -63,14 +63,14 @@
                          TextColor="#ffffff" 
                          Text="1/3" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
         </b:View>
 
 
-        <b:View x:Name="view3" BackgroundColor="#ff0000" WidthSpecification="-1" SizeHeight="100">
+        <b:View x:Name="view3" BackgroundColor="#ff0000" WidthSpecification="{Static LayoutParamPolicies.MatchParent}" SizeHeight="100">
             <View.Layout>
                 <FlexLayout Direction="Row" Justification="SpaceBetween" Alignment="Center" />
             </View.Layout>
@@ -79,7 +79,7 @@
                          TextColor="#ffffff" 
                          Text="1/4" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -87,7 +87,7 @@
                          TextColor="#ffffff" 
                          Text="1/4" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -95,7 +95,7 @@
                          TextColor="#ffffff" 
                          Text="1/4" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -103,13 +103,13 @@
                          TextColor="#ffffff" 
                          Text="1/4" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
         </b:View>
 
-        <b:View x:Name="view4" BackgroundColor="#ff0000" WidthSpecification="-1" SizeHeight="100">
+        <b:View x:Name="view4" BackgroundColor="#ff0000" WidthSpecification="{Static LayoutParamPolicies.MatchParent}" SizeHeight="100">
             <View.Layout>
                 <FlexLayout Direction="Row" Justification="SpaceBetween" Alignment="Center" />
             </View.Layout>
@@ -118,7 +118,7 @@
                          TextColor="#ffffff" 
                          Text="1/5" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -126,7 +126,7 @@
                          TextColor="#ffffff" 
                          Text="1/5" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -134,7 +134,7 @@
                          TextColor="#ffffff" 
                          Text="1/5" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -142,7 +142,7 @@
                          TextColor="#ffffff" 
                          Text="1/5" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
@@ -150,7 +150,7 @@
                          TextColor="#ffffff" 
                          Text="1/5" 
                          PointSize="8" 
-                         WidthSpecification="-1" 
+                         WidthSpecification="{Static LayoutParamPolicies.MatchParent}" 
                          SizeHeight="100" 
                          VerticalAlignment="Center" 
                          HorizontalAlignment="Center" />
