@@ -87,6 +87,9 @@
     <EmbeddedResource Include="res\layout\EditorTest2.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="res\layout\TextAnchorTest.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
