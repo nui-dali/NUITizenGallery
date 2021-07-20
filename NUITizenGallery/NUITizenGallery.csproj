@@ -438,6 +438,9 @@
     <EmbeddedResource Include="res\layout\ScrollViewTest7Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\ScrollViewTest9Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="res\layout\RefreshViewTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
