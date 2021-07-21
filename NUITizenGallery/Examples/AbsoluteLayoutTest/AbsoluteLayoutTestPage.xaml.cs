@@ -14,21 +14,17 @@
  * limitations under the License.
  *
  */
+using Tizen.NUI;
 using Tizen.NUI.BaseComponents;
+using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    public partial class ActivityIndicatorPage : View
+    public partial class AbsoluteLayoutTestPage : ContentPage
     {
-        public ActivityIndicatorPage()
+        public AbsoluteLayoutTestPage()
         {
             InitializeComponent();
-
-            string[] imageArray = new string[13];
-            for(int i = 0; i < 13; ++i) {
-                imageArray[i] = Tizen.Applications.Application.Current.DirectoryInfo.Resource + "/images/progress_" + i.ToString() + ".png";
-            }
-            Spinner.ImageArray = imageArray;
         }
     }
 }

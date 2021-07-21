@@ -21,24 +21,20 @@ using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    internal class AbsoluteLayout : IExample
+    internal class ActivityIndicatorTest : IExample
     {
         Window window;
-        AbsoluteLayoutPage page;
 
         public void Activate()
         {
             Console.WriteLine($"@@@ this.GetType().Name={this.GetType().Name}, Activate()");
             window = NUIApplication.GetDefaultWindow();
-
-            page = new AbsoluteLayoutPage();
-            window.Add(page);
+            window.GetDefaultNavigator().Push(new ActivityIndicatorTestPage());
         }
         public void Deactivate()
         {
             Console.WriteLine($"@@@ this.GetType().Name={this.GetType().Name}, Deactivate()");
-            page.Unparent();
-            page.Dispose();
+            window.GetDefaultNavigator().Pop();
         }
     }
 }

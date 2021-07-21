@@ -21,28 +21,21 @@ using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    public partial class AnimationTest3Page : View
+    public partial class AnimationTest2Page : ContentPage
     {
         private Animation animation;
+        private float position = 50.0f;
 
-        public AnimationTest3Page()
+        public AnimationTest2Page()
         {
             InitializeComponent();
 
             animation = new Animation(2000);
-            animation.AnimateTo(imageView, "Opacity", 0.0f, 0, 1000);
-            animation.AnimateTo(imageView, "Opacity", 1.0f, 1000, 2000);
-            animation.AnimateTo(imageView, "PositionY", 400.0f, 0, 2000);
-            animation.AnimateTo(imageView, "ScaleX", 2.0f, 0, 1000);
-            animation.AnimateTo(imageView, "ScaleY", 2.0f, 0, 1000);
-            animation.AnimateTo(imageView, "ScaleX", 1.0f, 1000, 2000);
-            animation.AnimateTo(imageView, "ScaleY", 1.0f, 1000, 2000);
-            animation.AnimateTo(imageView, "Orientation", new Rotation(new Radian(new Degree(180.0f)), PositionAxis.Z), 0, 1000);
-            animation.AnimateTo(imageView, "Orientation", new Rotation(new Radian(new Degree(360.0f)), PositionAxis.Z), 1000, 2000);
+            animation.AnimateTo(imageView, "PositionX", position + 300.0f, 0, 2000);
+
             image1Btn.Clicked += (o, e) =>
             {
-                imageView.PositionY = 0.0f;
-                imageView.Orientation = new Rotation(new Radian(new Degree(0.0f)), PositionAxis.Z);
+                imageView.PositionX = position;
                 animation.Play();
                 desc1.Text = "True";
             };

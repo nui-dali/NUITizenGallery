@@ -17,27 +17,25 @@
 
 using System;
 using Tizen.NUI;
+using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    internal class AnimationTest1 : IExample
+    internal class AnimationTest2 : IExample
     {
         private Window window;
-        private AnimationTest1Page page;
         public void Activate()
         {
             Console.WriteLine($"@@@ this.GetType().Name={this.GetType().Name}, Activate()");
 
             window = NUIApplication.GetDefaultWindow();
-            page = new AnimationTest1Page();
-            window.Add(page);
+            window.GetDefaultNavigator().Push(new AnimationTest2Page());
         }
 
         public void Deactivate()
         {
             Console.WriteLine($"@@@ this.GetType().Name={this.GetType().Name}, Deactivate()");
-            page.Unparent();
-            page.Dispose();
+            window.GetDefaultNavigator().Pop();
         }
     }
 }
