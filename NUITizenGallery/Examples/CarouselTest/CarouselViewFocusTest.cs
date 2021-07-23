@@ -16,12 +16,11 @@
  */
 using System;
 using Tizen.NUI;
-using Tizen.NUI.BaseComponents;
 using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    internal class BackgroundTest : IExample
+    internal class CarouselViewFocusTest : IExample
     {
         Window window;
 
@@ -29,7 +28,7 @@ namespace NUITizenGallery
         {
             Console.WriteLine($"@@@ this.GetType().Name={this.GetType().Name}, Activate()");
             window = NUIApplication.GetDefaultWindow();
-            window.GetDefaultNavigator().Push(new BackgroundTestPage());
+            window.GetDefaultNavigator().Push(new CarouselViewFocusTestPage());
         }
         public void Deactivate()
         {

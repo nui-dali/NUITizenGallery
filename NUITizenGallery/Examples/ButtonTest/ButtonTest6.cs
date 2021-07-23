@@ -4,7 +4,7 @@ using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    internal class DatePickerTest : IExample
+    internal class ButtonTest6 : IExample
     {
         private Window window;
 
@@ -13,7 +13,7 @@ namespace NUITizenGallery
             Console.WriteLine($"@@@ this.GetType().Name={this.GetType().Name}, Activate()");
 
             window = NUIApplication.GetDefaultWindow();
-            window.GetDefaultNavigator().Push( new DatePickerTestPage());
+            window.GetDefaultNavigator().Push(new ButtonTest6Page());
         }
         public void Deactivate()
         {
