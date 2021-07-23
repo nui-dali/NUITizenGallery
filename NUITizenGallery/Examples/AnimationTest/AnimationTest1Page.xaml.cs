@@ -21,7 +21,7 @@ using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    public partial class AnimationTest1Page : View
+    public partial class AnimationTest1Page : ContentPage
     {
         private Animation animation;
 

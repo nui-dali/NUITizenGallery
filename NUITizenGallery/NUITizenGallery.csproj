@@ -20,22 +20,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="res\layout\AbsoluteLayoutPage.xaml">
+    <EmbeddedResource Include="Examples\AbsoluteLayoutTest\AbsoluteLayoutTestPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="res\layout\ActivityIndicatorPage.xaml">
+    <EmbeddedResource Include="Examples\ActivityIndicatorTest\ActivityIndicatorTestPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-   <EmbeddedResource Include="res\layout\AlertDialogTestPage.xaml">
+   <EmbeddedResource Include="Examples\AlertDialogTest\AlertDialogTestPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="res\layout\AnimationTest1Page.xaml">
+    <EmbeddedResource Include="Examples\AnimationTest\AnimationTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="res\layout\AnimationTest2Page.xaml">
+    <EmbeddedResource Include="Examples\AnimationTest\AnimationTest2Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="res\layout\AnimationTest3Page.xaml">
+    <EmbeddedResource Include="Examples\AnimationTest\AnimationTest3Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="res\layout\BackgroundColorTest1Page.xaml">
