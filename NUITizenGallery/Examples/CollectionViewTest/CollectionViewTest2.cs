@@ -16,20 +16,20 @@
  */
 using System;
 using Tizen.NUI;
-using Tizen.NUI.BaseComponents;
 using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    internal class BackgroundTest : IExample
+    internal class CollectionViewTest2 : IExample
     {
-        Window window;
+        private Window window;
 
         public void Activate()
         {
             Console.WriteLine($"@@@ this.GetType().Name={this.GetType().Name}, Activate()");
+
             window = NUIApplication.GetDefaultWindow();
-            window.GetDefaultNavigator().Push(new BackgroundTestPage());
+            window.GetDefaultNavigator().Push(new CollectionViewTest2Page());
         }
         public void Deactivate()
         {

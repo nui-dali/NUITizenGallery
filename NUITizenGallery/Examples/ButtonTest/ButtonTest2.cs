@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright(c) 2021 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,20 +16,21 @@
  */
 using System;
 using Tizen.NUI;
-using Tizen.NUI.BaseComponents;
 using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    internal class BackgroundTest : IExample
+    internal class ButtonTest2 : IExample
     {
-        Window window;
+        private Window window;
 
         public void Activate()
         {
             Console.WriteLine($"@@@ this.GetType().Name={this.GetType().Name}, Activate()");
+
             window = NUIApplication.GetDefaultWindow();
-            window.GetDefaultNavigator().Push(new BackgroundTestPage());
+            window.GetDefaultNavigator().Push(new ButtonTest2Page());
+
         }
         public void Deactivate()
         {
