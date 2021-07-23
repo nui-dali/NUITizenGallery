@@ -129,6 +129,12 @@
     <EmbeddedResource Include="Examples\CheckBoxTest\CheckBoxTestPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Examples\CollectionViewTest\CollectionViewCustomItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Examples\CollectionViewTest\CollectionViewCustomItemTestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="Examples\CollectionViewTest\CollectionViewObservableTestPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
