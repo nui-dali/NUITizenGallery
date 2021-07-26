@@ -228,6 +228,9 @@
     <EmbeddedResource Include="res\layout\GridTest4Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\GridTest5Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="res\layout\HelloWorldPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
