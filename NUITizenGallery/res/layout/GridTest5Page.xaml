@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<base:View x:Class="NUITizenGallery.GridTest5Page"
+  xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+  xmlns:base="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
+  xmlns:comp="clr-namespace:Tizen.NUI.Components;assembly=Tizen.NUI.Components"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           BackgroundColor="White"
+           PositionUsesPivotPoint="True" 
+           ParentOrigin="Center"
+           PivotPoint="Center"          
+           WidthResizePolicy="FillToParent"
+           HeightResizePolicy="FillToParent">
+
+    <base:View x:Name="btnView" HeightResizePolicy="FillToParent" WidthResizePolicy="FillToParent" >
+        <base:View.Layout >
+            <GridLayout Columns="3" Rows="4" ColumnSpacing="10" RowSpacing="10" />
+        </base:View.Layout>
+        <base:TextLabel x:Name="baselbl" Text="Grid" GridLayout.Column="1" GridLayout.Row="0"/>
+        <base:TextLabel x:Name="lbl1" 
+                     Text="Autosized cell"
+                     GridLayout.Column="0"
+                     GridLayout.Row="1"
+                     GridLayout.HorizontalStretch="ExpandAndFill" 
+                     BackgroundColor="Blue"/>
+        <View x:Name="view2"
+                     GridLayout.Column="1" 
+                     GridLayout.Row="1"
+                     GridLayout.HorizontalStretch="Fill"              
+                     GridLayout.VerticalStretch="Fill"              
+                     BackgroundColor="#B0B0B0"/>
+        <base:TextLabel x:Name="lbl3" 
+                     Text="Span two rows (or more if you want)"
+                     GridLayout.Column="2" 
+                     GridLayout.Row="1"
+                     GridLayout.RowSpan="2"
+                     BackgroundColor="Blue"
+                     TextColor="Yellow"                    
+                     LineWrapMode="Word"
+                     MultiLine="True"                        
+                     HorizontalAlignment ="Center"
+                     VerticalAlignment="Center"                           
+                     GridLayout.HorizontalStretch="ExpandAndFill" 
+                     GridLayout.VerticalStretch="ExpandAndFill"
+                     />
+        <View x:Name="view3"
+                     GridLayout.Column="0" 
+                     GridLayout.Row="2" 
+                     BackgroundColor="Green"
+                     GridLayout.HorizontalStretch="ExpandAndFill" 
+                     GridLayout.VerticalStretch="ExpandAndFill"
+                     />
+        <base:TextLabel x:Name="lbl4" 
+                     Text="Leftover space"  
+                     GridLayout.Column="1" 
+                     GridLayout.Row="2" 
+                     BackgroundColor="Magenta"
+                     HorizontalAlignment ="Center"
+                     VerticalAlignment="Center"                     
+                     GridLayout.HorizontalStretch="ExpandAndFill" 
+                     GridLayout.VerticalStretch="ExpandAndFill"
+                     />
+        <base:TextLabel x:Name="lbl5"
+                     Text="Span 2 columns" 
+                     GridLayout.Column="0" 
+                     GridLayout.Row="3" 
+                     GridLayout.ColumnSpan="2"
+                     HorizontalAlignment ="Center"
+                     VerticalAlignment="Center"                            
+                     GridLayout.HorizontalStretch="ExpandAndFill" 
+                     GridLayout.VerticalStretch="Fill"
+                     BackgroundColor="Yellow"
+                     />
+        <base:TextLabel x:Name="lbl6"
+                     Text="Fixed 100x100" 
+                     GridLayout.Column="2" 
+                     GridLayout.Row="3" 
+                     BackgroundColor="Red"
+                     LineWrapMode="Word"
+                     MultiLine="True"
+                     HorizontalAlignment ="Center"
+                     VerticalAlignment="Center"                          
+                     Size2D="200,200"
+                     />
+    </base:View>
+</base:View>
+
