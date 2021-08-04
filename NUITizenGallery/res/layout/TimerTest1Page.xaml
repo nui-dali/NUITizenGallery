@@ -6,8 +6,8 @@
   xmlns:converters="clr-namespace:NUITizenGallery.Converters"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   BackgroundColor="White"
-  WidthSpecification="-1"
-  HeightSpecification="-1">
+  WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+  HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
 
     <ContentPage.AppBar>
         <AppBar Title="TimerTest1Page"/>
@@ -15,7 +15,7 @@
 
     <ContentPage.Content>
         
-        <View WidthSpecification="-1">
+        <View WidthSpecification="{Static LayoutParamPolicies.MatchParent}">
             
             <View.BindingContext>
                 <vm:TimerTest1ViewModel x:Name="context"/>
@@ -25,7 +25,7 @@
                 <LinearLayout LinearOrientation="Vertical" CellPadding="10,10" LinearAlignment="Top"/>
             </View.Layout>
 
-            <View WidthSpecification="-1">
+            <View WidthSpecification="{Static LayoutParamPolicies.MatchParent}">
 
                 <View.Layout>
                     <LinearLayout LinearOrientation="Horizontal" LinearAlignment="CenterHorizontal" CellPadding="20,20"/>
@@ -42,7 +42,7 @@
 
             </View>
 
-            <View WidthSpecification="-1">
+            <View WidthSpecification="{Static LayoutParamPolicies.MatchParent}">
 
                 <View.Layout>
                     <LinearLayout LinearOrientation="Horizontal" LinearAlignment="CenterHorizontal" CellPadding="20,20"/>

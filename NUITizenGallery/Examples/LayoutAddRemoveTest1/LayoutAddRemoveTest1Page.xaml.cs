@@ -36,7 +36,7 @@ namespace NUITizenGallery
             {
                 BackgroundColor = new Color(red, 1f, 1f, 1f),
                 HeightSpecification = 200,
-                WidthSpecification = -1
+                WidthSpecification = LayoutParamPolicies.MatchParent
             });
 
             red += 0.3f;

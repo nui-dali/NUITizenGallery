@@ -4,8 +4,8 @@
   xmlns:base="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
   xmlns:comp="clr-namespace:Tizen.NUI.Components;assembly=Tizen.NUI.Components"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-           WidthSpecification="-1"
-           HeightSpecification="-1"
+           WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+           HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
            BackgroundColor="White"
            PositionUsesPivotPoint="True"
            ParentOrigin="Center"
@@ -16,7 +16,7 @@
 	</comp:ContentPage.AppBar>
 
 	<comp:ContentPage.Content>
-		<base:View x:Name="btnView" HeightSpecification="-1" WidthSpecification="-1" >
+		<base:View x:Name="btnView" HeightSpecification="{Static LayoutParamPolicies.MatchParent}" WidthSpecification="{Static LayoutParamPolicies.MatchParent}" >
 			<base:View.Layout >
 				<GridLayout Columns="3" Rows="3" ColumnSpacing="3" RowSpacing="3" />
 			</base:View.Layout>
@@ -26,7 +26,7 @@
 						 GridLayout.Row="0"
 						 GridLayout.ColumnSpan="3"
 						 HeightSpecification="100"
-						 WidthSpecification="-1"
+						 WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
 						 />
 			<comp:Button x:Name="btn2"
 						 Text="Button2"
@@ -61,8 +61,8 @@
 						 GridLayout.Column="2"
 						 GridLayout.Row="1"
 						 GridLayout.RowSpan="2"
-						 WidthSpecification="-1"
-						 HeightSpecification="-1"
+						 WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+						 HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
 						 />
 		</base:View>
 	</comp:ContentPage.Content>
