@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<comp:ContentPage x:Class="NUITizenGallery.ScrollViewTest5Page"
+  xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
+  xmlns:base="clr-namespace:Tizen.NUI.BaseComponents;assembly=Tizen.NUI"
+  xmlns:comp="clr-namespace:Tizen.NUI.Components;assembly=Tizen.NUI.Components"
+  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+           HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+           BackgroundColor="White"
+           PositionUsesPivotPoint="True"
+           ParentOrigin="Center"
+           PivotPoint="Center">
+
+    <comp:ContentPage.AppBar>
+        <comp:AppBar x:Name="appBar" Title="ScrollViewTest5"/>
+    </comp:ContentPage.AppBar>
+
+    <comp:ContentPage.Content>
+        <base:View x:Name="rootView" WidthSpecification="{Static LayoutParamPolicies.MatchParent}" HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
+            <base:View.Layout>
+                <LinearLayout LinearOrientation="Vertical" LinearAlignment="Begin" CellPadding="10, 10"/>
+            </base:View.Layout>
+            <comp:ScrollableBase x:Name="Scroller" ScrollingDirection="Vertical" HideScrollbar="false" WidthSpecification="{Static LayoutParamPolicies.MatchParent}" HeightSpecification="{Static LayoutParamPolicies.MatchParent}" >
+                <comp:ScrollableBase.Layout>
+                    <LinearLayout LinearOrientation="Vertical" CellPadding="10, 10"/>
+                </comp:ScrollableBase.Layout>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+                <base:TextLabel Text = "a b c d e f g h i j k" PointSize="50" MultiLine="True" LineWrapMode="Word" WidthSpecification="{Static LayoutParamPolicies.MatchParent}"/>
+            </comp:ScrollableBase>
+        </base:View>
+    </comp:ContentPage.Content>
+</comp:ContentPage>

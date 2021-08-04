@@ -360,6 +360,9 @@
     <EmbeddedResource Include="res\layout\ScrollViewTest4Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="res\layout\ScrollViewTest5Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>   
     <EmbeddedResource Include="res\layout\ScrollViewTest6Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
