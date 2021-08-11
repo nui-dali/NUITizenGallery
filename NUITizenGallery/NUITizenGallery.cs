@@ -229,6 +229,18 @@ namespace NUITizenGallery
             window.KeyEvent += OnKeyEvent;
 
             navigator = window.GetDefaultNavigator();
+            navigator.Popped += (object obj, PoppedEventArgs ev) => {
+
+                if (ev.Page != null)
+                {
+                    Tizen.Log.Error("NUI", $"Navigator page({ev.Page}) is popped!");
+                    /* FIXME: This code needs temporary!!
+                     *        Page will have a property to automate Unparent()
+                     *        and Dispose() when it popped from navigator. */
+                     ev.Page.Unparent();
+                     ev.Page.Dispose();
+                }
+            };
         }
 
         void OnSearchBtnClicked(object sender, ClickedEventArgs e)
