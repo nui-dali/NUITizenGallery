@@ -46,19 +46,55 @@
                     <RadioButton x:Name="HideBar" Text="Hide" IsSelected="true"/>
                 </View>
             </View>
-
-            <CollectionView x:Name="ColView"
+            <ScrollableBase x:Name="Scroll"
               WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
               HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
-              ScrollingDirection="Horizontal"
-              ItemsSource="{Binding TestSource}"
-              SelectionMode="None">
+              ScrollingDirection="Horizontal">
 
-                <CollectionView.ItemsLayouter>
-                      <LinearLayouter />
-                </CollectionView.ItemsLayouter>
+                <View.Layout>
+                    <LinearLayout LinearOrientation="Horizontal" LinearAlignment="Center" CellPadding="10,10" />
+                </View.Layout>
 
-            </CollectionView>
+                <Button Text="Button1"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <Button Text="Button2"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <Button Text="Button3"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <Button Text="Button4"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <Button Text="Button5"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <Button Text="Button6"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <Button Text="Button7"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <Button Text="Button8"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <Button Text="Button9"
+                  WidthSpecification="300"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}" />
+                <CollectionView x:Name="ColView"
+                  WidthSpecification="1800"
+                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}"
+                  ScrollingDirection="Horizontal"
+                  ItemsSource="{Binding TestSource}"
+                  SelectionMode="None">
+
+                    <CollectionView.ItemsLayouter>
+                          <LinearLayouter />
+                    </CollectionView.ItemsLayouter>
+
+                </CollectionView>
+            </ScrollableBase>
         </View>
     </ContentPage.Content>
 </ContentPage>
