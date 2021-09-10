@@ -441,6 +441,9 @@
     <EmbeddedResource Include="Examples\ToolbarItemTest\ToolbarItemTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Examples\VectorGraphicsTest\VectorGraphicsCanvasViewTest1Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="Examples\WebViewTest\WebViewTest1Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
