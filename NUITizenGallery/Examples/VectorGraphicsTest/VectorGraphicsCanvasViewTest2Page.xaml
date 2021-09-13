@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage x:Class="NUITizenGallery.VectorGraphicsCanvasViewTest1Page"
+<ContentPage x:Class="NUITizenGallery.VectorGraphicsCanvasViewTest2Page"
   xmlns="http://tizen.org/Tizen.NUI/2018/XAML"
   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
   xmlns:vector="clr-namespace:Tizen.NUI.BaseComponents.VectorGraphics;assembly=Tizen.NUI"
@@ -9,7 +9,7 @@
 
     <!-- AppBar is top-side bar with navigation content, title, and action. If you not set any contents, back button is automatically added. -->
     <ContentPage.AppBar>
-        <AppBar x:Name="appBar" Title="VectorGraphicsCanvasViewTest1Page"/>
+        <AppBar x:Name="appBar" Title="VectorGraphicsCanvasViewTest2Page"/>
     </ContentPage.AppBar>
 
     <!-- Content is main placdeholder of ContentPage. Add your content into this view. -->
@@ -22,8 +22,8 @@
                 <LinearLayout LinearOrientation="Vertical" CellPadding="10,10" LinearAlignment="Top"/>
             </View.Layout>
 
-            <vector:CanvasView x:Name="canvasView"
-                Size="{Binding Source={x:Static Window.Instance}, Path=Size }" />
+            <vector:CanvasView x:Name="canvasView" Size2D="300,300"/>
+            <vector:CanvasView x:Name="canvasView2" Size2D="300,300"/>
         </View>
     </ContentPage.Content>
 
