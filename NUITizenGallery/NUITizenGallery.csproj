@@ -13,13 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Examples\BoxViewTest\BoxViewTest1.xaml" />
-    <None Remove="Examples\BoxViewTest\BoxViewTest2.xaml" />
-    <None Remove="Examples\BoxViewTest\BoxViewTest3.xaml" />
-    <None Remove="Examples\BoxViewTest\BoxViewTest4.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Examples\**\*.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
@@ -32,12 +25,6 @@
   <ItemGroup>
     <PackageReference Include="Tizen.NET" Version="9.0.0.16528" />
     <PackageReference Include="Tizen.NUI.XamlBuild" Version="1.0.27" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="res\layout\FrameLayoutTest2Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </None>
   </ItemGroup>
 
   <PropertyGroup>
