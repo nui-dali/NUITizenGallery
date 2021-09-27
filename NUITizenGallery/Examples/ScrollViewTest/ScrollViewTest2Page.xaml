@@ -12,7 +12,7 @@
            PivotPoint="Center">
 
 	<ContentPage.AppBar>
-		<AppBar x:Name="appBar" Title="ScrollViewTest2"/>
+		<AppBar x:Name="appBar" Title="ScrollViewTest2Page"/>
 	</ContentPage.AppBar>
 
 	<ContentPage.Content>
