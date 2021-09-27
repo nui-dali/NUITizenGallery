@@ -29,7 +29,7 @@ namespace NUITizenGallery
         
         public const int NumberOfPictures = 6;
         private readonly string ResourcePath = Tizen.Applications.Application.Current.DirectoryInfo.Resource + "/images/";
-        public static readonly string[] Files = { "cartman.svg", "duke.svg", "rg1024_eggs.svg", "b.jpg", "Boston.png", "tiger.svg" };
+        public static readonly string[] Files = { "cartman.svg", "duke.svg", "test.tvg", "b.jpg", "Boston.png", "tiger.svg" };
 
 
         Picture[] mPicture = new Picture[NumberOfPictures];
