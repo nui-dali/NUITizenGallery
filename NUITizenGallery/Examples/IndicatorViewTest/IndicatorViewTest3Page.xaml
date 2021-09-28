@@ -6,7 +6,7 @@
   HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
 
     <ContentPage.AppBar>
-      <AppBar x:Name="appBar" Title="IndicatorViewTest3"/>
+      <AppBar x:Name="appBar" Title="IndicatorViewTest3Page"/>
     </ContentPage.AppBar>
 
     <ContentPage.Content>
