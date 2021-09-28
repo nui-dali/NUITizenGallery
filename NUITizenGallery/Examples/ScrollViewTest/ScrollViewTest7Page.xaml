@@ -28,19 +28,17 @@
                       Text="Random vertical scroll"
                       Size2D="{Binding Source={x:Static Window.Instance}, Path=Size }"
                       HeightSpecification="100"/>
-			<View x:Name="lblView">
-				<ScrollableBase x:Name="Scroller"
-                                  ScrollingDirection="Vertical"
-                                  HideScrollbar="false"
-                                  WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
-                                  HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
+            <ScrollableBase x:Name="Scroller"
+                ScrollingDirection="Vertical"
+                HideScrollbar="false"
+                WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
+                HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
 
-					<ScrollableBase.Layout>
-						<LinearLayout LinearOrientation="Vertical" CellPadding="10, 10"/>
-					</ScrollableBase.Layout>
+                <ScrollableBase.Layout>
+                    <LinearLayout LinearOrientation="Vertical" CellPadding="10, 10"/>
+                </ScrollableBase.Layout>
 
-				</ScrollableBase>
-			</View>
+            </ScrollableBase>
 		</View>
 	</ContentPage.Content>
 </ContentPage>
