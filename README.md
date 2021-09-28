@@ -1,3 +1,5 @@
+[![api9_myget](https://img.shields.io/tizen.myget/dotnet/vpre/Tizen.NET.API9.svg)](https://tizen.myget.org/feed/dotnet/package/nuget/Tizen.NET)
+
 # NUITizenGallery
 - This is a project to show NUI sample codes like Forms Tizen Gallery.
 
@@ -8,4 +10,4 @@
   dotnet add package Tizen.NET --version <Tizen.NET version in NUITizenGallery.csproj> --source https://tizen.myget.org/F/dotnet/api/v3/index.json
 
   e.g.
-  dotnet add package Tizen.NET --version 9.0.0.16089 --source https://tizen.myget.org/F/dotnet/api/v3/index.json
+  dotnet add package Tizen.NET --version 9.0.0.16749 --source https://tizen.myget.org/F/dotnet/api/v3/index.json
