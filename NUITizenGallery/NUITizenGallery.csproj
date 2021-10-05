@@ -23,12 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Tizen.NET" Version="9.0.0.16528" />
-    <PackageReference Include="Tizen.NUI.XamlBuild" Version="1.0.27" />
+    <PackageReference Include="Tizen.NET" Version="9.0.0.16751" />
+    <PackageReference Include="Tizen.NUI.XamlBuild" Version="1.0.32" />
   </ItemGroup>
 
   <PropertyGroup>
-    <NeedInjection>True</NeedInjection>
+    <NeedInjection>False</NeedInjection>
   </PropertyGroup>
 
 </Project>
