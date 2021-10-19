@@ -11,3 +11,10 @@
 
   e.g.
   dotnet add package Tizen.NET --version 9.0.0.16749 --source https://tizen.myget.org/F/dotnet/api/v3/index.json
+
+# Samples
+Sample | Operation | Comment
+:---|:---|:---
+[AsoluteLayoutTest](https://github.com/nui-dali/NUITizenGallery/tree/main/NUITizenGallery/Examples/AbsoluteLayoutTest) | Tizen(O), Ubuntu(O) | AsoluteLayout sample codes
+[ActivityIndicatorTest](https://github.com/nui-dali/NUITizenGallery/tree/main/NUITizenGallery/Examples/ActivityIndicatorTest) | Tizen(O), Ubuntu(O) | ActivityIndicator sample codes
+
