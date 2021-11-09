@@ -15,6 +15,6 @@
 # Samples
 Sample | Operation | Comment
 :---|:---|:---
-[AsoluteLayoutTest](https://github.com/nui-dali/NUITizenGallery/tree/main/NUITizenGallery/Examples/AbsoluteLayoutTest) | Tizen(O), Ubuntu(O) | AsoluteLayout sample codes
+[AbsoluteLayoutTest](https://github.com/nui-dali/NUITizenGallery/tree/main/NUITizenGallery/Examples/AbsoluteLayoutTest) | Tizen(O), Ubuntu(O) | AbsoluteLayout sample codes
 [ActivityIndicatorTest](https://github.com/nui-dali/NUITizenGallery/tree/main/NUITizenGallery/Examples/ActivityIndicatorTest) | Tizen(O), Ubuntu(O) | ActivityIndicator sample codes
 
