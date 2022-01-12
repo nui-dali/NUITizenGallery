@@ -24,7 +24,7 @@
 
             <TextLabel x:Name="InfoText"
               WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
-              HeightSpecification="50"
+              HeightSpecification="{Static LayoutParamPolicies.WrapContent}"
               PointSize="20"/>
 
             <View x:Name="PixelTypeView"
@@ -46,7 +46,7 @@
               HeightSpecification="500dp"
               BackgroundColor="#96D3DE">
 
-                <TextLabel Text="DP" PointSize="12" Position2D="73dp,130dp"/>
+                <TextLabel Text="DP" PointSize="12dp" Position2D="73dp,130dp"/>
                 <View BackgroundColor="#FF0000" Position2D="32dp,108dp" Size2D="400dp,5dp"/>
                 <View BackgroundColor="#00FF00" Position2D="32dp,120dp" Size="400dp,5dp"/>
                 <View BackgroundColor="#0000FF" Position="42dp,100dp" Size2D="5dp,100dp"/>
@@ -60,7 +60,7 @@
               HeightSpecification="500sp"
               BackgroundColor="#B2DAB8">
 
-                <TextLabel Text="SP" PointSize="12" Position2D="73sp,130sp"/>
+                <TextLabel Text="SP" PointSize="12sp" Position2D="73sp,130sp"/>
                 <View BackgroundColor="#FF0000" Position2D="32sp,108sp" Size2D="400sp,5sp"/>
                 <View BackgroundColor="#00FF00" Position2D="32sp,120sp" Size="400sp,5sp"/>
                 <View BackgroundColor="#0000FF" Position="42sp,100sp" Size2D="5sp,100sp"/>

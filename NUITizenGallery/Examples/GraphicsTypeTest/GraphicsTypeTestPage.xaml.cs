@@ -36,6 +36,7 @@ namespace NUITizenGallery
             PixelText.WidthSpecification = 300;
             PixelText.HeightSpecification = 100;
             PixelText.Text = "Pixel size 100";
+            PixelText.PointSize = 20f;
 
             DpRect.Position = new Position(100f, 200f).DpToPx();
             DpRect.Size = new Size(300f, 100f).DpToPx();
@@ -43,6 +44,7 @@ namespace NUITizenGallery
             DpText.WidthSpecification = 300.DpToPx();
             DpText.HeightSpecification = 100.DpToPx();
             DpText.Text = $"Dp size {100f.DpToPx()}";
+            DpText.PointSize = 20f.DpToPt();
 
             SpRect.Position = new Position(100f, 200f).SpToPx();
             SpRect.Size = new Size(300f, 100f).SpToPx();
@@ -50,6 +52,7 @@ namespace NUITizenGallery
             SpText.WidthSpecification = 300.SpToPx();
             SpText.HeightSpecification = 100.SpToPx();
             SpText.Text = $"Sp size {100f.SpToPx()}";
+            SpText.PointSize = 20f.SpToPt();
         }
     }
 }
