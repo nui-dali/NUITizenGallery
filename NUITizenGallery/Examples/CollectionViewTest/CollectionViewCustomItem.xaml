@@ -28,8 +28,8 @@
         <TextLabel x:Name="MainLabel"
                      WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
                      HeightSpecification="{Static LayoutParamPolicies.WrapContent}"
-                     CellHorizontalAlignment="Left"
-                     CellVerticalAlignment="Center"
+                     HorizontalAlignment="Begin"
+                     VerticalAlignment="Center"
                      Text="{Binding Name}"/>
 
         <CheckBox x:Name="Checkbox"
@@ -45,8 +45,8 @@
             </View.Layout>
 
             <TextLabel x:Name="IndexLebel"
-                         CellVerticalAlignment="Center"
-                         CellHorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center"
                          Text="{Binding Index}"
                          TextColor="{Binding BgColor}"/>
             <ImageView x:Name="SubIcon"
