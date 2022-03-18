@@ -13,8 +13,7 @@
     <!-- Content is main placeholder of ContentPage. Add your content into this view. -->
     <ContentPage.Content>
         <TabView x:Name="tabView"
-                   WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
-                   HeightSpecification="{Static LayoutParamPolicies.MatchParent}" >
+                   WidthSpecification="{Static LayoutParamPolicies.MatchParent}">
         </TabView>
     </ContentPage.Content>
 

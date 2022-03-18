@@ -7,13 +7,12 @@
   HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
 
     <ContentPage.AppBar>
-        <AppBar Title="LayoutAddRemoveTest1"/>
+        <AppBar x:Name="appBar" Title="LayoutAddRemoveTest1"/>
     </ContentPage.AppBar>
-
+    
     <ContentPage.Content>
         <ScrollableBase x:Name="rootView"
-          WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
-          HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
+          WidthSpecification="{Static LayoutParamPolicies.MatchParent}" >
 
             <View.Layout>
                 <LinearLayout LinearOrientation="Vertical" CellPadding="10,10"/>

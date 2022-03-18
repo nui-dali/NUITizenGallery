@@ -13,24 +13,24 @@
     <!-- Content is main placeholder of ContentPage. Add your content into this view. -->
     <ContentPage.Content>
         <View x:Name="ContentView"
-          WidthSpecification="{Static LayoutParamPolicies.MatchParent}"
-          HeightSpecification="{Static LayoutParamPolicies.MatchParent}">
+          WidthSpecification="{Static LayoutParamPolicies.MatchParent}">
 
             <View.Layout>
                 <LinearLayout LinearOrientation="Vertical" LinearAlignment="Center" CellPadding="10, 10"/>
             </View.Layout>
 
             <Button x:Name="btn"
-                      Size2D="600, 100"
+                      Size2D="600, 90"
                       Text="WOW!!"
                       CellHorizontalAlignment="Center"
                       CellVerticalAlignment="Center"/>
             <View x:Name="rect"
-                    Size2D="600, 100"
+                    Size2D="600, 90"
                     BackgroundColor="Blue"
                     CellHorizontalAlignment="Center"
                     CellVerticalAlignment="Center" />
             <ImageView x:Name="img"
+                         SizeHeight="300"
                          CellHorizontalAlignment="Center"
                          CellVerticalAlignment="Center"/>
             <TextLabel x:Name="label"
@@ -39,7 +39,7 @@
                          CellVerticalAlignment="Center"/>
             <TextLabel Text="X:"/>
             <Slider x:Name="sliderX"
-                      Size2D="600, 50"
+                      Size2D="600, 40"
                       MinValue="0"
                       MaxValue="180"
                       BgTrackColor="#b1b1b1"
@@ -47,7 +47,7 @@
                       TrackThickness="5" />
             <TextLabel Text="Y:"/>
             <Slider x:Name="sliderY"
-                      Size2D="600, 50"
+                      Size2D="600, 40"
                       MinValue="0"
                       MaxValue="180"
                       BgTrackColor="#b1b1b1"
@@ -55,7 +55,7 @@
                       TrackThickness="5"/>
             <TextLabel Text="Z:"/>
             <Slider x:Name="sliderZ"
-                      Size2D="600, 50"
+                      Size2D="600, 40"
                       MinValue="0"
                       MaxValue="180"
                       BgTrackColor="#b1b1b1"
