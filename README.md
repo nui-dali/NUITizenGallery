@@ -1,4 +1,4 @@
-[![api9_myget](https://img.shields.io/tizen.myget/dotnet/vpre/Tizen.NET.API9.svg)](https://tizen.myget.org/feed/dotnet/package/nuget/Tizen.NET)
+[![api10_myget](https://img.shields.io/tizen.myget/dotnet/vpre/Tizen.NET.API10.svg)](https://tizen.myget.org/feed/dotnet/package/nuget/Tizen.NET)
 
 # NUITizenGallery
 - This is a project to show NUI sample codes like Forms Tizen Gallery.
