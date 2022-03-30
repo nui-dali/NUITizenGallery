@@ -1,4 +1,4 @@
-[![api9_myget](https://img.shields.io/tizen.myget/dotnet/vpre/Tizen.NET.API9.svg)](https://tizen.myget.org/feed/dotnet/package/nuget/Tizen.NET)
+[![api10_myget](https://img.shields.io/tizen.myget/dotnet/vpre/Tizen.NET.API10.svg)](https://tizen.myget.org/feed/dotnet/package/nuget/Tizen.NET)
 
 # NUITizenGallery
 - This is a project to show NUI sample codes like Forms Tizen Gallery.
@@ -15,6 +15,6 @@
 # Samples
 Sample | Operation | Comment
 :---|:---|:---
-[AsoluteLayoutTest](https://github.com/nui-dali/NUITizenGallery/tree/main/NUITizenGallery/Examples/AbsoluteLayoutTest) | Tizen(O), Ubuntu(O) | AsoluteLayout sample codes
+[AbsoluteLayoutTest](https://github.com/nui-dali/NUITizenGallery/tree/main/NUITizenGallery/Examples/AbsoluteLayoutTest) | Tizen(O), Ubuntu(O) | AbsoluteLayout sample codes
 [ActivityIndicatorTest](https://github.com/nui-dali/NUITizenGallery/tree/main/NUITizenGallery/Examples/ActivityIndicatorTest) | Tizen(O), Ubuntu(O) | ActivityIndicator sample codes
 
