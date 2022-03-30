@@ -22,8 +22,7 @@
             <Button x:Name="btn"
                       Size2D="600, 90"
                       Text="WOW!!"
-                      CellHorizontalAlignment="Center"
-                      CellVerticalAlignment="Center"/>
+                      TextAlignment="Center" />
             <View x:Name="rect"
                     Size2D="600, 90"
                     BackgroundColor="Blue"
@@ -35,8 +34,8 @@
                          CellVerticalAlignment="Center"/>
             <TextLabel x:Name="label"
                          Text="Rotation"
-                         CellHorizontalAlignment="Center"
-                         CellVerticalAlignment="Center"/>
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"/>
             <TextLabel Text="X:"/>
             <Slider x:Name="sliderX"
                       Size2D="600, 40"
