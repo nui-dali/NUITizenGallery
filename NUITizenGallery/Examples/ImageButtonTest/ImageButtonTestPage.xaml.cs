@@ -10,8 +10,8 @@ namespace NUITizenGallery
         public ImageButtonTestPage()
         {
             InitializeComponent();
-            button1.Icon.Size2D = new Tizen.NUI.Size2D(300, 300);
             button1.Icon.ResourceUrl = ImageURL + "NUITizenGallery.png";
+            button1.Icon.Size2D = new Tizen.NUI.Size2D(300, 300);
 
             button1.ControlStateChangedEvent += (o, e) =>
             {
