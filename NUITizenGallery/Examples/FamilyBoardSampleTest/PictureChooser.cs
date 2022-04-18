@@ -84,13 +84,11 @@ namespace Tizen.FH.FamilyBoard
             CreatePictureGrid();
 
             // message
-            mMessageIndicator = new NUI.Components.Toast("BasicShortToast");
-            mMessageIndicator.Duration = 1000;
-            mMessageIndicator.TextArray = new string[] { "You can only select up to 5 pictures." };
+            mMessageIndicator = NUI.Components.Toast.FromText("You can only select up to 5 pictures.", 1000);
             mMessageIndicator.Position2D = new Position2D((SCREEN_WIDTH - 800)/2, (SCREEN_HEIGHT - 200)/2);
             mMessageIndicator.Size2D = new Size2D(800, 200);
             mMessageIndicator.BackgroundColor = Color.Transparent;
-            mRootView.Add(mMessageIndicator);
+            mMessageIndicator.Post(NUIApplication.GetDefaultWindow());
             mMessageIndicator.Hide();
         }
 
@@ -160,7 +158,7 @@ namespace Tizen.FH.FamilyBoard
 
             if (mMessageIndicator != null)
             {
-                mRootView.Remove(mMessageIndicator);
+                NUIApplication.GetDefaultWindow().Remove(mMessageIndicator);
                 mMessageIndicator.Dispose();
                 mMessageIndicator = null;
             }

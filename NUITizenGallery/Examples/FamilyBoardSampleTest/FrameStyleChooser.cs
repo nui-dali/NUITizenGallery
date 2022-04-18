@@ -550,7 +550,35 @@ namespace Tizen.FH.FamilyBoard
             mSliderShowTextLabel.VerticalAlignment = VerticalAlignment.Center;
             mSliderShowView.Add(mSliderShowTextLabel);
 
-            mSliderShowSwitch = new Switch("Switch");
+            SwitchStyle utilitySt = new SwitchStyle
+            {
+                Size = new Size(96, 60),
+                IsSelectable = true,
+                Track = new ImageViewStyle
+                {
+                    ResourceUrl = new Selector<string>
+                    {
+                        Normal = CommonResource.GetResourcePath() + "controls/controller_switch_bg_off.png",
+                        Selected = CommonResource.GetResourcePath() + "controls/controller_switch_bg_on.png",
+                        Disabled = CommonResource.GetResourcePath() + "controls/controller_switch_bg_off_dim.png",
+                        DisabledSelected = CommonResource.GetResourcePath() + "controls/controller_switch_bg_on_dim.png",
+                    },
+                    Border = new Rectangle(30, 30, 30, 30),
+                },
+                Thumb = new ImageViewStyle
+                {
+                    Size = new Size(60, 60),
+                    ResourceUrl = new Selector<string>
+                    {
+                        Normal = CommonResource.GetResourcePath() + "controls/controller_switch_handler.png",
+                        Selected = CommonResource.GetResourcePath() + "controls/controller_switch_handler.png",
+                        Disabled = CommonResource.GetResourcePath() + "controls/controller_switch_handler_dim.png",
+                        DisabledSelected = CommonResource.GetResourcePath() + "controls/controller_switch_handler_dim.png",
+                    },
+                },
+            };
+
+            mSliderShowSwitch = new Switch(utilitySt);
             mSliderShowSwitch.Position2D = new Position2D(SCREEN_WIDTH - 44 - 80 - 40, (88 - 50) / 2 - 4);
             mSliderShowSwitch.Size2D = new Size2D(80 + 20, 50);
             mSliderShowView.Add(mSliderShowSwitch);
