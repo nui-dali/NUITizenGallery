@@ -108,24 +108,24 @@ namespace NUITizenGallery
                 };
                 utilityStyle.Icon.BackgroundImage = new Selector<string>
                 {
-                    Normal = CommonResource.GetResourcePath() + "9. Controller/controller_btn_check_off.png",
-                    Selected = CommonResource.GetResourcePath() + "9. Controller/controller_btn_check_on.png",
-                    Disabled = CommonResource.GetResourcePath() + "9. Controller/controller_btn_check_off.png",
-                    DisabledSelected = CommonResource.GetResourcePath() + "9. Controller/controller_btn_check_on.png",
+                    Normal = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_off.png",
+                    Selected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_on.png",
+                    Disabled = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_off.png",
+                    DisabledSelected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_on.png",
                 };
                 utilityStyle.Icon.ResourceUrl = new Selector<string>
                 {
                     Normal = "",
-                    Selected = CommonResource.GetResourcePath() + "9. Controller/controller_btn_check.png",
+                    Selected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check.png",
                     Disabled = "",
-                    DisabledSelected = CommonResource.GetResourcePath() + "9. Controller/controller_btn_check.png",
+                    DisabledSelected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check.png",
                 };
                 utilityStyle.Icon.ImageShadow = new Selector<ImageShadow>
                 {
                     Normal = "",
-                    Selected = CommonResource.GetResourcePath() + "9. Controller/controller_btn_check_shadow.png",
+                    Selected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_shadow.png",
                     Disabled = "",
-                    DisabledSelected = CommonResource.GetResourcePath() + "9. Controller/controller_btn_check_shadow.png",
+                    DisabledSelected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_shadow.png",
                 };
                 utilityCheckBox[i].ApplyStyle(utilityStyle);
 

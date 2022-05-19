@@ -37,19 +37,25 @@ namespace NUITizenGallery
             var button = new Button()
             {
                 Text = "Click to show Dialog",
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
 
             button.Clicked += (object sender, ClickedEventArgs e) =>
             {
                 var dialog = new TestDialogPage()
                 {
-                    WidthSpecification = 300,
-                    HeightSpecification = 300,
+                    WidthSpecification = 600,
+                    HeightSpecification = 600,
                     EnableScrim = true,
                     EnableDismissOnScrim = true,
                     ScrimColor = Color.Green,
+                    ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                    PivotPoint = Tizen.NUI.PivotPoint.Center,
+                    PositionUsesPivotPoint = true,
                 };
 
                 var textLabel = new TextLabel("Message")
@@ -73,6 +79,7 @@ namespace NUITizenGallery
                     Layout = new LinearLayout()
                     {
                         LinearOrientation = LinearLayout.Orientation.Vertical,
+                        HorizontalAlignment = HorizontalAlignment.Center,
                         VerticalAlignment = VerticalAlignment.Center,
                     },
                 };

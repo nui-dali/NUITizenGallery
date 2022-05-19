@@ -16,7 +16,7 @@ namespace NUITizenGallery
 
             AppBar = new AppBar()
             {
-                Title = "Dialog page Sample",
+                Title = "Alert dialog page Sample",
             };
 
             window = win;
@@ -24,8 +24,11 @@ namespace NUITizenGallery
             var button = new Button()
             {
                 Text = "Click to show Dialog",
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
             Content = button;
 

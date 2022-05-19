@@ -5,14 +5,14 @@ using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    public class NavigatorContentPage1 : ContentPage
+    public class NavigatorContentPage3 : ContentPage
     {
         private Window window;
         private Navigator navigator;
         private ContentPage firstPage, secondPage;
         private Button firstButton, secondButton;
 
-        public NavigatorContentPage1(Window win)
+        public NavigatorContentPage3(Window win)
         {
             WidthSpecification = LayoutParamPolicies.MatchParent;
             HeightSpecification = LayoutParamPolicies.MatchParent;
@@ -27,8 +27,11 @@ namespace NUITizenGallery
             var button = new Button()
             {
                 Text = "Click to show Navigator",
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
             Content = button;
 
@@ -36,10 +39,7 @@ namespace NUITizenGallery
             {
                 CreateFirstPage();
             };
-        }
 
-        private void CreateFirstPage()
-        {
             navigator = new Navigator()
             {
                 WidthResizePolicy = ResizePolicyType.FillToParent,
@@ -48,12 +48,18 @@ namespace NUITizenGallery
             window.Add(navigator);
 
             navigator.Popped += Popped; // it works?
+        }
 
+        private void CreateFirstPage()
+        {
             firstButton = new Button()
             {
                 Text = "First Page",
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent,
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
             firstButton.Clicked += (object sender, ClickedEventArgs e) =>
             {
@@ -86,8 +92,11 @@ namespace NUITizenGallery
             secondButton = new Button()
             {
                 Text = "Second Page",
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent,
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
             secondButton.Clicked += (object sender, ClickedEventArgs e) =>
             {
@@ -117,12 +126,12 @@ namespace NUITizenGallery
         private void Popped(object sender, PoppedEventArgs args)
         {
             Log.Info(this.GetType().Name, "Page is popped!");
-            args.Page.Dispose();
-
+            
             if (args.Page == firstPage)
             {
                 firstPage = null;
                 navigator.Popped -= Popped;
+                Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}");
             }
             else
             {
@@ -148,12 +157,25 @@ namespace NUITizenGallery
 
         private void Deactivate()
         {
+            Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated0");
             if (navigator != null)
             {
-                window.Remove(navigator);
+                Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated1");
+                // remove second page.
+                int index = navigator.IndexOf(secondPage);
+                navigator.RemoveAt(index);
 
+                Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated2");
+                // remove first page.
+                navigator.Remove(firstPage);
+
+                Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated3");
+                // remove navigator.
+                window.Remove(navigator);
                 navigator.Dispose();
                 navigator = null;
+
+                Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated4");
                 firstButton = null;
                 firstPage = null;
                 secondButton = null;
@@ -171,7 +193,7 @@ namespace NUITizenGallery
             Log.Info(this.GetType().Name, $"@@@ this.GetType().Name={this.GetType().Name}, Activate()");
 
             window = NUIApplication.GetDefaultWindow();
-            window.GetDefaultNavigator().Push(new NavigatorContentPage1(window));
+            window.GetDefaultNavigator().Push(new NavigatorContentPage3(window));
         }
 
         public void Deactivate()

@@ -28,8 +28,11 @@ namespace NUITizenGallery
             var button = new Button()
             {
                 Text = "Click to show AppBar",
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
             Content = button;
 
@@ -60,8 +63,11 @@ namespace NUITizenGallery
             firstButton = new Button()
             {
                 Text = "Click to next",
-                WidthSpecification = LayoutParamPolicies.MatchParent,
-                HeightSpecification = LayoutParamPolicies.MatchParent,
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
             firstButton.Clicked += (object sender, ClickedEventArgs e) =>
             {
@@ -100,8 +106,11 @@ namespace NUITizenGallery
             secondButton = new Button()
             {
                 Text = "Click to prev",
-                WidthSpecification = LayoutParamPolicies.MatchParent,
-                HeightSpecification = LayoutParamPolicies.MatchParent,
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
             secondButton.Clicked += (object sender, ClickedEventArgs e) =>
             {

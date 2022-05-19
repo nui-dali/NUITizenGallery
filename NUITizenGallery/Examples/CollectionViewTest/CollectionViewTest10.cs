@@ -74,7 +74,7 @@ namespace NUITizenGallery
                 ScrollingDirection = ScrollableBase.Direction.Vertical,
                 WidthSpecification = LayoutParamPolicies.MatchParent,
                 HeightSpecification = LayoutParamPolicies.MatchParent,
-				SelectionMode = selMode
+                SelectionMode = selMode
             };
             colView.SelectionChanged += SelectionEvt;
 

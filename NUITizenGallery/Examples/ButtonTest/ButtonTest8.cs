@@ -26,7 +26,7 @@ namespace NUITizenGallery
 
             AppBar = new AppBar()
             {
-                Title = "Photo Slide Sample",
+                Title = "Button Sample",
             };
 
             root = new View()
@@ -58,7 +58,7 @@ namespace NUITizenGallery
             // Only show a text button.
             textButton = new Button()
             {
-                BackgroundImage = CommonResource.GetResourcePath() + "component/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
+                BackgroundImage = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
                 BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
                 Size = new Size(300, 80),
             };
@@ -81,11 +81,11 @@ namespace NUITizenGallery
             {
                 Text = "",
                 Name = "IconButton",
-                BackgroundImage = CommonResource.GetResourcePath() + "component/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
+                BackgroundImage = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
                 BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
                 Size = new Size(80, 80),
             };
-            iconButton.Icon.ResourceUrl = CommonResource.GetResourcePath() + "component/c_radiobutton/c_radiobutton_white_check.png";
+            iconButton.Icon.ResourceUrl = CommonResource.GetResourcePath() + "components/c_radiobutton/c_radiobutton_white_check.png";
             parent2.Add(iconButton);
             iconButton.Clicked += (ojb, e) => {
                 var btn = iconButton.Icon.GetParent() as Button;
@@ -107,14 +107,14 @@ namespace NUITizenGallery
             iconTextButton = new Button()
             {
                 Text = "IconTextButton",
-                BackgroundImage = CommonResource.GetResourcePath() + "component/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
+                BackgroundImage = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
                 BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
                 IconRelativeOrientation = Button.IconOrientation.Left,
                 IconPadding = new Extents(20, 20, 20, 20),
                 TextPadding = new Extents(20, 50, 20, 20),
                 Size = new Size(500, 300),
             };
-            iconTextButton.Icon.ResourceUrl = CommonResource.GetResourcePath() + "component/c_radiobutton/c_radiobutton_white_check.png";
+            iconTextButton.Icon.ResourceUrl = CommonResource.GetResourcePath() + "components/c_radiobutton/c_radiobutton_white_check.png";
             parent3.Add(iconTextButton);
 
             ///////////////////////////////////////////////Create by Property//////////////////////////////////////////////////////////
@@ -125,7 +125,7 @@ namespace NUITizenGallery
                 {
                     ResourceUrl = new Selector<string>
                     {
-                        Pressed = CommonResource.GetResourcePath() + "3. Button/rectangle_btn_press_overlay.png",
+                        Pressed = CommonResource.GetResourcePath() + "components/button/rectangle_btn_press_overlay.png",
                         Other = ""
                     },
                     Border = new Rectangle(5, 5, 5, 5)
@@ -142,13 +142,13 @@ namespace NUITizenGallery
                     Text = "UtilityBasicButton",
                     PointSize = 20,
                 },
-                BackgroundImage = CommonResource.GetResourcePath() + "3. Button/rectangle_btn_normal.png",
+                BackgroundImage = CommonResource.GetResourcePath() + "components/button/rectangle_btn_normal.png",
                 BackgroundImageBorder = new Rectangle(5, 5, 5, 5),
             };
             utilityBasicButton = new Button();
             utilityBasicButton.ApplyStyle(utilityBasicButtonStyle);
             utilityBasicButton.IsSelectable = true;
-            utilityBasicButton.ImageShadow = new ImageShadow(CommonResource.GetResourcePath() + "3. Button/rectangle_btn_shadow.png", new Rectangle(5, 5, 5, 5));
+            utilityBasicButton.ImageShadow = new ImageShadow(CommonResource.GetResourcePath() + "components/button/rectangle_btn_shadow.png", new Rectangle(5, 5, 5, 5));
             utilityBasicButton.OverlayImage.Border = new Rectangle(5, 5, 5, 5);
             utilityBasicButton.Size = new Size(300, 80);
             utilityBasicButton.IsEnabled = false;

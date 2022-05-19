@@ -50,11 +50,11 @@ namespace NUITizenGallery
             {
                 if (i < 10)
                 {
-                    imageArray[i] = CommonResource.GetResourcePath() + "9. Controller/Loading Sequence_Native/loading_0" + i + ".png";
+                    imageArray[i] = CommonResource.GetResourcePath() + "components/loading/Loading_Sequence_Native/loading_0" + i + ".png";
                 }
                 else
                 {
-                    imageArray[i] = CommonResource.GetResourcePath() + "9. Controller/Loading Sequence_Native/loading_" + i + ".png";
+                    imageArray[i] = CommonResource.GetResourcePath() + "components/loading/Loading_Sequence_Native/loading_" + i + ".png";
                 }
             }
 
