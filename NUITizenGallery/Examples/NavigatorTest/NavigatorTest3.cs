@@ -40,12 +40,8 @@ namespace NUITizenGallery
                 CreateFirstPage();
             };
 
-            navigator = new Navigator()
-            {
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent
-            };
-            window.Add(navigator);
+            navigator = window.GetDefaultNavigator();
+            //window.Add(navigator);
 
             navigator.Popped += Popped; // it works?
         }
@@ -171,8 +167,8 @@ namespace NUITizenGallery
 
                 Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated3");
                 // remove navigator.
-                window.Remove(navigator);
-                navigator.Dispose();
+                //window.Remove(navigator);
+                //navigator.Dispose();
                 navigator = null;
 
                 Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated4");
