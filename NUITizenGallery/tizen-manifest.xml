@@ -3,7 +3,7 @@
   <profile name="common" />
   <ui-application appid="org.tizen.example.NUITizenGallery"
 					exec="NUITizenGallery.dll"
-					type="dotnet-nui"
+					type="dotnet"
 					multiple="false"
 					taskmanage="true"
 					nodisplay="false"
@@ -15,5 +15,7 @@
   </ui-application>
   <privileges>
     <privilege>http://tizen.org/privilege/internet</privilege>
+	<privilege>http://tizen.org/privilege/appmanager.launch</privilege>
+    <privilege>http://tizen.org/privilege/window.priority.set</privilege>
   </privileges>
 </manifest>
