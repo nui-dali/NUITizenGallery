@@ -138,6 +138,12 @@ namespace NUITizenGallery
             {
                 DefaultTitleItem title = (DefaultTitleItem)colView.Header;
                 title.Text = "Linear Sample Count[" + gallerySource.Count + (selectedItem != null ? "] Selected [" + selectedItem + "]" : "]");
+
+                if (colView.SelectedItem != null)
+                {
+                    CollectionViewTest.Gallery selItem = colView.SelectedItem as CollectionViewTest.Gallery;
+                    title.Text += $" [And selected [{selItem.Name}].";
+                }
             }
         }
 

@@ -82,6 +82,7 @@ namespace NUITizenGallery
                         HorizontalAlignment = HorizontalAlignment.Center,
                         VerticalAlignment = VerticalAlignment.Center,
                     },
+                    BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
                 };
 
                 page.Add(textLabel);

@@ -72,7 +72,7 @@ namespace NUITizenGallery
 
                     return item;
                 }),
-                GroupHeaderTemplate = new DataTemplate(() =>
+                GroupFooterTemplate = new DataTemplate(() =>
                 {
                     DefaultTitleItem group = new DefaultTitleItem();
                     //Set Width Specification as MatchParent to fit the Item width with parent View.
@@ -83,7 +83,7 @@ namespace NUITizenGallery
 
                     return group;
                 }),
-                Header = myTitle,
+                Footer = myTitle,
                 IsGrouped = true,
                 ScrollingDirection = ScrollableBase.Direction.Vertical,
                 WidthSpecification = LayoutParamPolicies.MatchParent,
@@ -180,9 +180,9 @@ namespace NUITizenGallery
                     }
                 }
             }
-            if (colView.Header != null && colView.Header is DefaultTitleItem)
+            if (colView.Footer != null && colView.Footer is DefaultTitleItem)
             {
-                DefaultTitleItem title = (DefaultTitleItem)colView.Header;
+                DefaultTitleItem title = (DefaultTitleItem)colView.Footer;
                 title.Text = "Grid Sample Count["+ albumSource.Count + "] Selected["+newSel.Count+"]";
             }
         }

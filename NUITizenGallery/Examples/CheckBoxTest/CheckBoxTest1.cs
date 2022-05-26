@@ -54,18 +54,20 @@ namespace NUITizenGallery
             ///////////////////////////////////////////////Create by Property//////////////////////////////////////////////////////////
             left = new View()
             {
-                Size = new Size(920, 800),
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                HeightSpecification = LayoutParamPolicies.MatchParent,
                 Layout = new LinearLayout()
                 {
                     LinearOrientation = LinearLayout.Orientation.Vertical,
                 },
             };
+            root.Add(left);
 
             //Create description text.
             createText = new TextLabel()
             {
-                Text = "Create CheckBox just by properties",
-                TextColor = Color.White,
+                Text = "CheckBox",
+                TextColor = Color.Red,
                 Size = new Size(800, 100),
             };
             left.Add(createText);
@@ -77,6 +79,7 @@ namespace NUITizenGallery
                     Columns = 4,
                 },
             };
+            left.Add(leftbody);
 
             group = new CheckBoxGroup();
 
@@ -97,6 +100,19 @@ namespace NUITizenGallery
                 utilityCheckBox[i].SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
                 {
                     Log.Info(this.GetType().Name, $"Left {i + 1}th Utility CheckBox's IsSelected is changed to {args.IsSelected}.");
+
+                    CheckBox tBox = sender as CheckBox;
+                    if (tBox != null)
+                    {
+                        int[] indices = tBox.ItemGroup.GetCheckedIndices();
+                        string indexStr = "[";
+                        for (int kk = 0; kk < indices.Length; kk++)
+                        {
+                            indexStr += $"{indices[kk]} ";
+                        }
+                        indexStr += "]";
+                        createText.Text = $"CheckBoxs {indexStr} are checked.";
+                    }
                 };
                 var utilityStyle = utilityCheckBox[i].Style;
                 utilityStyle.Icon.Opacity = new Selector<float?>
@@ -137,9 +153,8 @@ namespace NUITizenGallery
                 leftbody.Add(utilityCheckBox[i]);
             }
 
-            root.Add(left);
-            left.Add(leftbody);
-
+            utilityCheckBox[0].IsEnabled = true;
+            utilityCheckBox[1].IsEnabled = true;
             utilityCheckBox[2].IsEnabled = false;
             utilityCheckBox[3].IsEnabled = false;
             utilityCheckBox[3].IsSelected = true;

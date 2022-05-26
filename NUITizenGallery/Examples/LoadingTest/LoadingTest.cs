@@ -15,6 +15,8 @@ namespace NUITizenGallery
         private View[] layout = new View[4];
         private string[] imageArray;
 
+        private int clickedCount = 0;
+
         public LoadingContentPage1()
         {
             WidthSpecification = LayoutParamPolicies.MatchParent;
@@ -70,7 +72,7 @@ namespace NUITizenGallery
                 WidthSpecification = 500,
                 HeightSpecification = 100,
                 Margin = new Extents(0, 20, 0, 100),
-                PointSize = 20,
+                PointSize = 10,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 BackgroundColor = Color.Magenta,
@@ -100,7 +102,7 @@ namespace NUITizenGallery
 
             textLabel[1] = new TextLabel()
             {
-                PointSize = 15,
+                PointSize = 10,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 BackgroundColor = Color.Magenta,
@@ -127,7 +129,7 @@ namespace NUITizenGallery
             {
                 Size = new Size(200, 50),
                 Text = "FPS++",
-                PointSize = 15,
+                PointSize = 10,
                 Focusable = true,
                 BackgroundColor = Color.Green,
             };
@@ -139,7 +141,7 @@ namespace NUITizenGallery
             {
                 Size = new Size(200, 50),
                 Text = "FPS--",
-                PointSize = 15,
+                PointSize = 10,
                 Focusable = true,
                 BackgroundColor = Color.Green,
             };
@@ -157,7 +159,7 @@ namespace NUITizenGallery
         {
             textLabel[2] = new TextLabel()
             {
-                PointSize = 20,
+                PointSize = 10,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 VerticalAlignment = VerticalAlignment.Center,
                 BackgroundColor = Color.Magenta,
@@ -199,14 +201,33 @@ namespace NUITizenGallery
             button[2] = new Button()
             {
                 Size = new Size(400, 50),
-                Text = "Normal Loading",
-                PointSize = 15,
+                Text = "Pause",
+                PointSize = 10,
                 Focusable = true,
                 BackgroundColor = Color.Green,
             };
             layout[3].Add(button[2]);
             gridLayout.Add(layout[3]);
             FocusManager.Instance.SetCurrentFocusView(button[2]);
+
+            clickedCount = 0;
+            button[2].Clicked += loadingPlayPauseStop;
+        }
+
+        private void loadingPlayPauseStop(object sender, global::System.EventArgs e)
+        {
+            clickedCount++;
+
+            if (clickedCount % 2 == 0) // There is no way to check the state of loading.
+            {
+                loading[1].Pause();
+                button[2].Text = "Play";
+            }
+            else if (clickedCount % 2 == 1)
+            {
+                loading[1].Play();
+                button[2].Text = "Pause";
+            }
         }
 
         private void propFpsAdd(object sender, global::System.EventArgs e)
@@ -241,6 +262,9 @@ namespace NUITizenGallery
                 textLabel[0].Dispose();
                 textLabel[0] = null;
 
+                // stop firstly
+                loading[0].Stop();
+
                 layout[1].Remove(loading[0]);
                 loading[0].Dispose();
                 loading[0] = null;
@@ -256,6 +280,9 @@ namespace NUITizenGallery
                 gridLayout.Remove(textLabel[2]);
                 textLabel[2].Dispose();
                 textLabel[2] = null;
+
+                // stop firstly
+                loading[1].Stop();
 
                 layout[2].Remove(loading[1]);
                 loading[1].Dispose();

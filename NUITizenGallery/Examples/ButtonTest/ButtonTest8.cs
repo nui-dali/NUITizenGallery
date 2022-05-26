@@ -10,17 +10,20 @@ namespace NUITizenGallery
     {
         private View root;
         private View parent1;
+        private Button textButton;
+        private Button utilityBasicButton;
+
         private View parent2;
+        private Button iconButton;
+        private Button iconButton2;
+
         private View parent3;
-        Button textButton;
-        Button iconButton;
-        Button iconTextButton;
-        Button utilityBasicButton;
+        private Button iconTextButton;
+        private int clickedCount;
+        private int clickedCount1;
 
         internal ButtonPage8(Window window)
         {
-            window.KeyEvent += Window_KeyEvent;
-
             WidthSpecification = LayoutParamPolicies.MatchParent;
             HeightSpecification = LayoutParamPolicies.MatchParent;
 
@@ -36,7 +39,7 @@ namespace NUITizenGallery
                 BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
                 Layout = new LinearLayout()
                 {
-                    HorizontalAlignment = HorizontalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Begin,
                     LinearOrientation = LinearLayout.Orientation.Horizontal,
                     CellPadding = new Size(50, 50),
                 }
@@ -46,7 +49,7 @@ namespace NUITizenGallery
 
             parent1 = new View()
             {
-                Size = new Size(300, 900),
+                Size = new Size(200, 600),
                 Layout = new LinearLayout()
                 {
                     VerticalAlignment = VerticalAlignment.Top,
@@ -54,70 +57,59 @@ namespace NUITizenGallery
                     CellPadding = new Size(50, 50),
                 }
             };
+            root.Add(parent1);
 
             // Only show a text button.
             textButton = new Button()
             {
                 BackgroundImage = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
                 BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
-                Size = new Size(300, 80),
+                Size = new Size(200, 80),
+                PointSize = 16,
+                FontFamily = "Samsung200",
+                TextColor = Color.Magenta,
+                TextAlignment = HorizontalAlignment.Center,
+                IsSelectable = true,
+                IsSelected = true,
             };
             textButton.TextLabel.Text = "Button";
             parent1.Add(textButton);
 
-            parent2 = new View()
-            {
-                Size = new Size(300, 900),
-                Layout = new LinearLayout()
+            clickedCount1 = 0;
+            textButton.Clicked += (ojb, e) => {
+                if (clickedCount1 % 2 == 0)
                 {
-                    VerticalAlignment = VerticalAlignment.Top,
-                    LinearOrientation = LinearLayout.Orientation.Vertical,
-                    CellPadding = new Size(50, 50),
+                    textButton.TextSelector = new StringSelector()
+                    {
+                        All = "test",
+                    };
+                    textButton.PointSizeSelector = new FloatSelector()
+                    { 
+                        All = 14,
+                    };
+                    textButton.TextColorSelector = new ColorSelector()
+                    {
+                        All = Color.Blue,
+                    };
                 }
-            };
-
-            //Only show an icon button.
-            iconButton = new Button()
-            {
-                Text = "",
-                Name = "IconButton",
-                BackgroundImage = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
-                BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
-                Size = new Size(80, 80),
-            };
-            iconButton.Icon.ResourceUrl = CommonResource.GetResourcePath() + "components/c_radiobutton/c_radiobutton_white_check.png";
-            parent2.Add(iconButton);
-            iconButton.Clicked += (ojb, e) => {
-                var btn = iconButton.Icon.GetParent() as Button;
-                string name = btn.Name;
-            };
-
-            parent3 = new View()
-            {
-                Size = new Size(600, 400),
-                Layout = new LinearLayout()
+                else
                 {
-                    VerticalAlignment = VerticalAlignment.Top,
-                    LinearOrientation = LinearLayout.Orientation.Vertical,
-                    CellPadding = new Size(50, 50),
+                    textButton.TextSelector = new StringSelector()
+                    {
+                        All = "Button",
+                    };
+                    textButton.PointSizeSelector = new FloatSelector()
+                    {
+                        All = 16,
+                    };
+                    textButton.TextColorSelector = new ColorSelector()
+                    {
+                        All = Color.Magenta,
+                    };
                 }
+                clickedCount1++;
             };
 
-            //Show a button with icon and text.
-            iconTextButton = new Button()
-            {
-                Text = "IconTextButton",
-                BackgroundImage = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
-                BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
-                IconRelativeOrientation = Button.IconOrientation.Left,
-                IconPadding = new Extents(20, 20, 20, 20),
-                TextPadding = new Extents(20, 50, 20, 20),
-                Size = new Size(500, 300),
-            };
-            iconTextButton.Icon.ResourceUrl = CommonResource.GetResourcePath() + "components/c_radiobutton/c_radiobutton_white_check.png";
-            parent3.Add(iconTextButton);
-
-            ///////////////////////////////////////////////Create by Property//////////////////////////////////////////////////////////
             //Create utility basic style of button.
             var utilityBasicButtonStyle = new ButtonStyle()
             {
@@ -140,7 +132,7 @@ namespace NUITizenGallery
                         Disabled = new Color(0, 0, 0, 0.4f)
                     },
                     Text = "UtilityBasicButton",
-                    PointSize = 20,
+                    PointSize = 16,
                 },
                 BackgroundImage = CommonResource.GetResourcePath() + "components/button/rectangle_btn_normal.png",
                 BackgroundImageBorder = new Rectangle(5, 5, 5, 5),
@@ -150,48 +142,94 @@ namespace NUITizenGallery
             utilityBasicButton.IsSelectable = true;
             utilityBasicButton.ImageShadow = new ImageShadow(CommonResource.GetResourcePath() + "components/button/rectangle_btn_shadow.png", new Rectangle(5, 5, 5, 5));
             utilityBasicButton.OverlayImage.Border = new Rectangle(5, 5, 5, 5);
-            utilityBasicButton.Size = new Size(300, 80);
+            utilityBasicButton.Size = new Size(200, 80);
             utilityBasicButton.IsEnabled = false;
             parent1.Add(utilityBasicButton);
 
-            // Add three layout into root
-            root.Add(parent1);
-            root.Add(parent2);
-            root.Add(parent3);
-        }
-
-        private void Window_KeyEvent(object sender, Window.KeyEventArgs e)
-        {
-            if(e.Key.State == Key.StateType.Up)
+            parent2 = new View()
             {
-                switch(e.Key.KeyPressedName)
+                Size = new Size(200, 600),
+                Layout = new LinearLayout()
                 {
-                    case "1":
-                        iconTextButton.IconRelativeOrientation = Button.IconOrientation.Right;
-                        break;
-                    case "2":
-                        iconTextButton.IconRelativeOrientation = Button.IconOrientation.Top;
-                        break;
-                    case "3":
-                        iconTextButton.IconRelativeOrientation = Button.IconOrientation.Bottom;
-                        break;
-                    case "4":
-                        iconTextButton.IconRelativeOrientation = Button.IconOrientation.Left;
-                        break;
-                    case "5":
-                        iconTextButton.Icon.Padding.Start = 50;
-                        break;
-                    case "6":
-                        iconTextButton.Icon.Padding.End = 50;
-                        break;
-                    case "7":
-                        iconTextButton.LayoutDirection = ViewLayoutDirectionType.RTL;
-                        break;
-                    case "8":
-                        iconTextButton.LayoutDirection = ViewLayoutDirectionType.LTR;
-                        break;
+                    VerticalAlignment = VerticalAlignment.Top,
+                    LinearOrientation = LinearLayout.Orientation.Vertical,
+                    CellPadding = new Size(50, 50),
                 }
-            }
+            };
+            root.Add(parent2);
+
+            //Only show an icon button.
+            iconButton = new Button()
+            {
+                Text = "",
+                Name = "IconButton",
+                BackgroundImage = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
+                BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
+                Size = new Size(80, 80),
+            };
+            iconButton.Icon.ResourceUrl = CommonResource.GetResourcePath() + "components/c_radiobutton/c_radiobutton_white_check.png";
+            parent2.Add(iconButton);
+
+            iconButton2 = new Button()
+            {
+                IconURL = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
+                IconSize = new Size(80, 80),
+                Name = "IconButton",
+                BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
+                Size = new Size(80, 80),
+            };
+            iconButton2.Icon.ResourceUrl = CommonResource.GetResourcePath() + "components/c_radiobutton/c_radiobutton_white_check.png";
+            parent2.Add(iconButton2);
+
+            parent3 = new View()
+            {
+                Size = new Size(300, 600),
+                Layout = new LinearLayout()
+                {
+                    VerticalAlignment = VerticalAlignment.Top,
+                    LinearOrientation = LinearLayout.Orientation.Vertical,
+                    CellPadding = new Size(50, 50),
+                }
+            };
+            root.Add(parent3);
+
+            //Show a button with icon and text.
+            iconTextButton = new Button()
+            {
+                Text = "IconTextButton",
+                BackgroundImage = CommonResource.GetResourcePath() + "components/c_buttonbasic/c_basic_button_white_bg_normal_9patch.png",
+                BackgroundImageBorder = new Rectangle(4, 4, 5, 5),
+                IconRelativeOrientation = Button.IconOrientation.Left,
+                IconPadding = new Extents(20, 20, 20, 20),
+                TextPadding = new Extents(20, 50, 20, 20),
+                ItemAlignment = LinearLayout.Alignment.Begin,
+                ItemSpacing = new Size2D(50, 50),
+                Size = new Size(300, 200),
+            };
+            iconTextButton.Icon.ResourceUrl = CommonResource.GetResourcePath() + "components/c_radiobutton/c_radiobutton_white_check.png";
+            parent3.Add(iconTextButton);
+
+            clickedCount = 0;
+
+            iconTextButton.Clicked += (ojb, e) => {
+                clickedCount++;
+                if (clickedCount % 4 == 0)
+                {
+                    iconTextButton.IconRelativeOrientation = Button.IconOrientation.Right;
+                }
+                else if (clickedCount % 4 == 1)
+                {
+                    iconTextButton.IconRelativeOrientation = Button.IconOrientation.Top;
+                }
+                else if (clickedCount % 4 == 2)
+                {
+                    iconTextButton.IconRelativeOrientation = Button.IconOrientation.Bottom;
+                }
+                else
+                {
+                    iconTextButton.IconRelativeOrientation = Button.IconOrientation.Left;
+                }
+            };
         }
         
         protected override void Dispose(DisposeTypes type)
@@ -216,13 +254,10 @@ namespace NUITizenGallery
                 parent1.Remove(textButton);
                 textButton.Dispose();
                 textButton = null;
+
                 parent1.Remove(utilityBasicButton);
                 utilityBasicButton.Dispose();
                 utilityBasicButton = null;
-
-                parent3.Remove(iconTextButton);
-                iconTextButton.Dispose();
-                iconTextButton = null;
 
                 root.Remove(parent1);
                 parent1.Dispose();
@@ -231,6 +266,10 @@ namespace NUITizenGallery
                 root.Remove(parent2);
                 parent2.Dispose();
                 parent2 = null;
+
+                parent3.Remove(iconTextButton);
+                iconTextButton.Dispose();
+                iconTextButton = null;
 
                 root.Remove(parent3);
                 parent3.Dispose();

@@ -96,6 +96,8 @@ namespace NUITizenGallery
             colView.SelectionChanged += SelectionEvt;
 
             Content = colView;
+
+            colView.ScrollTo(20, true);
         }
 
         public void SelectionEvt(object sender, SelectionChangedEventArgs ev)

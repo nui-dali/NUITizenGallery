@@ -7,6 +7,8 @@ namespace NUITizenGallery
 {
     internal class MenuContentPage : ContentPage
     {
+        private Menu menuRef;
+
         public MenuContentPage()
         {
             WidthSpecification = LayoutParamPolicies.MatchParent;
@@ -17,56 +19,91 @@ namespace NUITizenGallery
                 Title = "Menu Sample",
             };
 
-            var pageContent = new Button()
+            var view = new View()
             {
-                Text = "Page Content",
-                CornerRadius = 0,
                 WidthSpecification = LayoutParamPolicies.MatchParent,
                 HeightSpecification = LayoutParamPolicies.MatchParent,
+                Layout = new LinearLayout()
+                {
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    LinearOrientation = LinearLayout.Orientation.Horizontal,
+                }
+            };
+            Content = view;
+
+            var showButton = new Button()
+            {
+                Text = "Show Menu",
+                CornerRadius = 0,
+                WidthSpecification = 200,
+                HeightSpecification = 100,
+            };
+            view.Add(showButton);
+
+            var menuItem = new MenuItem() { Text = "Menu" };
+            menuItem.SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
+            {
+                Log.Info(this.GetType().Name, $"1st MenuItem's IsSelected is changed to {args.IsSelected}.");
             };
 
-            Content = pageContent;
-
-            pageContent.Clicked += (object s1, ClickedEventArgs a1) =>
+            var menuItem2 = new MenuItem() { Text = "Menu2" };
+            menuItem2.SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
             {
-                var menuItem = new MenuItem() { Text = "Menu" };
-                menuItem.SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
-                {
-                    Log.Info(this.GetType().Name, $"1st MenuItem's IsSelected is changed to {args.IsSelected}.");
-                };
+                Log.Info(this.GetType().Name, $"2nd MenuItem's IsSelected is changed to {args.IsSelected}.");
+            };
 
-                var menuItem2 = new MenuItem() { Text = "Menu2" };
-                menuItem2.SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
-                {
-                    Log.Info(this.GetType().Name, $"2nd MenuItem's IsSelected is changed to {args.IsSelected}.");
-                };
+            var menuItem3 = new MenuItem() { Text = "Menu3" };
+            menuItem3.SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
+            {
+                Log.Info(this.GetType().Name, $"3rd MenuItem's IsSelected is changed to {args.IsSelected}.");
+            };
 
-                var menuItem3 = new MenuItem() { Text = "Menu3" };
-                menuItem3.SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
-                {
-                    Log.Info(this.GetType().Name, $"3rd MenuItem's IsSelected is changed to {args.IsSelected}.");
-                };
+            var menuItem4 = new MenuItem() { Text = "Menu4" };
+            menuItem4.SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
+            {
+                Log.Info(this.GetType().Name, $"4th MenuItem's IsSelected is changed to {args.IsSelected}.");
+            };
 
-                var menuItem4 = new MenuItem() { Text = "Menu4" };
-                menuItem4.SelectedChanged += (object sender, SelectedChangedEventArgs args) =>
-                {
-                    Log.Info(this.GetType().Name, $"4th MenuItem's IsSelected is changed to {args.IsSelected}.");
-                };
+            var moreButton = new Button()
+            {
+                Text = "Menu shown here",
+                CornerRadius = 0,
+                WidthSpecification = 200,
+                HeightSpecification = 100,
+            };
 
-                var moreButton = new Button()
-                {
-                    Text = "More",
-                };
-
-                var menu = new Menu()
+            showButton.Clicked += (object s1, ClickedEventArgs a1) =>
+            {
+                var testMenu = new Menu()
                 {
                     Anchor = moreButton,
                     HorizontalPositionToAnchor = Menu.RelativePosition.Center,
                     VerticalPositionToAnchor = Menu.RelativePosition.End,
                     Items = new MenuItem[] { menuItem, menuItem2, menuItem3, menuItem4 },
                 };
-                menu.Post();
+                menuRef = testMenu;
+                testMenu.Post();
             };
+
+            var dismissButton = new Button()
+            {
+                Text = "Dismiss Menu",
+                CornerRadius = 0,
+                WidthSpecification = 200,
+                HeightSpecification = 100,
+            };
+            view.Add(dismissButton);
+
+            dismissButton.Clicked += (object s1, ClickedEventArgs a1) =>
+            {
+                if (menuRef != null)
+                {
+                    menuRef.Dismiss(); //
+                    menuRef = null;
+                }
+            };
+
+            view.Add(moreButton);
         }
 
         protected override void Dispose(DisposeTypes type)
