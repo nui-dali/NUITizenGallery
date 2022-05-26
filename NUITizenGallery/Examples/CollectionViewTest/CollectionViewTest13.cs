@@ -175,7 +175,6 @@ namespace NUITizenGallery
                         else if (selAlbum == moveGroup)
                         {
                             albumSource.Move(albumSource.Count - 1, 2);
-
                         }
                     }
                 }

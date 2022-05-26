@@ -78,6 +78,10 @@ namespace NUITizenGallery
             };
             colView.SelectionChanged += SelectionEvt;
 
+            List<object> selItems = new List<object>();
+            selItems.Add(insertMenu);
+            colView.UpdateSelectedItems(selItems);
+
             Content = colView;
         }
 
