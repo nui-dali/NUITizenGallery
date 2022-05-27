@@ -43,7 +43,7 @@ namespace NUITizenGallery
             };
             info = new TextLabel()
             {
-                Text = "This is system test infomation, please ignore it!",
+                Text = "This notice will be dismissed after a moment while automatically !",
                 Ellipsis = false,
                 MultiLine = true,
                 LineWrapMode = LineWrapMode.Word,

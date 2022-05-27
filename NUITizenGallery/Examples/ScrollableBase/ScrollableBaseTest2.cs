@@ -170,7 +170,7 @@ namespace NUITizenGallery
                 CellHorizontalAlignment = HorizontalAlignmentType.Center,
                 Layout = new GridLayout()
                 {
-                    Columns = 3,
+                    Columns = 4,
                     ColumnSpacing = 10.0f,
                     RowSpacing = 20.0f,
                 }

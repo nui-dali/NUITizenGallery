@@ -17,7 +17,6 @@ namespace NUITizenGallery
         private TextLabel text1;
         private TextLabel text2;
         private TextLabel text3;
-        private TextLabel text4;
         private Button btn1;
 
         private bool flag;
@@ -66,7 +65,7 @@ namespace NUITizenGallery
 
             scrollableBase = new ScrollableBase
             {
-                Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 2),
+                Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 3),
                 ScrollingDirection = ScrollableBase.Direction.Horizontal,
                 ScrollEnabled = false,
                 HideScrollbar = true,
@@ -79,7 +78,7 @@ namespace NUITizenGallery
                 items[i] = new View
                 {
                     Position = new Position(i * (window.WindowSize.Width / 2), 0),
-                    Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 2),
+                    Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 3),
                 };
                 if (i % 2 == 0)
                 {
@@ -107,17 +106,49 @@ namespace NUITizenGallery
 
             root.Add(scrollableBase);
 
-            text0 = new TextLabel();
-            text1 = new TextLabel();
-            text2 = new TextLabel();
-            text3 = new TextLabel();
-            text4 = new TextLabel();
+            text0 = new TextLabel()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
+            text1 = new TextLabel()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
+            text2 = new TextLabel()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
+            text3 = new TextLabel()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
 
-            text0.Text = "ContentContainer : " + scrollableBase.ContentContainer.Name + ", Scrollbar.Position : " + scrollableBase.Scrollbar.Position + ", EnableOverShootingEffect : " + scrollableBase.EnableOverShootingEffect + ", NoticeAnimationEndBeforePosition : " + scrollableBase.NoticeAnimationEndBeforePosition; 
-            text1.Text = "ScrollEnabled : " + scrollableBase.ScrollEnabled + "; SnapToPage : " + scrollableBase.SnapToPage.ToString() + "; ScrollDuration : " + scrollableBase.ScrollDuration.ToString() + "; HideScrollbar : " + scrollableBase.HideScrollbar.ToString() + "; DecelerationRate : " + scrollableBase.DecelerationRate.ToString();
-            text2.Text = "DecelerationThreshold : " + scrollableBase.DecelerationThreshold.ToString() + "; ScrollingEventThreshold : " + scrollableBase.ScrollingEventThreshold.ToString() + "; PageFlickThreshold : " + scrollableBase.PageFlickThreshold.ToString();
-            text3.Text = "No Drag!";
-            text4.Text = "Scrolling emit : " + flag;
+            text0.Text = " ContentContainerName : " + scrollableBase.ContentContainer.Name + ",\n Scrollbar.ScrollPosition : " + scrollableBase.Scrollbar.ScrollPosition;
+            text1.Text = @" EnableOverShootingEffect : " + scrollableBase.EnableOverShootingEffect +
+                ", NoticeAnimationEndBeforePosition : " + scrollableBase.NoticeAnimationEndBeforePosition +
+                ", ScrollEnabled : " + scrollableBase.ScrollEnabled +
+                ", SnapToPage : " + scrollableBase.SnapToPage.ToString() +
+                ", ScrollDuration : " + scrollableBase.ScrollDuration.ToString() +
+                ", HideScrollbar : " + scrollableBase.HideScrollbar.ToString() +
+                ", DecelerationRate : " + scrollableBase.DecelerationRate.ToString() +
+                ", DecelerationThreshold : " + scrollableBase.DecelerationThreshold.ToString() +
+                ", ScrollingEventThreshold : " + scrollableBase.ScrollingEventThreshold.ToString() +
+                ", PageFlickThreshold : " + scrollableBase.PageFlickThreshold.ToString();
+
+            text2.Text = " No Drag!";
+            text3.Text = " Scrolling emit : " + flag;
 
             btn1 = new Button()
             {
@@ -129,7 +160,6 @@ namespace NUITizenGallery
             root.Add(text1);
             root.Add(text2);
             root.Add(text3);
-            root.Add(text4);
             root.Add(btn1);
 
             Content = root;
@@ -137,23 +167,23 @@ namespace NUITizenGallery
 
         private void OnScrollOutOfBound(object sender, ScrollOutOfBoundEventArgs e)
         {
-            text3.Text = "Warning: Scroll out of the bound!";
+            text2.Text = "Warning: Scroll out of the bound!";
         }
 
         private void OnScrolling(object sender, ScrollEventArgs e)
         {
             flag = true;
-            text4.Text = "Scrolling emit : " + flag;
+            text3.Text = "Scrolling Emit : " + flag;
         }
 
         private void OnScrollDragEnded(object sender, ScrollEventArgs e)
         {
-            text3.Text = "Drag Ended: CurrentPage = " + scrollableBase.CurrentPage + "; ScrollPosition , X : " + scrollableBase.ScrollPosition.X + ", Y : " + scrollableBase.ScrollPosition.Y;
+            text2.Text = "Drag Ended: CurrentPage = " + scrollableBase.CurrentPage + "; ScrollPosition , X : " + scrollableBase.ScrollPosition.X + ", Y : " + scrollableBase.ScrollPosition.Y;
         }
 
         private void OnScrollDragStarted(object sender, ScrollEventArgs e)
         {
-            text3.Text = "Darg Started!";
+            text2.Text = "Darg Started!";
         }
 
         private void OnChangePropertyClicked(object sender, ClickedEventArgs e)
@@ -169,9 +199,19 @@ namespace NUITizenGallery
             scrollableBase.ScrollingEventThreshold = 0.01f;
             scrollableBase.PageFlickThreshold = 0.5f;
             scrollableBase.ScrollAvailableArea = new Vector2(0, scrollableBase.SizeHeight);
-            text0.Text = "ContentContainer : " + scrollableBase.ContentContainer.Name + ", Scrollbar.Position : " + scrollableBase.Scrollbar.Position + ", EnableOverShootingEffect : " + scrollableBase.EnableOverShootingEffect + ", NoticeAnimationEndBeforePosition : " + scrollableBase.NoticeAnimationEndBeforePosition;
-            text1.Text = "ScrollEnabled : " + scrollableBase.ScrollEnabled + "; SnapToPage : " + scrollableBase.SnapToPage.ToString() + "; ScrollDuration : " + scrollableBase.ScrollDuration.ToString() + "; HideScrollbar : " + scrollableBase.HideScrollbar.ToString() + "; DecelerationRate : " + scrollableBase.DecelerationRate.ToString();
-            text2.Text = "DecelerationThreshold : " + scrollableBase.DecelerationThreshold.ToString() + "; ScrollingEventThreshold : " + scrollableBase.ScrollingEventThreshold.ToString() + "; PageFlickThreshold : " + scrollableBase.PageFlickThreshold.ToString();
+
+            //text1.Text = " EnableOverShootingEffect : " + scrollableBase.EnableOverShootingEffect + ", NoticeAnimationEndBeforePosition : " + scrollableBase.NoticeAnimationEndBeforePosition + ", ScrollEnabled : " + scrollableBase.ScrollEnabled + ", SnapToPage : " + scrollableBase.SnapToPage.ToString() + ", ScrollDuration : " + scrollableBase.ScrollDuration.ToString() + ", HideScrollbar : " + scrollableBase.HideScrollbar.ToString() + ", DecelerationRate : " + scrollableBase.DecelerationRate.ToString() + ", DecelerationThreshold : " + scrollableBase.DecelerationThreshold.ToString() + ", ScrollingEventThreshold : " + scrollableBase.ScrollingEventThreshold.ToString() + ", PageFlickThreshold : " + scrollableBase.PageFlickThreshold.ToString();
+            text1.Text = @" EnableOverShootingEffect : " + scrollableBase.EnableOverShootingEffect + "," +
+                "\n NoticeAnimationEndBeforePosition : " + scrollableBase.NoticeAnimationEndBeforePosition + "," +
+                "\n ScrollEnabled : " + scrollableBase.ScrollEnabled + "," +
+                "\n SnapToPage : " + scrollableBase.SnapToPage.ToString() + "," +
+                "\n ScrollDuration : " + scrollableBase.ScrollDuration.ToString() + "," +
+                "\n HideScrollbar : " + scrollableBase.HideScrollbar.ToString() + "," +
+                "\n DecelerationRate : " + scrollableBase.DecelerationRate.ToString() + "," +
+                "\n DecelerationThreshold : " + scrollableBase.DecelerationThreshold.ToString() + "," +
+                "\n ScrollingEventThreshold : " + scrollableBase.ScrollingEventThreshold.ToString() + "," +
+                "\n PageFlickThreshold : " + scrollableBase.PageFlickThreshold.ToString();
+
             btn1.IsEnabled = false;
             btn1.Opacity = 0.3f;
         }
