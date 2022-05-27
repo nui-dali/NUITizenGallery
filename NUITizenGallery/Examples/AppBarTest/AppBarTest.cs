@@ -51,7 +51,7 @@ namespace NUITizenGallery
             firstActionButton.Clicked += (object sender, ClickedEventArgs e) =>
             {
                 CreateSecondPage();
-            };
+            };       
 
             firstAppBar = new AppBar()
             {
@@ -78,6 +78,7 @@ namespace NUITizenGallery
             {
                 AppBar = firstAppBar,
                 Content = firstButton,
+                BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
             };
 
             window.GetDefaultNavigator().Push(firstPage);
@@ -94,6 +95,15 @@ namespace NUITizenGallery
                 window.GetDefaultNavigator().Pop();
             };
 
+            var popButton = new Button()
+            {
+                Text = "Pop page",
+            };
+            popButton.Clicked += (object sender, ClickedEventArgs e) =>
+            {
+                window.GetDefaultNavigator().Pop();
+            };
+
             secondAppBar = new AppBar()
             {
                 AutoNavigationContent = true,
@@ -101,6 +111,7 @@ namespace NUITizenGallery
                 {
                     Text = "Second Page",
                 },
+                NavigationContent = popButton,
                 Actions = new View[] { secondActionButton },
             };
 
@@ -129,6 +140,7 @@ namespace NUITizenGallery
             {
                 AppBar = secondAppBar,
                 Content = secondButton,
+                BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
             };
 
             window.GetDefaultNavigator().Push(secondPage);
