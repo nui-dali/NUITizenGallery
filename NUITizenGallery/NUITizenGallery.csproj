@@ -1,8 +1,9 @@
-﻿<Project Sdk="Tizen.NET.Sdk/1.1.6">
+﻿<Project Sdk="Tizen.NET.Sdk/1.1.8">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>tizen10.0</TargetFramework>
+    <DisableImplicitTizenReference>True</DisableImplicitTizenReference>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -23,12 +24,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Tizen.NET" Version="10.0.0.*" />
-    <PackageReference Include="Tizen.NUI.XamlBuild" Version="1.0.32" />
+    <PackageReference Include="Tizen.NET" Version="10.0.0.17188" />
   </ItemGroup>
 
   <PropertyGroup>
-    <NeedInjection>False</NeedInjection>
+    <XamlOptimization>1</XamlOptimization>
   </PropertyGroup>
 
 </Project>
