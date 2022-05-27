@@ -63,6 +63,7 @@ namespace NUITizenGallery
                 WidthSpecification = LayoutParamPolicies.MatchParent,
                 HeightSpecification = LayoutParamPolicies.WrapContent,
                 MinimumSize = new Size2D(0, 40),
+                Focusable = true, //This will be fixed as default value of true. currently patch working on progress.
             };
         }
 
@@ -224,6 +225,7 @@ namespace NUITizenGallery
             Initialize();
             SetMainPage();
             pageContent.SizeHeight = Window.Instance.WindowSize.Height - appBar.SizeHeight;
+            FocusManager.Instance.EnableDefaultAlgorithm(true);
         }
         private void Initialize()
         {
@@ -298,6 +300,7 @@ namespace NUITizenGallery
                     };
                     item.Label.SetBinding(TextLabel.TextProperty, "ViewLabel");
                     item.Label.HorizontalAlignment = HorizontalAlignment.Begin;
+                    item.Focusable = true; //BaseComponents' Focusable is false as a default value, true should be set to navigate key focus.
                     return item;
                 }),
                 Header = myTitle,
