@@ -48,7 +48,9 @@ namespace NUITizenGallery
             };
             info = new TextLabel()
             {
-                Text = "This is system test infomation, please ignore it!",
+                Text = "This notice will remain on display. " +
+                "You can click Dismiss or ForceQuit to quit it. " +
+                "You can also click SetDismissOnTouch to set DismissOnTouch as true, and then click the notification window to dimiss it. ",
                 Ellipsis = false,
                 MultiLine = true,
                 LineWrapMode = LineWrapMode.Word,
@@ -82,7 +84,7 @@ namespace NUITizenGallery
                 {
                     LinearOrientation = LinearLayout.Orientation.Horizontal,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CellPadding = new Size(30, 10),
+                    CellPadding = new Size(10, 10),
                 }
             };
 
@@ -115,17 +117,42 @@ namespace NUITizenGallery
 
         private void OnSetDismissOnTouch(object sender, ClickedEventArgs e)
         {
-            noti.SetDismissOnTouch(true);
+            if (noti != null)
+            {
+                noti.SetDismissOnTouch(true);
+            }
         }
 
         private void OnDismissClicked(object sender, ClickedEventArgs e)
         {
-            noti.Dismiss();
+            if (noti != null)
+            {
+                noti.Dismiss();
+                dismiss.IsEnabled = false;
+                dismiss.Opacity = 0.3f;
+
+                forceQuit.IsEnabled = false;
+                forceQuit.Opacity = 0.3f;
+
+                setDismissOnTouch.IsEnabled = false;
+                setDismissOnTouch.Opacity = 0.3f;
+            }
         }
 
         private void OnForceQuiltClicked(object sender, ClickedEventArgs e)
         {
-            noti.ForceQuit();
+            if (noti != null)
+            {
+                noti.ForceQuit();
+                forceQuit.IsEnabled = false;
+                forceQuit.Opacity = 0.3f;
+
+                dismiss.IsEnabled = false;
+                dismiss.Opacity = 0.3f;
+
+                setDismissOnTouch.IsEnabled = false;
+                setDismissOnTouch.Opacity = 0.3f;
+            }
         }
 
         protected override void Dispose(DisposeTypes type)
