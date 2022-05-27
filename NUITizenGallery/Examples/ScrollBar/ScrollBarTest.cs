@@ -15,6 +15,7 @@ namespace NUITizenGallery
         private Scrollbar[] scrollbar = new Scrollbar[3];
         private View top_parent, bottom_parent, null_style_parent, style_parent;
         private float contentLength = 100.0f;
+        private int pos = 0;
 
         private static string ResourcePath = Tizen.Applications.Application.Current.DirectoryInfo.Resource + "/images/";
 
@@ -22,7 +23,7 @@ namespace NUITizenGallery
         {
             AppBar = new AppBar()
             {
-                Title = "Switch Sample",
+                Title = "Scollbar Sample",
             };
 
             root = new View()
@@ -34,7 +35,7 @@ namespace NUITizenGallery
                     LinearOrientation = LinearLayout.Orientation.Vertical,
                     VerticalAlignment = VerticalAlignment.Center,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CellPadding = new Size(10, 50),
+                    CellPadding = new Size(10, 20),
                 }
             };
 
@@ -51,11 +52,12 @@ namespace NUITizenGallery
         {
             top_parent = new View()
             {
-                Size = new Size(root.SizeWidth, root.SizeHeight / 2)
-            };
-            top_parent.Layout = new LinearLayout()
-            {
-                LinearOrientation = LinearLayout.Orientation.Horizontal
+                Size = new Size(root.SizeWidth, root.SizeHeight / 2),
+                Layout = new LinearLayout()
+                {
+                    LinearOrientation = LinearLayout.Orientation.Horizontal,
+                    CellPadding = new Size2D(20, 20)
+                }
             };
             root.Add(top_parent);
             CreateNullStylePart();
@@ -79,8 +81,7 @@ namespace NUITizenGallery
             // Add Textlabel of "Null style construction"
             text_nullstyle = new TextLabel();
             text_nullstyle.Margin = new Extents(0, 0, 100, 0);
-            text_nullstyle.Size = new Size(500, 70);
-            text_nullstyle.PointSize = 20;
+            text_nullstyle.Size = new Size(root.SizeWidth /2, 70);
             text_nullstyle.HorizontalAlignment = HorizontalAlignment.Center;
             text_nullstyle.VerticalAlignment = VerticalAlignment.Center;
             text_nullstyle.BackgroundColor = Color.Magenta;
@@ -90,7 +91,7 @@ namespace NUITizenGallery
 
             // Add ScrollBar of Null style construction
             scrollbar[0] = new Scrollbar(contentLength, 2, 20, true);
-            scrollbar[0].Size = new Size(600, 2);
+            scrollbar[0].Size = new Size(root.SizeWidth / 2, 2);
             scrollbar[0].TrackColor = Color.Cyan;
             scrollbar[0].TrackThickness = 5.0f;
             scrollbar[0].TrackPadding = new Extents(20, 20, 20, 0); // start, end, top, bottom
@@ -99,7 +100,7 @@ namespace NUITizenGallery
             null_style_parent.Add(scrollbar[0]);
 
             scrollbar[1] = new Scrollbar(contentLength, 2, 40, true);
-            scrollbar[1].Size = new Size(600, 2);
+            scrollbar[1].Size = new Size(root.SizeWidth / 2, 2);
             scrollbar[1].TrackColor = Color.Cyan;
             scrollbar[1].TrackThickness = 5.0f;
             scrollbar[1].ThumbColor = Color.Green;
@@ -118,15 +119,14 @@ namespace NUITizenGallery
             {
                 LinearOrientation = LinearLayout.Orientation.Vertical,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                CellPadding = new Size2D(0, 100)
+                CellPadding = new Size2D(0, 20)
             };
             top_parent.Add(style_parent);
 
             // Add Textlabel of "Style construction"
             text_style = new TextLabel();
             text_style.Margin = new Extents(0, 0, 100, 0);
-            text_style.Size = new Size(500, 70);
-            text_style.PointSize = 20;
+            text_style.Size = new Size(root.SizeWidth / 2, 70);
             text_style.HorizontalAlignment = HorizontalAlignment.Center;
             text_style.VerticalAlignment = VerticalAlignment.Center;
             text_style.BackgroundColor = Color.Magenta;
@@ -144,7 +144,7 @@ namespace NUITizenGallery
                 ThumbThickness = 25.0f
             };
             scrollbar[2].ApplyStyle(st);
-            scrollbar[2].Size = new Size(2, 600);
+            scrollbar[2].Size = new Size(2, root.SizeHeight * 2 / 5);
             scrollbar[2].ThumbVerticalImageUrl = ResourcePath + "Boston.png";
             style_parent.Add(scrollbar[2]);
         }
@@ -153,13 +153,15 @@ namespace NUITizenGallery
         {
             bottom_parent = new View()
             {
-                Size = new Size(root.SizeWidth, root.SizeHeight / 2)
-            };
-            bottom_parent.Layout = new LinearLayout()
-            {
-                LinearOrientation = LinearLayout.Orientation.Horizontal,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                CellPadding = new Size2D(50, 50)
+                Size = new Size(root.SizeWidth, root.SizeHeight / 2),
+                Layout = new FlexLayout()
+                {
+                    Alignment = FlexLayout.AlignmentType.Center,
+                    ItemsAlignment = FlexLayout.AlignmentType.Center,
+                    Direction = FlexLayout.FlexDirection.Row,
+                    Justification = FlexLayout.FlexJustification.Center,
+                    WrapType = FlexLayout.FlexWrapType.Wrap
+                },
             };
             root.Add(bottom_parent);
 
@@ -177,7 +179,7 @@ namespace NUITizenGallery
             {
                 button[i] = new Button();
                 button[i].BackgroundColor = Color.Green;
-                button[i].Size = new Size(80, 50);
+                button[i].Size = new Size(root.SizeWidth / 4, 50);
                 button[i].Focusable = true;
                 bottom_parent.Add(button[i]);
             }
@@ -193,7 +195,6 @@ namespace NUITizenGallery
 
             button[3].Text = "ScrollUpdate";
             button[3].Clicked += Scroll1_2Changed;
-            button[3].Size = new Size(180, 50);
 
             // Set focus to Add Button
             FocusManager.Instance.SetCurrentFocusView(button[0]);
@@ -214,7 +215,9 @@ namespace NUITizenGallery
 
         private void Scroll1_2Changed(object sender, global::System.EventArgs e)
         {
-            scrollbar[2].Update(100, 4, 50, 0, new AlphaFunction(AlphaFunction.BuiltinFunctions.Bounce));
+            pos = (int)scrollbar[2].ScrollPosition + 5;
+            if (pos >= 100) pos = 0;
+            scrollbar[2].Update(100, 4, pos, 0, new AlphaFunction(AlphaFunction.BuiltinFunctions.Bounce));
         }
 
         private void Scroll1_2move(object sender, global::System.EventArgs e)

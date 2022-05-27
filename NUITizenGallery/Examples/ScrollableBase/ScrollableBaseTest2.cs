@@ -95,48 +95,84 @@ namespace NUITizenGallery
             btn1 = new Button()
             {
                 Text = "ScrollTo",
+                Size = new Size(window.WindowSize.Width / 4, window.WindowSize.Height / 12),
             };
+            btn1.TextLabel.Ellipsis = false;
+            btn1.TextLabel.MultiLine = true;
+            btn1.TextLabel.LineWrapMode = LineWrapMode.Word;
+            btn1.TextLabel.WidthSpecification = LayoutParamPolicies.MatchParent;
+            btn1.TextLabel.HeightSpecification = LayoutParamPolicies.MatchParent;
             btn1.Clicked += OnScrollToClicked;
 
             btn2 = new Button()
             {
                 Text = "ScrollToIndex",
+                Size = new Size(window.WindowSize.Width / 4, window.WindowSize.Height / 12),
             };
+            btn2.TextLabel.Ellipsis = false;
+            btn2.TextLabel.MultiLine = true;
+            btn2.TextLabel.LineWrapMode = LineWrapMode.Word;
+            btn2.TextLabel.WidthSpecification = LayoutParamPolicies.MatchParent;
+            btn2.TextLabel.HeightSpecification = LayoutParamPolicies.MatchParent;
             btn2.Clicked += OnScrollToIndexClicked;
 
             btn3 = new Button()
             {
                 Text = "Remove",
+                Size = new Size(window.WindowSize.Width / 4, window.WindowSize.Height / 12),
             };
+            btn3.TextLabel.Ellipsis = false;
+            btn3.TextLabel.MultiLine = true;
+            btn3.TextLabel.LineWrapMode = LineWrapMode.Word;
+            btn3.TextLabel.WidthSpecification = LayoutParamPolicies.MatchParent;
+            btn3.TextLabel.HeightSpecification = LayoutParamPolicies.MatchParent;
             btn3.Clicked += OnRemoveClicked;
 
             btn4 = new Button()
             {
                 Text = "RemoveAll",
+                Size = new Size(window.WindowSize.Width / 4, window.WindowSize.Height / 12),
             };
+            btn4.TextLabel.Ellipsis = false;
+            btn4.TextLabel.MultiLine = true;
+            btn4.TextLabel.LineWrapMode = LineWrapMode.Word;
+            btn4.TextLabel.WidthSpecification = LayoutParamPolicies.MatchParent;
+            btn4.TextLabel.HeightSpecification = LayoutParamPolicies.MatchParent;
             btn4.Clicked += OnRemoveAllClicked;
 
             btn5 = new Button()
             {
                 Text = "ReplaceLayout",
+                Size = new Size(window.WindowSize.Width / 4, window.WindowSize.Height / 12),
             };
+            btn5.TextLabel.Ellipsis = false;
+            btn5.TextLabel.MultiLine = true;
+            btn5.TextLabel.LineWrapMode = LineWrapMode.Word;
+            btn5.TextLabel.WidthSpecification = LayoutParamPolicies.MatchParent;
+            btn5.TextLabel.HeightSpecification = LayoutParamPolicies.MatchParent;
             btn5.Clicked += OnReplaceLayoutClicked;
 
             btn6 = new Button()
             {
                 Text = "SetScrollAvailableArea",
+                Size = new Size(window.WindowSize.Width / 4, window.WindowSize.Height / 12),
             };
+            btn6.TextLabel.Ellipsis = false;
+            btn6.TextLabel.MultiLine = true;
+            btn6.TextLabel.LineWrapMode = LineWrapMode.Word;
+            btn6.TextLabel.WidthSpecification = LayoutParamPolicies.MatchParent;
+            btn6.TextLabel.HeightSpecification = LayoutParamPolicies.MatchParent;
             btn6.Clicked += OnSetScrollAvailableArea;
 
             bottomView = new View()
             {
                 Size = new Size(window.WindowSize.Width, window.WindowSize.Height / 10),
-                Layout = new LinearLayout()
+                CellHorizontalAlignment = HorizontalAlignmentType.Center,
+                Layout = new GridLayout()
                 {
-                    LinearOrientation = LinearLayout.Orientation.Horizontal,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    //Padding = new Extents(40, 40, 40, 40),
-                    CellPadding = new Size2D(20, 20),
+                    Columns = 3,
+                    ColumnSpacing = 10.0f,
+                    RowSpacing = 20.0f,
                 }
             };
 
@@ -172,12 +208,20 @@ namespace NUITizenGallery
 
         private void OnReplaceLayoutClicked(object sender, ClickedEventArgs e)
         {
-            scrollableBase.Layout = new GridLayout()
+            if (scrollableBase.ScrollingDirection == ScrollableBase.Direction.Horizontal)
             {
-                Rows = 10,
-            };
-            scrollableBase.ScrollingDirection = ScrollableBase.Direction.Vertical;
-            scrollableBase.Padding = new Extents(0, 0, 0, 0);
+                scrollableBase.Layout = new GridLayout()
+                {
+                    Rows = 10,
+                };
+                scrollableBase.ScrollingDirection = ScrollableBase.Direction.Vertical;
+                scrollableBase.Padding = new Extents(0, 0, 0, 0);
+            }
+            else
+            {
+                scrollableBase.Layout = new LinearLayout();
+                scrollableBase.ScrollingDirection = ScrollableBase.Direction.Horizontal;
+            }
         }
 
         private void OnRemoveAllClicked(object sender, ClickedEventArgs e)

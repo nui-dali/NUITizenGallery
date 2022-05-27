@@ -44,10 +44,12 @@ namespace NUITizenGallery
             info = new TextLabel()
             {
                 Text = "This is system test infomation, please ignore it!",
-                VerticalAlignment = VerticalAlignment.Center,
-                PointSize = 24.0f,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                HeightSpecification = LayoutParamPolicies.MatchParent,
             };
-            info.Size = new Size(view.SizeWidth / 2, view.SizeHeight / 2);
             view.Add(info);
 
             noti = new Notification(view);
@@ -71,7 +73,8 @@ namespace NUITizenGallery
             makeToast = new Button()
             {
                 Text = "MakeToast",
-                PointSize = 20.0f,
+                WidthSpecification = window.WindowSize.Width / 2,
+                HeightSpecification = window.WindowSize.Height / 12,
             };
             makeToast.Clicked += OnMakeToastClicked;
 

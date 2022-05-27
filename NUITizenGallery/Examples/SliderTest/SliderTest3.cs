@@ -36,7 +36,7 @@ namespace NUITizenGallery
                 {
                     LinearOrientation = LinearLayout.Orientation.Vertical,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CellPadding = new Size(50, 50),
+                    CellPadding = new Size(50, 80),
                 }
             };
 
@@ -90,12 +90,12 @@ namespace NUITizenGallery
                     }
                 }
             };
-            slider_style[0] = CreateByStyle(st, 800, 50, 20, Slider.DirectionType.Horizontal);
+            slider_style[0] = CreateByStyle(st, (int)root.SizeWidth *3 / 4, 50, 20, Slider.DirectionType.Horizontal);
             slider_style[0].Indicator = Slider.IndicatorType.None;
             slider_style[0].IsDiscrete = true;
             slider_style[0].DiscreteValue = 20;
 
-            slider_style[1] = CreateByStyle(st, 800, 50, 30, Slider.DirectionType.Horizontal);
+            slider_style[1] = CreateByStyle(st, (int)root.SizeWidth * 3 / 4, 50, 30, Slider.DirectionType.Horizontal);
             slider_style[1].Indicator = Slider.IndicatorType.Text;
             slider_style[1].LowIndicatorTextContent = "Low";
             slider_style[1].LowIndicatorSize = new Size(100, 40);
@@ -105,21 +105,20 @@ namespace NUITizenGallery
             slider_style[1].ValueIndicatorText = slider_style[1].CurrentValue.ToString();
             slider_style[1].ValueIndicatorSize = new Size(100, 40);
 
-            slider_style[2] = CreateByStyle(st, 50, 400, 20, Slider.DirectionType.Vertical);
+            slider_style[2] = CreateByStyle(st, 50, (int)root.SizeHeight / 3, 20, Slider.DirectionType.Vertical);
             slider_style[2].Indicator = Slider.IndicatorType.Image;
             slider_style[2].LowIndicatorImageURL = ResourcePath + "bg_0.png";
             slider_style[2].LowIndicatorSize = new Size(60, 60);
             slider_style[2].HighIndicatorImageURL = ResourcePath + "bg_1.png";
             slider_style[2].HighIndicatorSize = new Size(60, 60);
 
-            slider_style[3] = CreateByStyle(st, 50, 400, 30, Slider.DirectionType.Vertical);
+            slider_style[3] = CreateByStyle(st, 50, (int)root.SizeHeight / 3, 30, Slider.DirectionType.Vertical);
         }
 
         private void CreateInfoText()
         {
             inforText = new TextLabel();
-            inforText.Margin = new Extents(200, 100, 40, 0);
-            inforText.PointSize = 20;
+            inforText.Margin = new Extents(0, 0, 40, 0);
             inforText.TextColor = Color.Blue;
             inforText.Text = "currentValue = ";
             inforText.BackgroundColor = new Color(0, 0, 0, 0.1f);
@@ -203,17 +202,13 @@ namespace NUITizenGallery
                 TrackThickness = 12,
                 MinValue = 0,
                 MaxValue = 100,
-                IsValueShown = true,
-                Indicator = Slider.IndicatorType.Text,
                 ValueIndicatorSize = new Size(30, 30),
-                SpaceBetweenTrackAndIndicator = 35,
                 WarningStartValue = 85,
                 WarningTrackColor = Color.Red,
                 WarningSlidedTrackColor = Color.Black,
                 WarningThumbColor = Color.DarkRed,
                 WarningThumbImageUrl = ResourcePath + "picture.png",
             };
-            bottom_slider1.ValueIndicatorText = bottom_slider1.CurrentValue.ToString();
             bottom_view.Add(bottom_slider1);
 
             bottom_slider2 = new Slider()
@@ -230,11 +225,6 @@ namespace NUITizenGallery
                 Indicator = Slider.IndicatorType.Image,
                 ValueIndicatorUrl = ResourcePath + "bg_0.png",
                 ValueIndicatorSize = new Size(30, 30),
-                SpaceBetweenTrackAndIndicator = 35,
-                LowIndicatorSize = new Size(60, 60),
-                LowIndicatorImageURL = ResourcePath + "a.jpg",
-                HighIndicatorSize = new Size(60, 60),
-                HighIndicatorImageURL = ResourcePath + "b.jpg",
             };
             bottom_view.Add(bottom_slider2);
 

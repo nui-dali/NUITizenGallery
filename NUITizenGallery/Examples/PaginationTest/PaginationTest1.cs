@@ -66,30 +66,21 @@ namespace NUITizenGallery
             };
             layout[0].Add(layout[2]);
 
-            createBorads();
+            createBorads(window);
 
             ///////////////////////////////////////////////Create by Properties//////////////////////////////////////////////////////////
             pagination[0] = new Pagination();
-            var indicatorImageUrlStyle = new PaginationStyle()
-            {
-                IndicatorSize = new Size(26, 26),
-                IndicatorSpacing = 8,
-                //IndicatorImageUrl = new Selector<string>
-                //{
-                //    Normal = ResourcePath + "controller/pagination_ic_nor.png",
-                //    Selected = ResourcePath + "controller/pagination_ic_sel.png"
-                //}
-            };
-            pagination[0].ApplyStyle(indicatorImageUrlStyle);
             pagination[0].Name = "Pagination1";
-            pagination[0].Size = new Size(300, 50);
+            pagination[0].Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 12);
             pagination[0].BackgroundColor = new Color(1.0f, 1.0f, 1.0f, 0.6f);
+            pagination[0].IndicatorSize = new Size(26, 26);
+            pagination[0].IndicatorSpacing = 8;
             pagination[0].IndicatorColor = Color.Yellow;
             pagination[0].SelectedIndicatorColor = Color.Blue;
-            pagination[0].LastIndicatorImageUrl = new Selector<string>
+            pagination[0].IndicatorImageUrl = new Selector<string>
             {
-                Normal = ResourcePath + "controller/pagination_ic_nor.png",
-                Selected = ResourcePath + "controller/pagination_ic_sel.png"
+                Normal = ResourcePath + "controller/pagination_ic_next.png",
+                Selected = ResourcePath + "controller/pagination_ic_return.png"
             };
             pagination[0].IndicatorCount = PAGE_COUNT;
             pagination[0].SelectedIndex = 0;
@@ -108,7 +99,7 @@ namespace NUITizenGallery
             };
             pagination[1] = new Pagination(style);
             pagination[1].Name = "Pagination2";
-            pagination[1].Size = new Size(300, 50);
+            pagination[1].Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 12);
             pagination[1].BackgroundColor = new Color(1.0f, 1.0f, 1.0f, 0.6f);
             pagination[1].IndicatorCount = PAGE_COUNT;
             pagination[1].SelectedIndex = 0;
@@ -125,11 +116,10 @@ namespace NUITizenGallery
             Content = layout[0];
         }
 
-        void createBorads()
+        void createBorads(Window window)
         {
             board[0] = new TextLabel();
-            board[0].Size = new Size(300, 50);
-            board[0].PointSize = 15;
+            board[0].Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 12);
             board[0].HorizontalAlignment = HorizontalAlignment.Center;
             board[0].VerticalAlignment = VerticalAlignment.Center;
             board[0].BackgroundColor = Color.Magenta;
@@ -137,8 +127,7 @@ namespace NUITizenGallery
             layout[1].Add(board[0]);
 
             board[1] = new TextLabel();
-            board[1].Size = new Size(300, 50);
-            board[1].PointSize = 15;
+            board[1].Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 12);
             board[1].HorizontalAlignment = HorizontalAlignment.Center;
             board[1].VerticalAlignment = VerticalAlignment.Center;
             board[1].BackgroundColor = Color.Magenta;
@@ -155,6 +144,14 @@ namespace NUITizenGallery
                     if (pagination[0].SelectedIndex > 0)
                     {
                         pagination[0].SelectedIndex = pagination[0].SelectedIndex - 1;
+                        if (pagination[0].SelectedIndex != pagination[0].IndicatorCount - 1)
+                        {
+                            pagination[0].LastIndicatorImageUrl = new Selector<string>
+                            {
+                                Normal = ResourcePath + "controller/pagination_ic_next.png",
+                                Selected = ResourcePath + "controller/pagination_ic_return.png"
+                            };
+                        }
                         selectedIndex.Text = "SelectedIndex : " + pagination[0].SelectedIndex;
                     }
                     if (pagination[1].SelectedIndex > 0)
@@ -168,6 +165,14 @@ namespace NUITizenGallery
                     if (pagination[0].SelectedIndex < pagination[0].IndicatorCount - 1)
                     {
                         pagination[0].SelectedIndex = pagination[0].SelectedIndex + 1;
+                        if (pagination[0].SelectedIndex == pagination[0].IndicatorCount - 1)
+                        {
+                            pagination[0].LastIndicatorImageUrl = new Selector<string>
+                            {
+                                Normal = ResourcePath + "controller/pagination_ic_nor.png",
+                                Selected = ResourcePath + "controller/pagination_ic_sel.png"
+                            };
+                        }
                         selectedIndex.Text = "SelectedIndex : " + pagination[0].SelectedIndex;
                     }
                     if (pagination[1].SelectedIndex < pagination[1].IndicatorCount - 1)

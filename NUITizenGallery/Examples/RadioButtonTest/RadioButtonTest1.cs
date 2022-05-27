@@ -32,7 +32,7 @@ namespace NUITizenGallery
         private RadioButton[] foodRadioButton2 = new RadioButton[4];
         private RadioButton[] kitchenRadioButton2 = new RadioButton[4];
         private RadioButtonGroup[] group2 = new RadioButtonGroup[4];
-
+        
         private static string ResourcePath = Tizen.Applications.Application.Current.DirectoryInfo.Resource + "/images/";
 
         private static string[] mode = new string[]
@@ -66,19 +66,24 @@ namespace NUITizenGallery
             ///////////////////////////////////////////////Create by Property//////////////////////////////////////////////////////////
             left = new View()
             {
-                Size = new Size(920, 800),
+                Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height * 3 / 4),
                 Layout = new LinearLayout()
                 {
-                    LinearOrientation = LinearLayout.Orientation.Vertical
+                    LinearOrientation = LinearLayout.Orientation.Vertical,
+                    HorizontalAlignment = HorizontalAlignment.Center
                 }
             };
 
             //Create left description text.
-            createText[0] = new TextLabel();
-            createText[0].Text = "Create RadioButton just by properties";
-            createText[0].TextColor = Color.White;
-            createText[0].Size = new Size(800, 100);
-
+            createText[0] = new TextLabel()
+            {
+                Text = "Create RadioButton just by properties",
+                TextColor = Color.White,
+                Size = new Size(window.WindowSize.Width *4 / 10, window.WindowSize.Height / 12),
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
             left.Add(createText[0]);
 
             leftbody = new View();
@@ -89,7 +94,7 @@ namespace NUITizenGallery
                 group[i] = new RadioButtonGroup();
                 modeText[i] = new TextLabel();
                 modeText[i].Text = mode[i];
-                modeText[i].Size = new Size(200, 48);
+                modeText[i].Size = new Size(window.WindowSize.Width / 8, 48);
                 modeText[i].HorizontalAlignment = HorizontalAlignment.Center;
                 modeText[i].VerticalAlignment = VerticalAlignment.Center;
                 leftbody.Add(modeText[i]);
@@ -117,7 +122,7 @@ namespace NUITizenGallery
                 };
                 utilityRadioButton[i].ApplyStyle(utilityStyle);
                 utilityRadioButton[i].Size = new Size(48, 48);
-                utilityRadioButton[i].Margin = new Extents(76, 76, 25, 25);
+                utilityRadioButton[i].Margin = new Extents(0, 0, 25, 25);
                 utilityRadioButton[i].Icon.Size = new Size(48, 48);
 
                 utilityRadioButton[i].Clicked += OnClicked;
@@ -143,7 +148,8 @@ namespace NUITizenGallery
                 };
                 familyRadioButton[i].ApplyStyle(familyStyle);
                 familyRadioButton[i].Size = new Size(48, 48);
-                familyRadioButton[i].Margin = new Extents(76, 76, 25, 25);
+                familyRadioButton[i].Text = "familyRadioButton" + i.ToString();
+                familyRadioButton[i].Margin = new Extents(0, 0, 25, 25);
                 familyRadioButton[i].Icon.Size = new Size(48, 48);
 
                 familyRadioButton[i].Clicked += OnClicked;
@@ -169,7 +175,7 @@ namespace NUITizenGallery
                 };
                 foodRadioButton[i].ApplyStyle(foodStyle);
                 foodRadioButton[i].Size = new Size(48, 48);
-                foodRadioButton[i].Margin = new Extents(76, 76, 25, 25);
+                foodRadioButton[i].Margin = new Extents(0, 0, 25, 25);
                 foodRadioButton[i].Icon.Size = new Size(48, 48);
 
                 foodRadioButton[i].Clicked += OnClicked;
@@ -195,7 +201,7 @@ namespace NUITizenGallery
                 };
                 kitchenRadioButton[i].ApplyStyle(kitchenStyle);
                 kitchenRadioButton[i].Size = new Size(48, 48);
-                kitchenRadioButton[i].Margin = new Extents(76, 76, 25, 25);
+                kitchenRadioButton[i].Margin = new Extents(0, 0, 25, 25);
                 kitchenRadioButton[i].Icon.Size = new Size(48, 48);
                 kitchenRadioButton[i].Clicked += OnClicked;
                 group[3].Add(kitchenRadioButton[i]);
@@ -209,19 +215,25 @@ namespace NUITizenGallery
             ///////////////////////////////////////////////Create by Attributes//////////////////////////////////////////////////////////
             right = new View()
             {
-                Size = new Size(920, 800),
+                Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height * 3 / 4),
                 Layout = new LinearLayout()
                 {
                     LinearOrientation = LinearLayout.Orientation.Vertical,
+                    HorizontalAlignment = HorizontalAlignment.Center
                 }
             };
 
             rightbody = new View();
             rightbody.Layout = new GridLayout() { Columns = 4 };
-            createText[1] = new TextLabel();
-            createText[1].Text = "Create RadioButton just by styles";
-            createText[1].TextColor = Color.White;
-            createText[1].Size = new Size(800, 100);
+            createText[1] = new TextLabel() 
+            {
+                Text = "Create RadioButton just by styles",
+                TextColor = Color.White,
+                Size = new Size(window.WindowSize.Width * 4 / 10, window.WindowSize.Height / 12),
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
             right.Add(createText[1]);
 
             for (int i = 0; i < num; i++)
@@ -229,7 +241,7 @@ namespace NUITizenGallery
                 group2[i] = new RadioButtonGroup();
                 modeText2[i] = new TextLabel();
                 modeText2[i].Text = mode[i];
-                modeText2[i].Size = new Size(200, 48);
+                modeText2[i].Size = new Size(window.WindowSize.Width / 8, 48);
                 modeText2[i].HorizontalAlignment = HorizontalAlignment.Center;
                 modeText2[i].VerticalAlignment = VerticalAlignment.Center;
                 rightbody.Add(modeText2[i]);
@@ -327,22 +339,26 @@ namespace NUITizenGallery
             {
                 utilityRadioButton2[i] = new RadioButton(utilityStyle2);
                 utilityRadioButton2[i].Size = new Size(48, 48);
-                utilityRadioButton2[i].Margin = new Extents(76, 76, 25, 25);
+                utilityRadioButton2[i].Margin = new Extents(0, 0, 25, 25);
+                utilityRadioButton2[i].Clicked += OnClicked;
                 group2[0].Add(utilityRadioButton2[i]);
 
                 familyRadioButton2[i] = new RadioButton(familyStyle2);
                 familyRadioButton2[i].Size = new Size(48, 48);
-                familyRadioButton2[i].Margin = new Extents(76, 76, 25, 25);
+                familyRadioButton2[i].Margin = new Extents(0, 0, 25, 25);
+                familyRadioButton2[i].Clicked += OnClicked;
                 group2[1].Add(familyRadioButton2[i]);
 
                 foodRadioButton2[i] = new RadioButton(foodStyle2);
                 foodRadioButton2[i].Size = new Size(48, 48);
-                foodRadioButton2[i].Margin = new Extents(76, 76, 25, 25);
+                foodRadioButton2[i].Margin = new Extents(0, 0, 25, 25);
+                foodRadioButton2[i].Clicked += OnClicked;
                 group2[2].Add(foodRadioButton2[i]);
 
                 kitchenRadioButton2[i] = new RadioButton(kitchenStyle2);
                 kitchenRadioButton2[i].Size = new Size(48, 48);
-                kitchenRadioButton2[i].Margin = new Extents(76, 76, 25, 25);
+                kitchenRadioButton2[i].Margin = new Extents(0, 0, 25, 25);
+                kitchenRadioButton2[i].Clicked += OnClicked;
                 group2[3].Add(kitchenRadioButton2[i]);
 
                 rightbody.Add(utilityRadioButton2[i]);
@@ -357,9 +373,13 @@ namespace NUITizenGallery
 
             groupInfo = new TextLabel()
             {
-                Text = "GroupInfo : ",
-                PointSize = 24.0f,
+                Text = "HashCode of ItemGroup : ",
+                Margin = new Extents(25, 0, 25, 25),
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Mixed,
             };
+            groupInfo.HorizontalAlignment = HorizontalAlignment.Begin;
             left.Add(groupInfo);
 
             right.Add(rightbody);
@@ -398,7 +418,7 @@ namespace NUITizenGallery
         private void OnClicked(object sender, ClickedEventArgs e)
         {
             RadioButton rbtn = sender as RadioButton;
-            groupInfo.Text = "GroupInfo : " + rbtn.ItemGroup.GetHashCode().ToString();
+            groupInfo.Text = "HashCode of ItemGroup : " + rbtn.ItemGroup.GetHashCode().ToString();
         }
 
         protected override void Dispose(DisposeTypes type)
