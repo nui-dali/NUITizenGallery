@@ -10,9 +10,10 @@ namespace NUITizenGallery
     internal class ProgressbarTestPage2 : ContentPage
     {
         private TextLabel[] board = new TextLabel[3];
-        private Button[] button = new Button[2];
+        private Button[] button = new Button[3];
         private Progress[] progressBar = new Progress[3];
-        private View[] layout = new View[4];
+        private View[] layout = new View[5];
+        private TextLabel indeterminateImageUrl;
 
         private static string ResourcePath = Tizen.Applications.Application.Current.DirectoryInfo.Resource + "/images/";
 
@@ -32,146 +33,128 @@ namespace NUITizenGallery
                     LinearOrientation = LinearLayout.Orientation.Vertical,
                     VerticalAlignment = VerticalAlignment.Center,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CellPadding = new Size(10, 50),
+                    CellPadding = new Size(50, 50),
                 }
             };
 
-            // Layout for progress parent layout.
             layout[1] = new View()
             {
-                Size = new Size(1000, 730)
-            };
-            layout[1].Layout = new LinearLayout()
-            {
-                LinearOrientation = LinearLayout.Orientation.Horizontal,
-                HorizontalAlignment = HorizontalAlignment.Center,
+                Size = new Size(window.WindowSize.Width, window.WindowSize.Height / 2 - 25),
+                Layout = new LinearLayout()
+                {
+                    LinearOrientation = LinearLayout.Orientation.Horizontal,
+                    VerticalAlignment = VerticalAlignment.Center,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    CellPadding = new Size(50, 50),
+                }
             };
             layout[0].Add(layout[1]);
 
             // Layout for progress layout which is created by properties.
             layout[2] = new View()
             {
-                Size = new Size(450, 630)
+                Size = new Size(window.WindowSize.Width / 2 - 25, window.WindowSize.Height / 2 - 25),
+                Margin = new Extents(0, 0, 100, 0),
+                Layout = new LinearLayout()
+                {
+                    LinearOrientation = LinearLayout.Orientation.Vertical,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    CellPadding = new Size2D(50, 50)
+                }
             };
-            layout[2].Layout = new LinearLayout()
-            {
-                LinearOrientation = LinearLayout.Orientation.Vertical,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                CellPadding = new Size2D(50, 100)
-            };
+            CreatePropElements(window);
             layout[1].Add(layout[2]);
 
             // Layout for progress layout which is created by attributes.
             layout[3] = new View()
             {
-                Size = new Size(450, 630)
+                Size = new Size(window.WindowSize.Width / 2 - 25, window.WindowSize.Height / 2 - 25),
+                Margin = new Extents(0, 0, 100, 0),
+                Layout = new LinearLayout()
+                {
+                    LinearOrientation = LinearLayout.Orientation.Vertical,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    CellPadding = new Size2D(50, 50)
+                }
             };
-            layout[3].Layout = new LinearLayout()
+            CreateAttrElements(window);
+            layout[1].Add(layout[3]);
+            
+            layout[4] = new View()
             {
-                LinearOrientation = LinearLayout.Orientation.Vertical,
-                HorizontalAlignment = HorizontalAlignment.Center,
-                CellPadding = new Size2D(50, 100)
+                Size = new Size(window.WindowSize.Width, window.WindowSize.Height / 2 - 25),
+                Layout = new LinearLayout()
+                {
+                    LinearOrientation = LinearLayout.Orientation.Vertical,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    CellPadding = new Size(10, 50),
+                }
             };
-            layout[1].Add(layout[3]);
-
-            CreatePropElements();
-            CreateAttrElements();
-            layout[1].Add(layout[2]);
-            layout[1].Add(layout[3]);
-
-            board[0] = new TextLabel();
-            board[0].WidthSpecification = 900;
-            board[0].HeightSpecification = 100;
-            board[0].PointSize = 30;
-            board[0].HorizontalAlignment = HorizontalAlignment.Center;
-            board[0].VerticalAlignment = VerticalAlignment.Center;
-            board[0].BackgroundColor = Color.Magenta;
-            board[0].Text = "log pad";
-            layout[0].Add(board[0]);
-            board[0].Focusable = true;
-            board[0].FocusGained += Board_FocusGained;
-            board[0].FocusLost += Board_FocusLost;
-            board[0].UpFocusableView = button[0];
-            FocusManager.Instance.SetCurrentFocusView(button[0]);
+            CreateBottomView(window);
+            layout[0].Add(layout[4]);
 
             Content = layout[0];
         }
 
-        void CreatePropElements()
+        void CreatePropElements(Window window)
         {
             ///////////////////////////////////////////////Create by Properties//////////////////////////////////////////////////////////
-            board[1] = new TextLabel();
-            board[1].WidthSpecification = 380;
-            board[1].HeightSpecification = 70;
-            board[1].PointSize = 20;
-            board[1].HorizontalAlignment = HorizontalAlignment.Center;
-            board[1].VerticalAlignment = VerticalAlignment.Center;
-            board[1].BackgroundColor = Color.Magenta;
-            board[1].Text = "Property construction";
+            board[1] = new TextLabel()
+            {
+                Focusable = true,
+                WidthSpecification = window.WindowSize.Width / 2 - 25,
+                HeightSpecification = window.WindowSize.Height / 12,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                BackgroundColor = Color.Magenta,
+                Text = "Property construction"
+            };
             layout[2].Add(board[1]);
-            board[1].Focusable = true;
             board[1].FocusGained += Board_FocusGained;
             board[1].FocusLost += Board_FocusLost;
 
-            progressBar[0] = new Progress();
-            progressBar[0].WidthSpecification = 240;
-            progressBar[0].HeightSpecification = 12;
-            progressBar[0].MaxValue = 100;
-            progressBar[0].MinValue = 0;
-            progressBar[0].CurrentValue = 20;
-            progressBar[0].TrackColor = Color.Cyan;
-            progressBar[0].ProgressState = Progress.ProgressStatusType.Buffering;
-            progressBar[0].BufferValue = 45;
-            progressBar[0].BufferColor = Color.Blue;
-            progressBar[0].BufferImageURL = ResourcePath + "a.jpg";
+            progressBar[0] = new Progress()
+            {
+                WidthSpecification = window.WindowSize.Width / 2 - 25,
+                HeightSpecification = 20,
+                MaxValue = 100,
+                MinValue = 0,
+                TrackColor = Color.Cyan,
+                ProgressState = Progress.ProgressStatusType.Buffering,
+                BufferValue = 45,
+                BufferColor = Color.Yellow,
+                BufferImageURL = ResourcePath + "clock_tabs_ic_stopwatch.png"
+            };
             layout[2].Add(progressBar[0]);
 
-            progressBar[1] = new Progress();
-            progressBar[1].WidthSpecification = 240;
-            progressBar[1].HeightSpecification = 12;
-            progressBar[1].MaxValue = 100;
-            progressBar[1].MinValue = 0;
-            progressBar[1].ProgressColor = Color.Black;
-            progressBar[1].BufferColor = Color.Red;
-            progressBar[1].BufferValue = 45;
-            progressBar[1].CurrentValue = 30;
-            progressBar[1].TrackImageURL = ResourcePath + "picture.png";
-            progressBar[1].IndeterminateImageUrl = ResourcePath + "tizen.png";
-            progressBar[0].ProgressState = Progress.ProgressStatusType.Indeterminate;
+            progressBar[1] = new Progress()
+            {
+                WidthSpecification = window.WindowSize.Width / 2 - 25,
+                HeightSpecification = 12,
+                MaxValue = 100,
+                MinValue = 0,
+                CurrentValue = 30,
+                ProgressColor = Color.Blue,
+                ProgressImageURL = ResourcePath + "clock_tabs_ic_stopwatch.png",
+                TrackImageURL = ResourcePath + "bg_1.png",
+            };
             layout[2].Add(progressBar[1]);
-
-            button[0] = new Button();
-            button[0].WidthSpecification = 140;
-            button[0].HeightSpecification = 50;
-            button[0].Text = "+";
-            button[0].BackgroundColor = Color.Green;
-            layout[2].Add(button[0]);
-            button[0].Focusable = true;
-            button[0].Clicked += ProgressAdd;
-
-            button[1] = new Button();
-            button[1].WidthSpecification = 140;
-            button[1].HeightSpecification = 50;
-            button[1].Text = "-";
-            button[1].BackgroundColor = Color.Green;
-            layout[2].Add(button[1]);
-            button[1].Focusable = true;
-            button[1].Clicked += ProgressMinus;
         }
 
-        private void CreateAttrElements()
+        private void CreateAttrElements(Window window)
         {
             ///////////////////////////////////////////////Create by attributes//////////////////////////////////////////////////////////
-            board[2] = new TextLabel();
-            board[2].WidthSpecification = 380;
-            board[2].HeightSpecification = 70;
-            board[2].PointSize = 20;
-            board[2].HorizontalAlignment = HorizontalAlignment.Center;
-            board[2].VerticalAlignment = VerticalAlignment.Center;
-            board[2].BackgroundColor = Color.Magenta;
-            board[2].Text = "Attribute construction";
+            board[2] = new TextLabel()
+            {
+                Focusable = true,
+                WidthSpecification = window.WindowSize.Width / 2 - 25,
+                HeightSpecification = window.WindowSize.Height / 12,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                BackgroundColor = Color.Magenta,
+                Text = "Attribute construction"
+            };
             layout[3].Add(board[2]);
-            board[2].Focusable = true;
             board[2].FocusGained += Board_FocusGained;
             board[2].FocusLost += Board_FocusLost;
 
@@ -191,23 +174,97 @@ namespace NUITizenGallery
                         All = Color.Red
                     }
                 },
-                Buffer = new ImageViewStyle
+            };
+            progressBar[2] = new Progress(attr)
+            {
+                WidthSpecification = window.WindowSize.Width / 2 - 25,
+                HeightSpecification = 12,
+                MaxValue = 100,
+                MinValue = 0,
+                TrackColor = Color.Green,
+                CurrentValue = 45,
+                ProgressColor = Color.Red,
+                IndeterminateImageUrl = ResourcePath + "a.jpg",
+            };
+            progressBar[2].OnInitialize();
+            layout[3].Add(progressBar[2]);
+
+            indeterminateImageUrl = new TextLabel()
+            { 
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+                WidthSpecification = window.WindowSize.Width / 2 - 25,
+            };
+            indeterminateImageUrl.Text = "IndeterminateImageUrl : " + progressBar[2].IndeterminateImageUrl;
+            layout[3].Add(indeterminateImageUrl);
+        }
+
+        private void CreateBottomView(Window window)
+        {
+            View buttonArea = new View()
+            {
+                Size = new Size(window.WindowSize.Width, 80),
+                Layout = new GridLayout()
                 {
-                    BackgroundColor = new Selector<Color>
-                    {
-                        All = Color.Green
-                    },
+                    Columns = 3,
                 }
             };
-            progressBar[2] = new Progress(attr);
-            progressBar[2].WidthSpecification = 240;
-            progressBar[2].HeightSpecification = 12;
-            progressBar[2].MaxValue = 100;
-            progressBar[2].MinValue = 0;
-            progressBar[2].CurrentValue = 30;
-            progressBar[2].BufferValue = 45;
-            progressBar[2].ProgressImageURL = ResourcePath + "b.jpg";
-            layout[3].Add(progressBar[2]);
+
+            button[0] = new Button()
+            {
+                WidthSpecification = 140,
+                HeightSpecification = 50,
+                Text = "+",
+                BackgroundColor = Color.Green,
+                Focusable = true
+            };
+            button[0].Clicked += ProgressAdd;
+
+            button[1] = new Button()
+            {
+                WidthSpecification = 140,
+                HeightSpecification = 50,
+                Text = "-",
+                BackgroundColor = Color.Green,
+                Focusable = true
+            };
+            button[1].Clicked += ProgressMinus;
+
+            button[2] = new Button()
+            {
+                Text = "ChangeIndeterminateImageUrl",
+                BackgroundColor = Color.Green,
+                Focusable = true
+            };
+            button[2].Clicked += OnChangeIndeterminateImageUrlClick;
+
+            buttonArea.Add(button[0]);
+            buttonArea.Add(button[1]);
+            buttonArea.Add(button[2]);
+            layout[4].Add(buttonArea);
+
+            board[0] = new TextLabel()
+            {
+                Focusable = true,
+                WidthSpecification = window.WindowSize.Width * 2 / 3,
+                HeightSpecification = 80,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                VerticalAlignment = VerticalAlignment.Center,
+                BackgroundColor = Color.Magenta,
+                Text = "log pad",
+            };
+            board[0].FocusGained += Board_FocusGained;
+            board[0].FocusLost += Board_FocusLost;
+
+            layout[4].Add(board[0]);
+            FocusManager.Instance.SetCurrentFocusView(button[0]);
+        }
+
+        private void OnChangeIndeterminateImageUrlClick(object sender, ClickedEventArgs e)
+        {
+            progressBar[2].IndeterminateImageUrl = ResourcePath + "b.jpg";
+            indeterminateImageUrl.Text = "IndeterminateImageUrl : " + progressBar[2].IndeterminateImageUrl;
         }
 
         private void Board_FocusLost(object sender, global::System.EventArgs e)
@@ -262,42 +319,7 @@ namespace NUITizenGallery
         {
             if (layout[0] != null)
             {
-                layout[2].Remove(board[1]);
-                board[1].Dispose();
-                board[1] = null;
-                layout[2].Remove(progressBar[0]);
-                progressBar[0].Dispose();
-                progressBar[0] = null;
-                layout[2].Remove(progressBar[1]);
-                progressBar[1].Dispose();
-                progressBar[1] = null;
-                layout[2].Remove(button[0]);
-                button[0].Dispose();
-                button[0] = null;
-                layout[2].Remove(button[1]);
-                button[1].Dispose();
-                button[1] = null;
-
-                layout[3].Remove(board[2]);
-                board[2].Dispose();
-                board[2] = null;
-                layout[3].Remove(progressBar[2]);
-                progressBar[2].Dispose();
-                progressBar[2] = null;
-
-                layout[1].Remove(layout[2]);
-                layout[2].Dispose();
-                layout[2] = null;
-                layout[1].Remove(layout[3]);
-                layout[3].Dispose();
-                layout[3] = null;
-
-                layout[0].Remove(layout[1]);
-                layout[1].Dispose();
-                layout[1] = null;
-                layout[0].Remove(board[0]);
-                board[0].Dispose();
-                board[0] = null;
+                
 
                 NUIApplication.GetDefaultWindow().Remove(layout[0]);
                 layout[0].Dispose();

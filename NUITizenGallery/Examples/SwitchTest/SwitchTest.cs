@@ -19,7 +19,8 @@ namespace NUITizenGallery
         private Button btn2;
         private Button btn3;
 
-        private TextLabel label;
+        private TextLabel label1;
+        private TextLabel label2;
 
         private static string ResourcePath = Tizen.Applications.Application.Current.DirectoryInfo.Resource + "/images/";
         private string defaultTrack = ResourcePath + "controller/controller_switch_bg_off.png";
@@ -72,16 +73,13 @@ namespace NUITizenGallery
                 utilitySwitch[i] = new Switch();
                 SwitchStyle utilitySt = new SwitchStyle
                 {
-                    Size = new Size(300, 100),
+                    Size = new Size(window.WindowSize.Width / 5, 100),
                     IsSelectable = true,
                     Track = new ImageViewStyle
                     {
                         ResourceUrl = new Selector<string>
                         {
                             All = defaultTrack,
-                            //Selected = ResourcePath + "controller/controller_switch_bg_on.png",
-                            //Disabled = ResourcePath + "controller/controller_switch_bg_off_dim.png",
-                            //DisabledSelected = ResourcePath + "controller/controller_switch_bg_on_dim.png",
                         },
                         Border = new Rectangle(30, 30, 30, 30),
                     },
@@ -91,24 +89,22 @@ namespace NUITizenGallery
                         ResourceUrl = new Selector<string>
                         {
                             All = defaultThumb,
-                            //Selected = ResourcePath + "controller/controller_switch_handler.png",
-                            //Disabled = ResourcePath + "controller/controller_switch_handler_dim.png",
-                            //DisabledSelected = ResourcePath + "controller/controller_switch_handler_dim.png",
                         },
                     },
                 };
                 utilitySwitch[i].ApplyStyle(utilitySt);
-                utilitySwitch[i].Size = new Size(300, 100);
-                utilitySwitch[i].Margin = new Extents(100, 0, 20, 0);
+                utilitySwitch[i].Margin = new Extents(36, 0, 20, 0);
                 switchLayout.Add(utilitySwitch[i]);
             }
 
             switch4 = new SwitchImpl()
             {
                 Text = "Switch4",
-                Size = new Size(300, 100),
+                Size = new Size(window.WindowSize.Width / 5, 100),
             };
             switch4.OnInitialize();
+            switch4.Track.Size2D = new Size2D(window.WindowSize.Width / 5, 100);
+            switch4.Thumb.SiblingOrder = 2;
             imageView = switch4.CreateIconImpl();
             switch4.SelectedChanged += OnSelectedChanged;
 
@@ -144,13 +140,22 @@ namespace NUITizenGallery
             root.Add(btn2);
             root.Add(btn3);
 
-            label = new TextLabel()
+            label1 = new TextLabel()
             {
-                PointSize = 24.0f,
                 WidthSpecification = LayoutParamPolicies.MatchParent,
             };
-            label.Text = "Click Switch4";
-            root.Add(label);
+            label1.Text = "Tack 's Size.Width : " + switch4.Track.Size2D.Width + " ; Thumb.SiblingOrder : " + switch4.Thumb.SiblingOrder;
+            label1.Ellipsis = false;
+            label1.MultiLine = true;
+            label1.LineWrapMode = LineWrapMode.Word;
+            root.Add(label1);
+
+            label2 = new TextLabel()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+            };
+            label2.Text = "Click Switch4";
+            root.Add(label2);
 
             Content = root;
         }
@@ -158,7 +163,7 @@ namespace NUITizenGallery
         private void OnSelectedChanged(object sender, SelectedChangedEventArgs e)
         {
             var obj = sender as SwitchImpl;
-            label.Text = "SelectedChanged : imageView's ChildCount,  " + imageView.ChildCount;
+            label2.Text = "SelectedChanged : imageView's ChildCount,  " + imageView.ChildCount;
         }
 
         private void OnClicked(object sender, ClickedEventArgs e)
@@ -184,6 +189,7 @@ namespace NUITizenGallery
                     {
                         All = ResourcePath + "bg_1.png",
                     };
+                    utilitySwitch[2].Thumb.CornerRadius = new Vector4(50, 50, 50, 50);
                     btn3.IsEnabled = false;
                     break;
                 default:

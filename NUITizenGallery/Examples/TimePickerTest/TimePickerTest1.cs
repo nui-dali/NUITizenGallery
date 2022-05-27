@@ -39,10 +39,7 @@ namespace NUITizenGallery
 
             flag = false;
             time = DateTime.Now;
-            text = new TextLabel()
-            { 
-                PointSize = 24.0f,
-            };
+            text = new TextLabel();
             text.Text = time.Hour + ":" + time.Minute + ", TimeChanged : " + flag;
             root.Add(text);
 

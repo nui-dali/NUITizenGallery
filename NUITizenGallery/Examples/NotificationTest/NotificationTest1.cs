@@ -49,10 +49,12 @@ namespace NUITizenGallery
             info = new TextLabel()
             {
                 Text = "This is system test infomation, please ignore it!",
-                VerticalAlignment = VerticalAlignment.Center,
-                PointSize = 24.0f,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                HeightSpecification = LayoutParamPolicies.MatchParent,
             };
-            info.Size = new Size(view.SizeWidth / 2, view.SizeHeight / 2);
             view.Add(info);
 
             noti = new Notification(view);
@@ -67,7 +69,6 @@ namespace NUITizenGallery
             contentView = new TextLabel()
             {
                 Text = "ContentView : " + noti.ContentView.Name,
-                PointSize = 24.0f,
                 WidthSpecification = LayoutParamPolicies.MatchParent,
                 HeightSpecification = window.WindowSize.Height / 10,
             };
@@ -81,28 +82,25 @@ namespace NUITizenGallery
                 {
                     LinearOrientation = LinearLayout.Orientation.Horizontal,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CellPadding = new Size(50, 10),
+                    CellPadding = new Size(30, 10),
                 }
             };
 
             dismiss = new Button()
             {
                 Text = "Dismiss",
-                PointSize = 20.0f,
             };
             dismiss.Clicked += OnDismissClicked;
 
             forceQuit = new Button()
             {
                 Text = "ForceQuit",
-                PointSize = 20.0f,
             };
             forceQuit.Clicked += OnForceQuiltClicked;
 
             setDismissOnTouch = new Button()
             {
                 Text = "SetDismissOnTouch",
-                PointSize = 20.0f,
             };
             setDismissOnTouch.Clicked += OnSetDismissOnTouch;
 
