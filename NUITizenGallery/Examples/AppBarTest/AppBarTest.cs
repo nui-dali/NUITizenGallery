@@ -96,6 +96,7 @@ namespace NUITizenGallery
 
             secondAppBar = new AppBar()
             {
+                AutoNavigationContent = true,
                 TitleContent = new TextLabel()
                 {
                     Text = "Second Page",

@@ -43,7 +43,6 @@ namespace NUITizenGallery
 
                 var title = new TextLabel()
                 {
-                    BackgroundColor = Color.White,
                     Size = new Size(180, 120),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
@@ -53,7 +52,6 @@ namespace NUITizenGallery
 
                 var content = new TextLabel()
                 {
-                    BackgroundColor = Color.White,
                     Size = new Size(180, 180),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
@@ -78,6 +76,7 @@ namespace NUITizenGallery
                 var dialogContent = new ContentPage()
                 {
                     Content = dialog,
+                    BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
                 };
 
                 window.GetDefaultNavigator().Push(dialogContent);

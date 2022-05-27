@@ -9,10 +9,11 @@ namespace NUITizenGallery
     public class DatePickerContentPage : ContentPage
     {
         private DatePicker datePicker;
+        private TextLabel dateLabel;
 
         private void OnValueChanged(object sender, DateChangedEventArgs e)
         {
-            System.Console.WriteLine(" Date is " + e.Date.Day + " " + e.Date.Month + " " + e.Date.Year);
+            dateLabel.Text = $"Current date is {e.Date.Day} {e.Date.Month} {e.Date.Year}";
         }
 
         public DatePickerContentPage()
@@ -22,17 +23,40 @@ namespace NUITizenGallery
 
             AppBar = new AppBar()
             {
-                Title = "Navigator Sample",
+                Title = "DatePicker Sample",
             };
 
-            datePicker = new DatePicker()
+            var root = new View()
             {
                 WidthSpecification = LayoutParamPolicies.MatchParent,
                 HeightSpecification = LayoutParamPolicies.MatchParent,
+                BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
+                Layout = new LinearLayout()
+                {
+                    VerticalAlignment = VerticalAlignment.Top,
+                    LinearOrientation = LinearLayout.Orientation.Vertical,
+                    CellPadding = new Size(50, 50),
+                }
+            };
+            Content = root;
+
+            datePicker = new DatePicker()
+            {
+                WidthSpecification = 400,
+                HeightSpecification = 200,
             };
             datePicker.DateChanged += OnValueChanged;
 
-            Content = datePicker;
+            dateLabel = new TextLabel()
+            {
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                PointSize = 20,
+                TextColor = Color.Red,
+                Text = $"Current date is {datePicker.Date.Day} {datePicker.Date.Month} {datePicker.Date.Year}",
+            };
+            root.Add(dateLabel);
+            root.Add(datePicker);
         }
 
         protected override void Dispose(DisposeTypes type)

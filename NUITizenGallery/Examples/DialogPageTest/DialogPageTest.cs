@@ -26,15 +26,18 @@ namespace NUITizenGallery
             var button = new Button()
             {
                 Text = "Click to show Dialog",
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent
+                WidthSpecification = 400,
+                HeightSpecification = 100,
+                ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                PivotPoint = Tizen.NUI.PivotPoint.Center,
+                PositionUsesPivotPoint = true,
             };
 
             button.Clicked += (object sender, ClickedEventArgs e) =>
             {
                 var textLabel = new TextLabel("Message")
                 {
-                    BackgroundColor = Color.White,
+                    BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
                     Size = new Size(180, 180),
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,

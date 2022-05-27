@@ -9,7 +9,7 @@ namespace NUITizenGallery
     {
         private Window window;
         private Navigator navigator;
-        private ContentPage firstPage, secondPage;
+        private ContentPage firstPage = null, bottomPage = null;
         private Button firstButton, secondButton;
 
         public NavigatorContentPage3(Window win)
@@ -37,7 +37,7 @@ namespace NUITizenGallery
 
             button.Clicked += (object sender, ClickedEventArgs e) =>
             {
-                CreateFirstPage();
+                CreateTopPage();
             };
 
             navigator = window.GetDefaultNavigator();
@@ -46,12 +46,12 @@ namespace NUITizenGallery
             navigator.Popped += Popped; // it works?
         }
 
-        private void CreateFirstPage()
+        private void CreateTopPage()
         {
             firstButton = new Button()
             {
-                Text = "First Page",
-                WidthSpecification = 400,
+                Text = $"Page count is {navigator.PageCount}. Click to insert a page below.",
+                WidthSpecification = 500,
                 HeightSpecification = 100,
                 ParentOrigin = Tizen.NUI.ParentOrigin.Center,
                 PivotPoint = Tizen.NUI.PivotPoint.Center,
@@ -59,7 +59,7 @@ namespace NUITizenGallery
             };
             firstButton.Clicked += (object sender, ClickedEventArgs e) =>
             {
-                CreateSecondPage();
+                CreateBottomPage();
             };
 
             firstPage = new ContentPage()
@@ -67,9 +67,10 @@ namespace NUITizenGallery
                 AppBar = new AppBar()
                 {
                     AutoNavigationContent = false,
-                    Title = "FirstPage",
+                    Title = "Top Page",
                 },
                 Content = firstButton,
+                BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
             };
             firstPage.Appearing += (object sender, PageAppearingEventArgs e) =>
             {
@@ -80,15 +81,27 @@ namespace NUITizenGallery
                 Log.Info(this.GetType().Name, "First Page is disappearing!");
             };
 
-            navigator.Push(firstPage);
+            Page topPage = navigator.Peek();
+            int topIndex = navigator.IndexOf(topPage);
+            navigator.Insert(topIndex + 1, firstPage);
         }
 
-        private void CreateSecondPage()
+        private void CreateBottomPage()
         {
+            if (bottomPage != null)
+            {
+                return; // avoid creating many times.
+            }
+
+            // change count of first button.
+            firstButton.Text = $"Page count is {navigator.PageCount}. Do not click again.";
+            firstButton.IsEnabled = false;
+            firstButton.TextColor = new Color(0.5f, 1.0f, 1.0f, 1.0f);
+
             secondButton = new Button()
             {
-                Text = "Second Page",
-                WidthSpecification = 400,
+                Text = $"Page count is {navigator.PageCount}. Click to pop page.",
+                WidthSpecification = 500,
                 HeightSpecification = 100,
                 ParentOrigin = Tizen.NUI.ParentOrigin.Center,
                 PivotPoint = Tizen.NUI.PivotPoint.Center,
@@ -96,27 +109,40 @@ namespace NUITizenGallery
             };
             secondButton.Clicked += (object sender, ClickedEventArgs e) =>
             {
+                Page tp = navigator.Peek();
+
+                int ti = navigator.IndexOf(tp);
+                int secondIndex = navigator.IndexOf(bottomPage);
+
+                Log.Info(this.GetType().Name, $"Is it the second page? {ti == secondIndex}");
+
+                Page page2 = navigator.GetPage(secondIndex);
+                int pIndex2 = navigator.IndexOf(page2);
+
+                Log.Info(this.GetType().Name, $"Is it the second page? {pIndex2 == navigator.IndexOf(bottomPage)}");
+
                 navigator.Pop();
             };
 
-            secondPage = new ContentPage()
+            bottomPage = new ContentPage()
             {
                 AppBar = new AppBar()
                 {
-                    Title = "SecondPage",
+                    Title = "Bottom Page",
                 },
                 Content = secondButton,
+                BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
             };
-            secondPage.Appearing += (object sender, PageAppearingEventArgs e) =>
+            bottomPage.Appearing += (object sender, PageAppearingEventArgs e) =>
             {
                 Log.Info(this.GetType().Name, "Second Page is appearing!");
             };
-            secondPage.Disappearing += (object sender, PageDisappearingEventArgs e) =>
+            bottomPage.Disappearing += (object sender, PageDisappearingEventArgs e) =>
             {
                 Log.Info(this.GetType().Name, "Second Page is disappearing!");
             };
 
-            navigator.Push(secondPage);
+            navigator.InsertBefore(firstPage, bottomPage);
         }
 
         private void Popped(object sender, PoppedEventArgs args)
@@ -126,12 +152,19 @@ namespace NUITizenGallery
             if (args.Page == firstPage)
             {
                 firstPage = null;
-                navigator.Popped -= Popped;
+                if (bottomPage != null)
+                {
+                    bottomPage.AppBar.Title = "Bottom Page. Top page has been removed.";
+                }
+                if (secondButton != null)
+                {
+                    secondButton.Text = $"Page count is {navigator.PageCount - 1}. Click to pop page.";
+                }
                 Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}");
             }
             else
             {
-                secondPage = null;
+                bottomPage = null;
                 Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}");
             }
         }
@@ -158,7 +191,7 @@ namespace NUITizenGallery
             {
                 Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated1");
                 // remove second page.
-                int index = navigator.IndexOf(secondPage);
+                int index = navigator.IndexOf(bottomPage);
                 navigator.RemoveAt(index);
 
                 Log.Info(this.GetType().Name, $"NavigatorContentPage1 page count is {navigator.PageCount}, Deactivated2");
@@ -175,7 +208,7 @@ namespace NUITizenGallery
                 firstButton = null;
                 firstPage = null;
                 secondButton = null;
-                secondPage = null;
+                bottomPage = null;
             }
         }
     }
