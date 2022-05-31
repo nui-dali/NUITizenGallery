@@ -190,7 +190,7 @@ namespace NUITizenGallery
             button[1].Text = "-";
             button[1].Clicked += Scroll1Minus;
 
-            button[2].Text = "+ / - 4";
+            button[2].Text = "ScrollMove";
             button[2].Clicked += Scroll1_2move;
 
             button[3].Text = "ScrollUpdate";
@@ -202,20 +202,22 @@ namespace NUITizenGallery
 
         private void Scroll1Add(object sender, global::System.EventArgs e)
         {
-            scrollbar[0].ScrollTo(scrollbar[0].ScrollPosition + 1, 1, null);
-            scrollbar[2].ScrollTo(scrollbar[2].ScrollPosition + 1, 1, null);
+            scrollbar[0].ScrollTo(scrollbar[0].ScrollPosition + 3, 1, null);
+            scrollbar[2].ScrollTo(scrollbar[2].ScrollPosition + 3, 1, null);
 
             scroll_position.Text = "scrollbar[0] : ScrollPosition , " + scrollbar[0].ScrollPosition + ", ScrollCurrentPosition : " + scrollbar[0].ScrollCurrentPosition;
         }
         private void Scroll1Minus(object sender, global::System.EventArgs e)
         {
-            scrollbar[0].ScrollTo(scrollbar[0].ScrollPosition - 1, 1, null);
-            scrollbar[2].ScrollTo(scrollbar[2].ScrollPosition - 1, 1, null);
+            scrollbar[0].ScrollTo(scrollbar[0].ScrollPosition - 3, 1, null);
+            scrollbar[2].ScrollTo(scrollbar[2].ScrollPosition - 3, 1, null);
+
+            scroll_position.Text = "scrollbar[0] : ScrollPosition , " + scrollbar[0].ScrollPosition + ", ScrollCurrentPosition : " + scrollbar[0].ScrollCurrentPosition;
         }
 
         private void Scroll1_2Changed(object sender, global::System.EventArgs e)
         {
-            pos = (int)scrollbar[2].ScrollPosition + 5;
+            pos = (int)scrollbar[2].ScrollPosition + 10;
             if (pos >= 100) pos = 0;
             scrollbar[2].Update(100, 4, pos, 0, new AlphaFunction(AlphaFunction.BuiltinFunctions.Bounce));
         }

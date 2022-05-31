@@ -49,6 +49,7 @@ namespace NUITizenGallery
             {
                 Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 2),
                 ScrollingDirection = ScrollableBase.Direction.Horizontal,
+                SnapToPage = true,
                 HideScrollbar = false,
                 Padding = new Extents(20, 20, 20, 20),
                 ScrollAlphaFunction = new AlphaFunction(AlphaFunction.BuiltinFunctions.EaseInOut),
@@ -84,13 +85,30 @@ namespace NUITizenGallery
             scrollableBase.ScrollAnimationStarted += OnScrollAnimationStarted;
             scrollableBase.ScrollAnimationEnded += OnScrollAnimationEnded;
 
-            text1 = new TextLabel();
-            text2 = new TextLabel();
-            text3 = new TextLabel();
+            text1 = new TextLabel()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
+            text2 = new TextLabel()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
+            text3 = new TextLabel()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                Ellipsis = false,
+                MultiLine = true,
+                LineWrapMode = LineWrapMode.Word,
+            };
             text1.Text = "Children count :  " + scrollableBase.Children.Count;
-            text2.Text = "ScrollCurrentPosition : X , " + scrollableBase.ScrollCurrentPosition.X + "; Y , " + scrollableBase.ScrollCurrentPosition.Y;
-            text3.Text = "ScrollAlphaFunction : " + scrollableBase.ScrollAlphaFunction.GetBuiltinFunction();
-
+            text2.Text = "ScrollAlphaFunction : " + scrollableBase.ScrollAlphaFunction.GetBuiltinFunction();
+            text3.Text = "ScrollCurrentPosition : " + scrollableBase.ScrollCurrentPosition.X;
 
             btn1 = new Button()
             {
@@ -198,16 +216,17 @@ namespace NUITizenGallery
 
         private void OnScrollAnimationEnded(object sender, ScrollEventArgs e)
         {
-            text3.Text = "Scroll Animation Started!";
+            text3.Text = "Scroll Animation Ended! ScrollCurrentPosition : X = " + scrollableBase.ScrollCurrentPosition.X + ", Y = " + scrollableBase.ScrollCurrentPosition.Y +  "; CurrentPage : " +scrollableBase.CurrentPage;
         }
 
         private void OnScrollAnimationStarted(object sender, ScrollEventArgs e)
         {
-            text3.Text = "Scroll Animation Ended!";
+            text3.Text = "Scroll Animation Started!";
         }
 
         private void OnReplaceLayoutClicked(object sender, ClickedEventArgs e)
         {
+            scrollableBase.ScrollTo(0, false);
             if (scrollableBase.ScrollingDirection == ScrollableBase.Direction.Horizontal)
             {
                 scrollableBase.Layout = new GridLayout()
@@ -228,6 +247,19 @@ namespace NUITizenGallery
         {
             scrollableBase.RemoveAllChildren();
             text1.Text = "Children count :  " + scrollableBase.Children.Count;
+
+            btn1.IsEnabled = false;
+            btn1.Opacity = 0.3f;
+            btn2.IsEnabled = false;
+            btn2.Opacity = 0.3f;
+            btn3.IsEnabled = false;
+            btn3.Opacity = 0.3f;
+            btn4.IsEnabled = false;
+            btn4.Opacity = 0.3f;
+            btn5.IsEnabled = false;
+            btn5.Opacity = 0.3f;
+            btn6.IsEnabled = false;
+            btn6.Opacity = 0.3f;
         }
 
         private void OnRemoveClicked(object sender, ClickedEventArgs e)
@@ -239,13 +271,11 @@ namespace NUITizenGallery
         private void OnScrollToIndexClicked(object sender, ClickedEventArgs e)
         {
             scrollableBase.ScrollToIndex(5);
-            text2.Text = "ScrollCurrentPosition : X , " + scrollableBase.ScrollCurrentPosition.X + "; Y , " + scrollableBase.ScrollCurrentPosition.Y;
         }
 
         private void OnScrollToClicked(object sender, ClickedEventArgs e)
         {
-            scrollableBase.ScrollTo(scrollableBase.SizeWidth * 8 / 10, false);
-            text2.Text = "ScrollCurrentPosition : X , " + scrollableBase.ScrollCurrentPosition.X + "; Y , " + scrollableBase.ScrollCurrentPosition.Y;
+            scrollableBase.ScrollTo(root.SizeWidth * 4, true);
         }
 
         protected override void Dispose(DisposeTypes type)
