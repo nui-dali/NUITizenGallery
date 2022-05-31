@@ -121,7 +121,9 @@ namespace NUITizenGallery
                     Normal = 1.0f,
                     Selected = 1.0f,
                     Disabled = 0.4f,
-                    DisabledSelected = 0.4f
+                    DisabledSelected = 0.4f,
+                    Focused = 1.0f,
+                    SelectedFocused = 1.0f
                 };
                 utilityStyle.Icon.BackgroundImage = new Selector<string>
                 {
@@ -129,6 +131,8 @@ namespace NUITizenGallery
                     Selected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_on.png",
                     Disabled = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_off.png",
                     DisabledSelected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_on.png",
+                    Focused =  CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_off.png",
+                    SelectedFocused = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check_on.png",
                 };
                 utilityStyle.Icon.ResourceUrl = new Selector<string>
                 {
@@ -136,6 +140,8 @@ namespace NUITizenGallery
                     Selected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check.png",
                     Disabled = "",
                     DisabledSelected = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check.png",
+                    Focused = "",
+                    SelectedFocused = CommonResource.GetResourcePath() + "components/checkbox/controller_btn_check.png",
                 };
                 utilityStyle.Icon.ImageShadow = new Selector<ImageShadow>
                 {

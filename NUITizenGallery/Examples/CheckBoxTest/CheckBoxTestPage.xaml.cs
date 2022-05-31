@@ -1,5 +1,5 @@
 /*
- * Copyright(c) 2021 Samsung Electronics Co., Ltd.
+ * Copyright(c) 2022 Samsung Electronics Co., Ltd.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,6 +36,8 @@ namespace NUITizenGallery
                 Selected = ResourcePath + "controller_btn_check_on.png",
                 DisabledSelected = ResourcePath + "controller_btn_check_off.png",
                 Disabled = ResourcePath + "controller_btn_check_off.png",
+                Focused =  ResourcePath + "controller_btn_check_off.png",
+                SelectedFocused = ResourcePath + "controller_btn_check_on.png",
             };
 
             checkBox2.ApplyStyle(check2style);
