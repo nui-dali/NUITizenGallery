@@ -52,7 +52,7 @@ namespace NUITizenGallery
                     WidthSpecification = 600,
                     HeightSpecification = 600,
                     EnableScrim = true,
-                    EnableDismissOnScrim = true,
+                    EnableDismissOnScrim = false,
                     ScrimColor = Color.Green,
                     ParentOrigin = Tizen.NUI.ParentOrigin.Center,
                     PivotPoint = Tizen.NUI.PivotPoint.Center,
@@ -98,7 +98,7 @@ namespace NUITizenGallery
 
                 dialog.Content = page;
 
-                window.GetDefaultNavigator().Push(dialog);
+                DialogPage.ShowDialog(dialog);
             };
 
             Content = button;
