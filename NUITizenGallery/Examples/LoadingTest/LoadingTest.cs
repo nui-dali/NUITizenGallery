@@ -135,7 +135,7 @@ namespace NUITizenGallery
             };
             layout[0].Add(button[0]);
             button[0].Clicked += propFpsAdd;
-            FocusManager.Instance.SetCurrentFocusView(button[0]);
+            //FocusManager.Instance.SetCurrentFocusView(button[0]);
 
             button[1] = new Button()
             {
@@ -147,7 +147,7 @@ namespace NUITizenGallery
             };
             layout[0].Add(button[1]);
             button[1].Clicked += propFpsMinus;
-            FocusManager.Instance.SetCurrentFocusView(button[1]);
+            //FocusManager.Instance.SetCurrentFocusView(button[1]);
 
             gridLayout.Add(layout[0]);
 
@@ -208,7 +208,7 @@ namespace NUITizenGallery
             };
             layout[3].Add(button[2]);
             gridLayout.Add(layout[3]);
-            FocusManager.Instance.SetCurrentFocusView(button[2]);
+            //FocusManager.Instance.SetCurrentFocusView(button[2]);
 
             clickedCount = 0;
             button[2].Clicked += loadingPlayPauseStop;
@@ -216,8 +216,6 @@ namespace NUITizenGallery
 
         private void loadingPlayPauseStop(object sender, global::System.EventArgs e)
         {
-            clickedCount++;
-
             if (clickedCount % 2 == 0) // There is no way to check the state of loading.
             {
                 loading[1].Pause();
@@ -228,6 +226,8 @@ namespace NUITizenGallery
                 loading[1].Play();
                 button[2].Text = "Pause";
             }
+
+            clickedCount++;
         }
 
         private void propFpsAdd(object sender, global::System.EventArgs e)

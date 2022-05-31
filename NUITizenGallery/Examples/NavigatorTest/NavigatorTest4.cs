@@ -56,6 +56,7 @@ namespace NUITizenGallery
                 ParentOrigin = Tizen.NUI.ParentOrigin.Center,
                 PivotPoint = Tizen.NUI.PivotPoint.Center,
                 PositionUsesPivotPoint = true,
+                Focusable = true,
             };
             Content = button;
 
@@ -169,7 +170,8 @@ namespace NUITizenGallery
                 TransitionOptions = new TransitionOptions()
                 {
                     TransitionTag = totalGreyTag,
-                }
+                },
+                Focusable = true,
             };
 
             totalGreyView.TouchEvent += (object sender, View.TouchEventArgs e) =>
@@ -179,6 +181,14 @@ namespace NUITizenGallery
                     navigator.PushWithTransition(totalPage);
                 }
                 return true;
+            };
+            totalGreyView.KeyEvent += (object sender, View.KeyEventArgs e) =>
+            {
+                if (e.Key.State == Key.StateType.Down && e.Key.KeyPressedName == "Return")
+                {
+                    navigator.PushWithTransition(totalPage);
+                }
+                return false;
             };
             layoutView.Add(totalGreyView);
 
@@ -234,7 +244,8 @@ namespace NUITizenGallery
                 TransitionOptions = new TransitionOptions()
                 {
                     TransitionTag = totalGreyTag,
-                }
+                },
+                Focusable = true,
             };
             sizeGreyView.Add(totalGreyReturnView);
             totalLayoutView.Add(sizeGreyView);
@@ -246,6 +257,14 @@ namespace NUITizenGallery
                     navigator.PopWithTransition();
                 }
                 return true;
+            };
+            totalGreyReturnView.KeyEvent += (object sender, View.KeyEventArgs e) =>
+            {
+                if (e.Key.State == Key.StateType.Down && e.Key.KeyPressedName == "Return")
+                {
+                    navigator.PopWithTransition();
+                }
+                return false;
             };
 
             totalPage = new ContentPage()
@@ -281,7 +300,7 @@ namespace NUITizenGallery
                 TransitionOptions = new TransitionOptions()
                 {
                     TransitionTag = colorTag,
-                },
+                }
             };
 
             View greyView = new View()
@@ -297,7 +316,8 @@ namespace NUITizenGallery
                 TransitionOptions = new TransitionOptions()
                 {
                     TransitionTag = greyTag,
-                }
+                },
+                Focusable = true,
             };
 
             secondPage = CreatePage(color, colorTag, greyTag);
@@ -309,6 +329,14 @@ namespace NUITizenGallery
                     navigator.PushWithTransition(secondPage);
                 }
                 return true;
+            };
+            greyView.KeyEvent += (object sender, View.KeyEventArgs e) =>
+            {
+                if (e.Key.State == Key.StateType.Down && e.Key.KeyPressedName == "Return")
+                {
+                    navigator.PushWithTransition(secondPage);
+                }
+                return false;
             };
             colorView.Add(greyView);
             return colorView;
