@@ -21,6 +21,7 @@ namespace NUITizenGallery
     public class DialogPageContentPage2 : ContentPage
     {
         private Window window = null;
+        private DialogPage testDialog = null;
 
         public DialogPageContentPage2(Window win)
         {
@@ -58,6 +59,8 @@ namespace NUITizenGallery
                     PositionUsesPivotPoint = true,
                 };
 
+                testDialog = dialog;
+
                 var textLabel = new TextLabel("Message")
                 {
                     BackgroundColor = Color.White,
@@ -70,7 +73,12 @@ namespace NUITizenGallery
                 {
                     Text = "Yes",
                 };
-                positiveButton.Clicked += (object s1, ClickedEventArgs e1) => { window.GetDefaultNavigator().Pop(); };
+                positiveButton.Clicked += (object s1, ClickedEventArgs e1) =>
+                {
+                    window.GetDefaultNavigator().Pop();
+                    testDialog.Dispose();
+                    testDialog = null;
+                };
 
                 var page = new View()
                 {
@@ -113,6 +121,12 @@ namespace NUITizenGallery
 
         private void Deactivate()
         {
+            if (testDialog != null)
+            {
+                window.GetDefaultNavigator().Pop();
+                testDialog.Dispose();
+                testDialog = null;
+            }
         }
     }
 
