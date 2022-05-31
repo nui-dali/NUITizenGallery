@@ -65,7 +65,7 @@ namespace NUITizenGallery
                 PushPopNavigator(window);
             };
 
-            navigator = window.GetDefaultNavigator();
+            //navigator = window.GetDefaultNavigator();
         }
 
         public void PushPopNavigator(Window window)
@@ -74,19 +74,19 @@ namespace NUITizenGallery
             magnification = Math.Min(windowSize.X / baseSize.X, windowSize.Y / baseSize.Y);
             contentSize = baseSize * magnification;
 
-            //navigator = new Navigator()
-            //{
-            //    WidthResizePolicy = ResizePolicyType.FillToParent,
-            //    HeightResizePolicy = ResizePolicyType.FillToParent,
-            //    Transition = new Transition()
-            //    {
-            //        TimePeriod = new TimePeriod(400),
-            //        AlphaFunction = new AlphaFunction(AlphaFunction.BuiltinFunctions.EaseInOutSine),
-            //    },
-            //};
-            //window.Add(navigator);
+            navigator = new Navigator()
+            {
+                WidthResizePolicy = ResizePolicyType.FillToParent,
+                HeightResizePolicy = ResizePolicyType.FillToParent,
+                Transition = new Transition()
+                {
+                    TimePeriod = new TimePeriod(400),
+                    AlphaFunction = new AlphaFunction(AlphaFunction.BuiltinFunctions.EaseInOutSine),
+                },
+            };
+            window.Add(navigator);
 
-            navigator = window.GetDefaultNavigator();
+            //navigator = window.GetDefaultNavigator();
 
             View mainRoot = new View()
             {
@@ -144,11 +144,24 @@ namespace NUITizenGallery
             };
             transitionGroup.AddTransition(scale);
 
+            var popButton = new Button()
+            {
+                Text = "Pop",
+            };
+            popButton.Clicked += (object sender, ClickedEventArgs e) =>
+            {
+                navigator.Pop();
+                window.Remove(navigator);
+                navigator = null;
+            };
+
             mainPage = new ContentPage()
             {
                 AppBar = new AppBar()
                 {
+                    AutoNavigationContent = true,
                     Title = "Main Page",
+                    NavigationContent = popButton,
                 },
                 BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
                 Content = mainRoot,
