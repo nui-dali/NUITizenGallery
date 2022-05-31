@@ -42,16 +42,14 @@ namespace NUITizenGallery
 
             datePicker = new DatePicker()
             {
-                WidthSpecification = 400,
-                HeightSpecification = 200,
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                HeightSpecification = LayoutParamPolicies.MatchParent,
             };
             datePicker.DateChanged += OnValueChanged;
 
             dateLabel = new TextLabel()
             {
-                WidthSpecification = 400,
-                HeightSpecification = 100,
-                PointSize = 20,
+                WidthSpecification = LayoutParamPolicies.MatchParent,
                 TextColor = Color.Red,
                 Text = $"Current date is {datePicker.Date.Day} {datePicker.Date.Month} {datePicker.Date.Year}",
             };

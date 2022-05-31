@@ -9,6 +9,7 @@ namespace NUITizenGallery
     internal class AlertDialogContentPage2 : ContentPage
     {
         private Window window;
+        private ContentPage testDialogPage;
 
         public AlertDialogContentPage2(Window win)
         {
@@ -78,6 +79,8 @@ namespace NUITizenGallery
                     Content = dialog,
                     BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
                 };
+
+                testDialogPage = dialogContent;
 
                 window.GetDefaultNavigator().Push(dialogContent);
             };

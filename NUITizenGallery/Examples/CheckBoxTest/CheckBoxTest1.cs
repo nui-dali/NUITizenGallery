@@ -68,7 +68,7 @@ namespace NUITizenGallery
             {
                 Text = "CheckBox",
                 TextColor = Color.Red,
-                Size = new Size(800, 100),
+                WidthSpecification = LayoutParamPolicies.MatchParent,
             };
             left.Add(createText);
 
@@ -76,7 +76,7 @@ namespace NUITizenGallery
             {
                 Layout = new GridLayout()
                 {
-                    Columns = 4,
+                    Columns = 2,
                 },
             };
             left.Add(leftbody);
@@ -88,7 +88,8 @@ namespace NUITizenGallery
                 modeText[i] = new TextLabel()
                 {
                     Text = mode[i],
-                    Size = new Size(200, 48),
+                    WidthSpecification = 100,
+                    HeightSpecification = 48,
                     HorizontalAlignment = HorizontalAlignment.Center,
                     VerticalAlignment = VerticalAlignment.Center,
                 };
