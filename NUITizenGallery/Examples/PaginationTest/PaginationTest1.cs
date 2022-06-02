@@ -15,6 +15,10 @@ namespace NUITizenGallery
         private TextLabel selectedIndex;
         private TextLabel positionInfo;
 
+        private View buttonView;
+        private Button btn1;
+        private Button btn2;
+
         private readonly int PAGE_COUNT = 5;
         private static string ResourcePath = Tizen.Applications.Application.Current.DirectoryInfo.Resource + "/images/";
 
@@ -113,7 +117,83 @@ namespace NUITizenGallery
             positionInfo.Text = "GetIndicatorPosition , X : " + pagination[1].GetIndicatorPosition(pagination[1].SelectedIndex).X + ", Y" + pagination[1].GetIndicatorPosition(pagination[1].SelectedIndex).Y;
             layout[0].Add(positionInfo);
 
+            buttonView = new View()
+            {
+                WidthSpecification = LayoutParamPolicies.MatchParent,
+                HeightSpecification = 60,
+                Layout = new LinearLayout()
+                { 
+                    LinearOrientation = LinearLayout.Orientation.Horizontal,
+                    HorizontalAlignment = HorizontalAlignment.Center,
+                    CellPadding = new Size2D(20, 20),
+                }
+            };
+            layout[0].Add(buttonView);
+
+            btn1 = new Button()
+            {
+                WidthSpecification = window.WindowSize.Width / 3,
+                HeightSpecification = 50,
+                Text = "Right",
+            };
+            btn1.Clicked += OnRightClicked;
+
+            btn2 = new Button()
+            {
+                WidthSpecification = window.WindowSize.Width / 3,
+                HeightSpecification = 50,
+                Text = "Left",
+            };
+            btn2.Clicked += OnLeftClicked;
+
+            buttonView.Add(btn1);
+            buttonView.Add(btn2);
+
             Content = layout[0];
+        }
+
+        private void OnLeftClicked(object sender, ClickedEventArgs e)
+        {
+            if (pagination[0].SelectedIndex > 0)
+            {
+                pagination[0].SelectedIndex = pagination[0].SelectedIndex - 1;
+                if (pagination[0].SelectedIndex != pagination[0].IndicatorCount - 1)
+                {
+                    pagination[0].LastIndicatorImageUrl = new Selector<string>
+                    {
+                        Normal = ResourcePath + "controller/pagination_ic_next.png",
+                        Selected = ResourcePath + "controller/pagination_ic_return.png"
+                    };
+                }
+                selectedIndex.Text = "SelectedIndex : " + pagination[0].SelectedIndex;
+            }
+            if (pagination[1].SelectedIndex > 0)
+            {
+                pagination[1].SelectedIndex = pagination[1].SelectedIndex - 1;
+                positionInfo.Text = "GetIndicatorPosition , X : " + pagination[1].GetIndicatorPosition(pagination[1].SelectedIndex).X + ", Y" + pagination[1].GetIndicatorPosition(pagination[1].SelectedIndex).Y;
+            }
+        }
+
+        private void OnRightClicked(object sender, ClickedEventArgs e)
+        {
+            if (pagination[0].SelectedIndex < pagination[0].IndicatorCount - 1)
+            {
+                pagination[0].SelectedIndex = pagination[0].SelectedIndex + 1;
+                if (pagination[0].SelectedIndex == pagination[0].IndicatorCount - 1)
+                {
+                    pagination[0].LastIndicatorImageUrl = new Selector<string>
+                    {
+                        Normal = ResourcePath + "controller/pagination_ic_nor.png",
+                        Selected = ResourcePath + "controller/pagination_ic_sel.png"
+                    };
+                }
+                selectedIndex.Text = "SelectedIndex : " + pagination[0].SelectedIndex;
+            }
+            if (pagination[1].SelectedIndex < pagination[1].IndicatorCount - 1)
+            {
+                pagination[1].SelectedIndex = pagination[1].SelectedIndex + 1;
+                positionInfo.Text = "GetIndicatorPosition , X : " + pagination[1].GetIndicatorPosition(pagination[1].SelectedIndex).X + ", Y" + pagination[1].GetIndicatorPosition(pagination[1].SelectedIndex).Y;
+            }
         }
 
         void createBorads(Window window)
