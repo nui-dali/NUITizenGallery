@@ -5,23 +5,10 @@ using Tizen.NUI.Components;
 
 namespace NUITizenGallery
 {
-    internal class TestDialogPage : DialogPage
-    {
-        public TestDialogPage() : base()
-        {
-            Scrim = new View()
-            {
-                WidthResizePolicy = ResizePolicyType.FillToParent,
-                HeightResizePolicy = ResizePolicyType.FillToParent,
-                BackgroundColor = Color.Green,
-            };
-        }
-    }
-
     public class DialogPageContentPage2 : ContentPage
     {
         private Window window = null;
-        private DialogPage testDialog = null;
+        private DialogPage testDialogPage = null;
 
         public DialogPageContentPage2(Window win)
         {
@@ -47,19 +34,16 @@ namespace NUITizenGallery
 
             button.Clicked += (object sender, ClickedEventArgs e) =>
             {
-                var dialog = new TestDialogPage()
+                var dialogPage = new DialogPage()
                 {
-                    WidthSpecification = 600,
-                    HeightSpecification = 600,
+                    //WidthSpecification = 600,
+                    //HeightSpecification = 600,
                     EnableScrim = true,
                     EnableDismissOnScrim = false,
                     ScrimColor = Color.Green,
-                    ParentOrigin = Tizen.NUI.ParentOrigin.Center,
-                    PivotPoint = Tizen.NUI.PivotPoint.Center,
-                    PositionUsesPivotPoint = true,
                 };
 
-                testDialog = dialog;
+                testDialogPage = dialogPage;
 
                 var textLabel = new TextLabel("Message")
                 {
@@ -76,14 +60,17 @@ namespace NUITizenGallery
                 positiveButton.Clicked += (object s1, ClickedEventArgs e1) =>
                 {
                     window.GetDefaultNavigator().Pop();
-                    testDialog.Dispose();
-                    testDialog = null;
+                    testDialogPage.Dispose();
+                    testDialogPage = null;
                 };
 
-                var page = new View()
+                var content = new View()
                 {
-                    WidthSpecification = LayoutParamPolicies.MatchParent,
-                    HeightSpecification = LayoutParamPolicies.MatchParent,
+                    WidthSpecification = 600,
+                    HeightSpecification = 600,
+                    ParentOrigin = Tizen.NUI.ParentOrigin.Center,
+                    PivotPoint = Tizen.NUI.PivotPoint.Center,
+                    PositionUsesPivotPoint = true,
                     Layout = new LinearLayout()
                     {
                         LinearOrientation = LinearLayout.Orientation.Vertical,
@@ -93,12 +80,12 @@ namespace NUITizenGallery
                     BackgroundColor = new Color(0.7f, 0.9f, 0.8f, 1.0f),
                 };
 
-                page.Add(textLabel);
-                page.Add(positiveButton);
+                content.Add(textLabel);
+                content.Add(positiveButton);
 
-                dialog.Content = page;
+                dialogPage.Content = content;
 
-                DialogPage.ShowDialog(dialog);
+                NUIApplication.GetDefaultWindow().GetDefaultNavigator().Push(dialogPage);
             };
 
             Content = button;
@@ -121,11 +108,11 @@ namespace NUITizenGallery
 
         private void Deactivate()
         {
-            if (testDialog != null)
+            if (testDialogPage != null)
             {
                 window.GetDefaultNavigator().Pop();
-                testDialog.Dispose();
-                testDialog = null;
+                testDialogPage.Dispose();
+                testDialogPage = null;
             }
         }
     }
