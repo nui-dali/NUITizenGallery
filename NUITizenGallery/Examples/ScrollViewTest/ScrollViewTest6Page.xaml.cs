@@ -56,11 +56,10 @@ namespace NUITizenGallery
 
         void onBtn3Clicked(object sender, ClickedEventArgs e)
         {
-            int childrenCount = (int)ScrollArea.ChildCount - 1;
-            View child = ScrollArea.GetChildAt((uint)childrenCount);
-            if (child != null)
+            int childrenCount = (int)ScrollArea.Children.Count;
+            if (childrenCount != 0)
             {
-                ScrollArea.Remove(child);
+                ScrollArea.Remove(ScrollArea.Children[childrenCount - 1]);
             }
         }
 
