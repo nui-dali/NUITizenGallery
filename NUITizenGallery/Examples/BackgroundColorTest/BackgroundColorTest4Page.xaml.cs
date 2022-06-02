@@ -27,7 +27,7 @@ namespace NUITizenGallery
         public BackgroundColorTest4Page()
         {
             InitializeComponent();
-            btnDefaultBackgroundColor = button.BackgroundColor;
+            btnDefaultBackgroundColor = new Color(button.BackgroundColor);
             Subscribe();
         }
 
