@@ -64,8 +64,6 @@ namespace NUITizenGallery
             {
                 PushPopNavigator(window);
             };
-
-            //navigator = window.GetDefaultNavigator();
         }
 
         public void PushPopNavigator(Window window)
@@ -85,8 +83,6 @@ namespace NUITizenGallery
                 },
             };
             window.Add(navigator);
-
-            //navigator = window.GetDefaultNavigator();
 
             View mainRoot = new View()
             {
@@ -267,7 +263,7 @@ namespace NUITizenGallery
             {
                 if (e.Touch.GetState(0) == PointStateType.Down)
                 {
-                    navigator.PopWithTransition();
+                    navigator?.PopWithTransition();
                 }
                 return true;
             };
@@ -275,7 +271,7 @@ namespace NUITizenGallery
             {
                 if (e.Key.State == Key.StateType.Down && e.Key.KeyPressedName == "Return")
                 {
-                    navigator.PopWithTransition();
+                    navigator?.PopWithTransition();
                 }
                 return false;
             };
@@ -408,7 +404,8 @@ namespace NUITizenGallery
             pageBackground.Add(colorView);
             pageBackground.Add(whiteView);
             pageBackground.Add(greyView);
-
+            pageBackground.Focusable = true;
+            
             return pageBackground;
         }
 
@@ -425,7 +422,7 @@ namespace NUITizenGallery
             {
                 if (e.Touch.GetState(0) == PointStateType.Down)
                 {
-                    navigator.PopWithTransition();
+                    navigator?.PopWithTransition();
                 }
                 return true;
             };
