@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Tizen.NET" Version="10.0.0.17188" />
+    <PackageReference Include="Tizen.NET" Version="10.0.0.17237" />
   </ItemGroup>
 
   <PropertyGroup>
