@@ -156,8 +156,10 @@ namespace NUITizenGallery
                 }
             };
             slider_view.Add(hori_slider_parent);
-            slider_style[0].Margin = new Extents(0, 0, 30, 0);
-            slider_style[1].Margin = new Extents(0, 0, 30, 0);
+            slider_style[0].Margin = new Extents(0, 0, 25, 0);
+            slider_style[0].Name = "slider1";
+            slider_style[1].Margin = new Extents(0, 0, 25, 0);
+            slider_style[1].Name = "slider2";
             hori_slider_parent.Add(slider_style[0]);
             hori_slider_parent.Add(slider_style[1]);
 
@@ -169,12 +171,14 @@ namespace NUITizenGallery
                 {
                     LinearOrientation = LinearLayout.Orientation.Horizontal,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CellPadding = new Size(100, 100)
+                    CellPadding = new Size(150, 150)
                 }
             };
             slider_view.Add(ver_slider_parent);
             slider_style[2].Margin = new Extents(0, 0, 30, 0);
+            slider_style[2].Name = "slider3";
             slider_style[3].Margin = new Extents(0, 0, 30, 0);
+            slider_style[3].Name = "slider4";
             ver_slider_parent.Add(slider_style[2]);
             ver_slider_parent.Add(slider_style[3]);
         }
@@ -186,15 +190,16 @@ namespace NUITizenGallery
                 WidthSpecification = LayoutParamPolicies.MatchParent,
                 Layout = new LinearLayout()
                 { 
-                    LinearOrientation = LinearLayout.Orientation.Horizontal,
+                    LinearOrientation = LinearLayout.Orientation.Vertical,
                     HorizontalAlignment = HorizontalAlignment.Center,
-                    CellPadding = new Size2D(50, 50)
+                    CellPadding = new Size2D(100, 100)
                 },
             };
 
             bottom_slider1 = new Slider()
             {
-                Size = new Size(root.SizeWidth / 3, 12),
+                Name = "slider5",
+                Size = new Size((int)root.SizeWidth * 3 / 4, 12),
                 ThumbSize = new Size(60, 60),
                 ThumbImageUrl = ResourcePath + "tizen.png",
                 SlidedTrackColor = Color.Cyan,
@@ -203,7 +208,7 @@ namespace NUITizenGallery
                 MinValue = 0,
                 MaxValue = 100,
                 ValueIndicatorSize = new Size(30, 30),
-                WarningStartValue = 85,
+                WarningStartValue = 75,
                 WarningTrackColor = Color.Red,
                 WarningSlidedTrackColor = Color.Black,
                 WarningThumbColor = Color.DarkRed,
@@ -213,7 +218,8 @@ namespace NUITizenGallery
 
             bottom_slider2 = new Slider()
             {
-                Size = new Size(root.SizeWidth / 3, 12),
+                Name = "slider6",
+                Size = new Size((int)root.SizeWidth * 3 / 4, 12),
                 ThumbSize = new Size(50, 50),
                 ThumbImageURLSelector = new StringSelector
                 {
