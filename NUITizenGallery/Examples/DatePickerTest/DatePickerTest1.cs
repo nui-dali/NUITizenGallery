@@ -47,6 +47,9 @@ namespace NUITizenGallery
             };
             datePicker.DateChanged += OnValueChanged;
 
+            // Fix a date so that a screen shot is fixed when doing aurum test.
+            datePicker.Date = new System.DateTime(2022, 7, 13);
+
             dateLabel = new TextLabel()
             {
                 WidthSpecification = LayoutParamPolicies.MatchParent,
