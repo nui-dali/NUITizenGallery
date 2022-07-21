@@ -65,6 +65,7 @@ namespace NUITizenGallery
 
             scrollableBase = new ScrollableBase
             {
+                Name = "scrollableBase",
                 Size = new Size(window.WindowSize.Width / 2, window.WindowSize.Height / 3),
                 ScrollingDirection = ScrollableBase.Direction.Horizontal,
                 ScrollEnabled = false,
