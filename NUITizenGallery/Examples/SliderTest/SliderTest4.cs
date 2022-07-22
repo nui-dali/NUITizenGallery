@@ -44,17 +44,17 @@ namespace NUITizenGallery
             };
             label.Text = "Low(High)IndicatorText";
 
-            var slider = new Slider();
+            slider = new Slider();
             var ss = slider.Style;
             ss.IndicatorType = Slider.IndicatorType.Text;
             ss.LowIndicator = new TextLabelStyle
             {
-                Size = new Size(160, 160),
+                Size = new Size(60, 60),
                 Color = Color.Yellow,
             };
             ss.HighIndicator = new TextLabelStyle
             {
-                Size = new Size(160, 160),
+                Size = new Size(60, 60),
                 Color = Color.Yellow,
             };
 
@@ -65,7 +65,9 @@ namespace NUITizenGallery
             };
             slider.ApplyStyle(ss);
 
-            slider.Size = new Size(root.SizeWidth / 2, 20);
+            slider.Name = "slider41";
+            slider.Size = new Size((int)root.SizeWidth * 3 / 4, 20);
+            slider.SlidedTrackColor = Color.Red;
             slider.ThumbImageUrl = ResourcePath + "progress_7.png";
             slider.IsValueShown = true;
             slider.LowIndicatorSize = new Size(60, 60);
@@ -82,7 +84,7 @@ namespace NUITizenGallery
             };
             label1.Text = "Low(High)IndicatorImage";
 
-            var slider1 = new Slider();
+            slider1 = new Slider();
             var ss1 = slider.Style;
             ss1.IndicatorType = Slider.IndicatorType.Image;
             ss1.LowIndicator = new TextLabelStyle
@@ -108,7 +110,9 @@ namespace NUITizenGallery
             };
             slider1.ApplyStyle(ss1);
 
-            slider1.Size = new Size(root.SizeWidth / 2, 20);
+            slider1.Name = "slider42";
+            slider1.Size = new Size((int)root.SizeWidth * 3 / 4, 20);
+            slider1.SlidedTrackColor = Color.Yellow;
             slider1.ThumbImageUrl = ResourcePath + "tizen.png";
             slider1.IsValueShown = true;
             slider1.LowIndicatorSize = new Size(60, 60);
@@ -135,8 +139,10 @@ namespace NUITizenGallery
             };
             slider2.ApplyStyle(ss2);
 
+            slider2.Name = "slider43";
+            slider2.SlidedTrackColor = Color.Blue;
             slider2.ThumbImageUrl = ResourcePath + "Boston.png";
-            slider2.Size = new Size(root.SizeWidth / 2, 20);
+            slider2.Size = new Size((int)root.SizeWidth * 3 / 4, 20);
             slider2.IsValueShown = true;
             slider2.ValueIndicatorSize = new Size(60, 60);
 

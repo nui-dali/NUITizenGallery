@@ -98,6 +98,7 @@ namespace NUITizenGallery
 
             btn = new Button()
             {
+                Text= "OnSelect",
                 BackgroundColor = Color.AliceBlue,
             };
             btn.Clicked += OnClicked;
