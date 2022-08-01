@@ -38,7 +38,7 @@ namespace NUITizenGallery
             };
 
             flag = false;
-            time = DateTime.Now;
+            time = new System.DateTime(2022, 7, 21, 23, 11, 33);
             text = new TextLabel();
             text.Text = time.Hour + ":" + time.Minute + ", TimeChanged : " + flag;
             root.Add(text);
@@ -104,7 +104,7 @@ namespace NUITizenGallery
 
         private void OnResetClicked(object sender, ClickedEventArgs e)
         {
-            time = DateTime.Now;
+            time = new System.DateTime(2022, 7, 21, 23, 11, 33);
             flag = false;
             text.Text = time.Hour + ":" + time.Minute + ", TimeChanged : " + flag;
         }
