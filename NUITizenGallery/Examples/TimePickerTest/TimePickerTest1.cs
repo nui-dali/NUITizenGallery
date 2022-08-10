@@ -68,6 +68,7 @@ namespace NUITizenGallery
             timePicker = new TimePicker()
             {
                 //Should give a size to picker for content of AlertDialog
+                Name = "TimePicker",
                 Size = new Size(600, 339),
                 Time = time,
             };
