@@ -120,8 +120,9 @@ namespace NUITizenGallery
                         if (galItem == insertMenu)
                         {
                             // Insert new item to index 3.
-                            Random rand = new Random();
-                            int idx = rand.Next(1000);
+                            //Random rand = new Random();
+                            //int idx = rand.Next(1000);
+                            int idx = 10;
                             gallerySource.Insert(3, new CollectionViewTest.Gallery(idx, "Inserted Item"));
                         }
                         else if (galItem == deleteMenu)
