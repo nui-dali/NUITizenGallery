@@ -13,6 +13,7 @@ namespace NUITizenGallery
     {
         CollectionView colView;
         int itemCount = 500;
+        int itemIndex = 0;
         string selectedItem;
         ItemSelectionMode selMode;
         ObservableCollection<CollectionViewTest.Gallery> gallerySource;
@@ -20,7 +21,7 @@ namespace NUITizenGallery
         CollectionViewTest.Gallery deleteMenu = new CollectionViewTest.Gallery(999, "Delete item at 3rd");
         CollectionViewTest.Gallery moveMenu = new CollectionViewTest.Gallery(999, "Move last item to 3rd");
 
-        public  CollectionViewLineaContentPage()
+        public CollectionViewLineaContentPage()
         {
             WidthSpecification = LayoutParamPolicies.MatchParent;
             HeightSpecification = LayoutParamPolicies.MatchParent;
@@ -48,7 +49,7 @@ namespace NUITizenGallery
                 ItemsLayouter = new LinearLayouter(),
                 ItemTemplate = new DataTemplate(() =>
                 {
-                    var rand = new Random();
+                    //var rand = new Random();
                     DefaultLinearItem item = new DefaultLinearItem();
                     //Set Width Specification as MatchParent to fit the Item width with parent View.
                     item.WidthSpecification = LayoutParamPolicies.MatchParent;
@@ -58,7 +59,7 @@ namespace NUITizenGallery
                     item.Label.HorizontalAlignment = HorizontalAlignment.Begin;
 
                     //Decorate SubLabel
-                    if ((rand.Next() % 2) == 0)
+                    if ((itemIndex % 2) == 0)
                     {
                         item.SubLabel.SetBinding(TextLabel.TextProperty, "Name");
                         item.SubLabel.HorizontalAlignment = HorizontalAlignment.Begin;
@@ -79,6 +80,8 @@ namespace NUITizenGallery
                     //item.Extra.SetBinding(RadioButton.IsSelectedProperty, "Selected");
                     item.Extra.WidthSpecification = 48;
                     item.Extra.HeightSpecification = 48;
+
+                    itemIndex++;
 
                     return item;
                 }),
@@ -118,8 +121,9 @@ namespace NUITizenGallery
                 if (selItem == insertMenu)
                 {
                     // Insert new item to index 3.
-                    Random rand = new Random();
-                    int idx = rand.Next(1000);
+                    //Random rand = new Random();
+                    //int idx = rand.Next(1000);
+                    int idx = 10;
                     gallerySource.Insert(3, new CollectionViewTest.Gallery(idx, "Inserted Item"));
                 }
                 else if (selItem == deleteMenu)
