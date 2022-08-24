@@ -19,10 +19,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Tizen;
+using Tizen.NUI;
 using Tizen.NUI.BaseComponents;
 using Tizen.NUI.Components;
 
-namespace Tizen.NUI.WebViewTest
+namespace NUITizenGallery
 {
     internal class MenuView : View
     {
@@ -102,7 +104,7 @@ namespace Tizen.NUI.WebViewTest
     public class WebViewPageContentPage : ContentPage
     {
         private Window window;
-        private BaseComponents.WebView simpleWebView = null;
+        private WebView simpleWebView = null;
         private TextField addressBar = null;
         private Button backButton = null;
         private Button forwardButton = null;
@@ -205,7 +207,7 @@ namespace Tizen.NUI.WebViewTest
                 Log.Info("WebView", $"arg {i} is {runtimeArgs[i]}");
             }
 
-            simpleWebView = new BaseComponents.WebView(runtimeArgs)
+            simpleWebView = new WebView(runtimeArgs)
             {
                 Position = new Position(0, ADDRESSBAR_HEIGHT),
                 Size = new Size(WEBVIEW_WIDTH, WEBVIEW_HEIGHT),
@@ -881,7 +883,7 @@ namespace Tizen.NUI.WebViewTest
                         //    GetDefaultWindow().Add(shotView);
                         //}
 
-                        simpleWebView.HighlightText("test", BaseComponents.WebView.FindOption.CaseInsensitive, 2);
+                        simpleWebView.HighlightText("test", WebView.FindOption.CaseInsensitive, 2);
                         Log.Info("WebView", $"web view, here");
                         WebHitTestResult test = null;//simpleWebView.HitTest(100, 100, WebView.HitTestMode.Default);
                         if (test != null)
@@ -1160,7 +1162,7 @@ namespace Tizen.NUI.WebViewTest
         }
     }
 
-    class WebViewPageTest : IExample
+    class WebViewTest3 : IExample
     {
         private Window window;
 
